@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   IDX: channel index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>f423ea9587ff1d23a89329fcaa51da4ff4a5add7f2643ea2496035a66f5404dc</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <groupcontainer label="Transmit" size="-1;520" define="LETH.DMA_CH$IDX$_Tx_Top_Cont" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+        <var define="LETH.DMA_CH$IDX$_Tx_Descr_Fac" default="1"/>
+        <edit visible="false" define="LETH.DMA_CH$IDX$_Tx_EnVis" default="hidden"/>
+        <edit visible="false" define="LETH.DMA_CH$IDX$_Tx_DisVis" default="visible"/>
+        <spinbox visible="false" define="LETH.DMA_CH$IDX$_Tx_Connect_Cnt" default="0"/>
+        <verticalcontainer stretch="2">
+			<horizontalcontainer stretch="2" visible="true">
+				<text label="Channel Mode"/>
+				<radio define="LETH.DMA_TXCH$IDX$_EN" default="0">
+					<radiobutton label="disabled" value="0" setDef="LETH.DMA_CH$IDX$_Tx_Cont.enabled=0;LETH.DMA_CH$IDX$_Tx_Int_Cont.enabled=0"/>
+					<radiobutton label="enabled"  value="1" setDef="LETH.DMA_CH$IDX$_Tx_Cont.enabled=1;LETH.DMA_CH$IDX$_Tx_Int_Cont.enabled=1"/>
+				</radio>
+			</horizontalcontainer>
+            <verticalcontainer stretch="2" define="LETH.DMA_CH$IDX$_Tx_Cont" size="-1;300">
+                <formcontainer>
+                    <combo label="Burst Length" define="LETH.DMA_CH$IDX$_TX_CONTROL.TXPBL" default="label=16 bytes">
+                        <item label="1 byte"   value="1"/>
+                        <item label="2 bytes"  value="2"/>
+                        <item label="4 bytes"  value="4"/>
+                        <item label="8 bytes"  value="8"/>
+                        <item label="16 bytes" value="16"/>
+                        <item label="32 bytes" value="32"/>
+                    </combo>
+                    <spinbox label="Transmit Buffer Size" define="LETH.DMA_CH$IDX$_TX_BUFFER_SIZE" suffix=" bytes" range="8;16384" default="1518"/>
+                    <horizontalcontainer label="Descriptor List reference">
+						<edit readonly="1" label="Descriptor List reference" define="LETH.DMA_CH$IDX$_TX_DESC_LIST_REF" default="lethTxReadDscrCh$IDX$"/>
+						<combo define="LETH.DMA_CH$IDX$_TX_DESC_TYPE">
+							<item label="Normal Descriptor" setdef="LETH.DMA_CH$IDX$_Tx_Descr_Fac=1;LETH.DMA_CH$IDX$_Tx_VLAN_Cont.enabled=0"/>
+							<item label="Normal+Context Descriptor" setdef="LETH.DMA_CH$IDX$_Tx_Descr_Fac=2;LETH.DMA_CH$IDX$_Tx_VLAN_Cont.enabled=1"/>
+						</combo>
+						<combo define="LETH.DMA_CH$IDX$_TX_DESC_LOCATION_IDX" default="label=CPU0.DSPR">
+							<item label="CPU0.DSPR"/>
+							<item label="CPU0.DLMU"/>
+							<item label="CPU1.DSPR"/>
+							<item label="CPU1.DLMU"/>
+							<item label="CPU2.DSPR"/>
+							<item label="CPU2.DLMU"/>
+							<item label="CPU3.DSPR"/>
+							<item label="CPU3.DLMU"/>
+							<item label="CPU4.DSPR"/>
+							<item label="CPU4.DLMU"/>
+							<item label="CPU5.DSPR"/>
+							<item label="CPU5.DLMU"/>
+						</combo>
+					</horizontalcontainer>
+                    <spinbox label="Descriptor List length" define="LETH.DMA_CH$IDX$_TX_DESC_LIST_LENGTH" range="2;255" default="4"/>
+                    <math visible="false" define="LETH.DMA_CH$IDX$_TX_CONTROL2.TDRL" formula="(LETH.DMA_CH$IDX$_TX_DESC_LIST_LENGTH*LETH.DMA_CH$IDX$_Tx_Descr_Fac)-1"/> 
+                    <checkbox label="Slot number comparison" define="LETH.DMA_CH$IDX$_Slot_Function_Control_Status.ESC" default="0" tooltip="if enabled, DMA checks the TxDESC3.SLOTNUM and transmit only if it matches to DMA channel index">
+                        <action event="checked" cmd="setDef" data="LETH.DMA_CH$IDX$_Slot_Function_Control_Status.ASC.enabled=1"/>
+                        <action event="unchecked" cmd="setDef" data="LETH.DMA_CH$IDX$_Slot_Function_Control_Status.ASC.enabled=0"/>
+                    </checkbox>
+                    <checkbox label="Advanced Slot check" define="LETH.DMA_CH$IDX$_Slot_Function_Control_Status.ASC" default="0" enabled="false"/>
+					<combo label="Source Address Control" define="LETH.DMA_CH$IDX$_TX_DESC_SAIC">
+						<item label="disabled" value="0"/>
+						<item label="insert SA from MAC Address 0" value="1"/>
+						<item label="insert SA from MAC Address 1" value="5"/>
+						<item label="replace SA by MAC Address 0" value="2"/>
+						<item label="replace SA by MAC Address 1" value="6"/>
+					</combo>
+                </formcontainer>
+            </verticalcontainer>
+			<groupcontainer label="VLAN Tag" define="LETH.DMA_CH$IDX$_Tx_VLAN_Cont">
+				<formcontainer>
+					<combo label="VLAN Tag Control" define="LETH.DMA_CH$IDX$_TDES2_VTIR">
+						<item label="disabled" setdef="LETH.DMA_CH$IDX$_CDES3_VT.enabled=0"/>
+						<item label="VLAN tag deletion" setdef="LETH.DMA_CH$IDX$_CDES3_VT.enabled=0"/>
+						<item label="VLAN tag insertion" setdef="LETH.DMA_CH$IDX$_CDES3_VT.enabled=1"/>
+						<item label="VLAN tag replacement" setdef="LETH.DMA_CH$IDX$_CDES3_VT.enabled=1"/>
+					</combo>
+					<hexspinbox label="VLAN Tag" define="LETH.DMA_CH$IDX$_CDES3_VT" range="0;65535"/>
+				</formcontainer>
+			</groupcontainer>
+            <groupcontainer label="Interrupt" define="LETH.DMA_CH$IDX$_Tx_Int_Cont">
+				<verticalcontainer>
+					<formcontainer>
+						<combo label="Type of Service" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TX_TOS">
+							<item label="IfxSrc_Tos_cpu0" value="0"/>
+							<item label="IfxSrc_Tos_cpu1" value="1"/>
+							<item label="IfxSrc_Tos_cpu2" value="2"/>
+							<item label="IfxSrc_Tos_cpu3" value="3"/>
+							<item label="IfxSrc_Tos_cpu4" value="4"/>
+							<item label="IfxSrc_Tos_cpu5" value="5"/>
+							<item label="IfxSrc_Tos_dma0" value="7"/>
+							<item label="IfxSrc_Tos_dma1" value="8"/>
+						</combo>
+						<spinbox label="Priority" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TX_PRIO" range="0;255" default="0"/>
+					</formcontainer>
+					<gridcontainer columns="3">
+						<text label="Transmit done"/>
+						<checkbox define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE.TIE">
+							<action event="checked" cond="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TX_TOS.value&lt;7" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TIE_ISR.enabled=1"/>
+							<action event="unchecked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TIE_ISR.enabled=0"/>
+						</checkbox>
+						<edit enabled="false" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TIE_ISR" default="enter callback function here"/>
+
+						<text label="Transmit stopped"/>
+						<checkbox define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE.TXSE">
+							<action event="checked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TXSE_ISR.enabled=1"/>
+							<action event="unchecked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TXSE_ISR.enabled=0"/>
+						</checkbox>
+						<edit enabled="false" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TXSE_ISR" default="enter callback function here"/>
+
+						<text label="Transmit buffer unavailable"/>
+						<checkbox define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE.TBUE">
+							<action event="checked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TBUE_ISR.enabled=1"/>
+							<action event="unchecked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TBUE_ISR.enabled=0"/>
+						</checkbox>
+						<edit enabled="false" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_TBUE_ISR" default="enter callback function here"/>
+					</gridcontainer>
+				</verticalcontainer>
+            </groupcontainer>
+        </verticalcontainer>
+	</groupcontainer>
+</ifxmlcfg>

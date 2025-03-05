@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<verticalcontainer stretch="2">
+		<horizontalcontainer stretch="2">
+			<groupcontainer label="Filters Settings" stretch="2" size="400;400" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+				<header file="tc4d_leth_mac_cfg.h">
+					<verticalcontainer stretch="2">
+						<formcontainer>
+							<checkbox label="Receive All" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.RA" default="1">
+								<!--action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE.enabled=0"/-->
+								<!--action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE.enabled=1"/-->
+							</checkbox>
+							<checkbox label="Promiscuous Mode" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.PR"/>
+							<checkbox label="Source Address filtering" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.SAF">
+								<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_PACKET_FILTER.SAIF.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_PACKET_FILTER.SAIF.enabled=0"/>
+							</checkbox>
+							<math visible="false" define="LETH.PORT$PORT$_MAC_FILTER_Cont_Calc" formula="(LETH.PORT$PORT$_MAC_PACKET_FILTER.PR.^1).*LETH.PORT$PORT$_MAC_PACKET_FILTER.RA">
+								<action event="changed" cmd="setDef" data="LETH.PORT$PORT$_MAC_FILTER_Cont.enabled=LETH.PORT$PORT$_MAC_FILTER_Cont_Calc"/>
+							</math>
+							<checkbox label="Source Address inverse filtering" enabled="false" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.SAIF"/>
+							<checkbox label="Destination Address inverse filtering" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.DAIF"/>
+							<checkbox label="pass all multicast packets" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.PM"/>
+							<checkbox label="block all broadcast packets" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.DBF"/>
+							<combo label="Control packets filter" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.PCF">
+								<item override="value1" label="block all"/>
+								<item override="value2" label="block pause packes only"/>
+								<item override="value3" label="forward all (even if address filter fails)"/>
+								<item override="value4" label="forward all (only if address filter pass)"/>
+							</combo>
+							<!--checkbox label="Layer3 / Layer4 filtering" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.IPFE" lockon="LETH.PORT$PORT$_MAC_RX_CONFIGURATION.IPC=1"/-->
+							<!--checkbox label="drop non-TCP/UDP packets" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.DNTU"/-->
+							<checkbox label="EtherType based filtering" define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.TBRQE">
+								<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_ETHERTYPE_FILTER_CONT.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_ETHERTYPE_FILTER_CONT.enabled=0"/>
+							</checkbox>
+							<checkbox label="Packet Duplication (for RxQueue1 only)" define="LETH.PORT$PORT$_MAC_EXT_CONFIGURATION.PDC">
+								<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_ADDRESS0_DCS_CONT.visible=0;LETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT1.visible=1;LETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT2.visible=1"/>
+								<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_ADDRESS1_DCS_CONT.visible=0;LETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT1.visible=1;LETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT2.visible=1"/>
+								<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_ADDRESS0_DCS_CONT.visible=1;LETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT1.visible=0;LETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT2.visible=0"/>
+								<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_ADDRESS1_DCS_CONT.visible=1;LETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT1.visible=0;LETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT2.visible=0"/>
+							</checkbox>
+						</formcontainer>
+					</verticalcontainer>
+				</header>
+			</groupcontainer>
+			<verticalcontainer size="400;400">
+				<groupcontainer label="Filter Pass" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+					<formcontainer>
+						<combo label="Untagged Packet Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.UPQ">
+							<item override="value1" label="Queue0"/>
+							<item override="value2" label="Queue1"/>
+						</combo>
+						<horizontalcontainer label="Multicast/Broadcast Frame" stretch="2">
+							<radio define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQEN">
+								<radiobutton label="drop" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQ.enabled=0"/>
+								<radiobutton label="accept" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQ.enabled=1"/>
+							</radio>
+						</horizontalcontainer>
+						<combo label="Multicast or Broadcast Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQ" enabled="false">
+							<item override="value1" label="Queue0"/>
+							<item override="value2" label="Queue1"/>
+						</combo>
+						<combo label="PTP Packets Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.PTPQ">
+							<item override="value1" label="Queue0"/>
+							<item override="value2" label="Queue1"/>
+						</combo>
+						<horizontalcontainer label="AV Control Frame" stretch="2">
+							<radio define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.TACPQEN">
+								<radiobutton label="drop" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL1.AVCPQ.enabled=0"/>
+								<radiobutton label="accept" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL1.AVCPQ.enabled=1"/>
+							</radio>
+						</horizontalcontainer>
+						<combo label="AV Control Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.AVCPQ">
+							<item override="value1" label="Queue0"/>
+							<item override="value2" label="Queue1"/>
+						</combo>
+						<combo label="Tagged PTP over Ethernet Packets Queuing Control" define="LETH.PORT$PORT$_MAC_RXQ_CTRL1.TPQC">
+							<item label="routed as generic VLAN Tagged packet"/>
+							<item label="routed to Rx Queue specified by PTPQ field"/>
+							<item label="routed to only AV enabled Rx Queues"/>
+						</combo>
+					</formcontainer>
+				</groupcontainer>
+				<groupcontainer label="Filter Fail" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+					<verticalcontainer stretch="2">
+						<horizontalcontainer enabled="false" define="LETH.PORT$PORT$_MAC_FILTER_Cont">
+							<formcontainer>
+								<horizontalcontainer label="Unicast Frame" stretch="2">
+									<radio define="LETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQE">
+										<radiobutton label="untagged Packet Queue" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQ.enabled=0"/>
+										<radiobutton label="Unicast Queue" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQ.enabled=1"/>
+									</radio>
+								</horizontalcontainer>
+								<combo label="Unicast Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQ" enabled="false">
+									<item label="Queue0"/>
+									<item label="Queue1"/>
+								</combo>
+								<horizontalcontainer label="Multicast Frame" stretch="2">
+									<radio define="LETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQE">
+										<radiobutton label="drop" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQ.enabled=0"/>
+										<radiobutton label="Multicast Queue" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQ.enabled=1"/>
+									</radio>
+								</horizontalcontainer>
+								<combo label="Multicast Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQ" enabled="false">
+									<item label="Queue0"/>
+									<item label="Queue1"/>
+								</combo>
+							</formcontainer>
+						</horizontalcontainer>
+						<formcontainer>
+							<combo label="VLAN Filter Frame Fail" define="LETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE">
+								<item override="value1" label="drop frame" value="1" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT.enabled=0;LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=0"/>
+								<item override="value2" label="further proccessing" value="0" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT.enabled=1;LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQE"/>
+							</combo>
+							<math visible="false" define="LETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT_CALC" formula="LETH.PORT$PORT$_MAC_PACKET_FILTER.RA.+(LETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE.^1)">
+								<action event="changed" cmd="setDef" data="LETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT.enabled=LETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT_CALC"/>
+							</math>
+							<horizontalcontainer label="VLAN Tagged Frame" define="LETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT" stretch="2">
+								<radio define="LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQE">
+									<radiobutton label="Prio based routing" setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=0"/>
+									<radiobutton label="VLAN Filter Queue " setdef="LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=1"/>
+								</radio>
+							</horizontalcontainer>
+							<combo label="VLAN Filter Queue" define="LETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ" enabled="false">
+								<item label="Queue0"/>
+								<item label="Queue1"/>
+							</combo>
+						</formcontainer>
+					</verticalcontainer>
+				</groupcontainer>
+			</verticalcontainer>
+		</horizontalcontainer>
+		<tabcontainer>
+			<verticalcontainer label="Mac Addresses" size="800;200">
+				<gridcontainer columns="2">
+					<include PORT="$PORT$" IDX="0">icw_tc4d_leth_mac_filter_addr0_tmpl.xml</include>
+					<include PORT="$PORT$" IDX="1">icw_tc4d_leth_mac_filter_addrx_tmpl.xml</include>
+				</gridcontainer>
+			</verticalcontainer>
+			<verticalcontainer label="VLAN Tags">
+				<horizontalcontainer>
+					<groupcontainer label="VLAN Tag Control" size="395;300" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+						<formcontainer>
+							<combo label="VLAN stripping on Receive" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EVLS" default="0">
+								<item label="disabled" value="0"/>
+								<item label="strip VLAN if filter passes" value="1"/>
+								<item label="strip VLAN if filter fails" value="2"/>
+								<item label="strip VLAN always" value="3"/>
+							</combo>
+							<checkbox label="VLAN Tag in Rx Status" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EVLRXS"/>
+							<combo label="inner VLAN stripping on Receive" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EIVLS" default="0">
+								<item label="disabled" value="0"/>
+								<item label="strip VLAN if filter passes" value="1"/>
+								<item label="strip VLAN if filter fails" value="2"/>
+								<item label="strip VLAN always" value="3"/>
+							</combo>
+							<checkbox label="inner VLAN Tag in Rx Status" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EIVLRXS"/>
+							<checkbox label="Double VLAN processing" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EDVLP">										
+								<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER0.ERIVLT.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER0.ERIVLT.enabled=0"/>
+							</checkbox>
+							<checkbox label="VLAN Tag Inverse Match" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.VTIM"/>
+							<checkbox label="SVLAN Tag (Type = 0x88A8)" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.ESVL"/>
+							<combo label="Filtering/Matching" define="LETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.ERSVLM">
+								<item label="S-VLAN packets (Type = 0x88A8)"/>
+								<item label="C-VLAN packets (Type = 0x8100)"/>
+							</combo>
+						</formcontainer>
+					</groupcontainer>
+					<verticalcontainer>
+						<groupcontainer label="Outer VLAN Tag" size="397;-1" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+							<formcontainer>
+								<checkbox label="tag all" define="LETH.PORT$PORT$_MAC_VLAN_INCL.CBTI"/>
+								<horizontalcontainer label="VLAN Tag Control">
+									<combo define="LETH.PORT$PORT$_MAC_VLAN_INCL.VLP" default="1">
+										<!--item override="value1" label="use VLAN Tag control" value="1" setdef="LETH.PORT$PORT$_MAC_VLAN_INCL.VLC.enabled=1;LETH.DMA_CH0_TDES2_VTIR.enabled=0;LETH.DMA_CH1_TDES2_VTIR.enabled=0;LETH.DMA_CH2_TDES2_VTIR.enabled=0;LETH.DMA_CH3_TDES2_VTIR.enabled=0;LETH.DMA_CH4_TDES2_VTIR.enabled=0;LETH.DMA_CH5_TDES2_VTIR.enabled=0;LETH.DMA_CH6_TDES2_VTIR.enabled=0;LETH.DMA_CH7_TDES2_VTIR.enabled=0"/-->
+										<!--item override="value2" label="use Tx Descriptor" value="0" setdef="LETH.PORT$PORT$_MAC_VLAN_INCL.VLC.enabled=0;LETH.DMA_CH0_TDES2_VTIR.enabled=1;LETH.DMA_CH1_TDES2_VTIR.enabled=1;LETH.DMA_CH2_TDES2_VTIR.enabled=1;LETH.DMA_CH3_TDES2_VTIR.enabled=1;LETH.DMA_CH4_TDES2_VTIR.enabled=1;LETH.DMA_CH5_TDES2_VTIR.enabled=1;LETH.DMA_CH6_TDES2_VTIR.enabled=1;LETH.DMA_CH7_TDES2_VTIR.enabled=1"/-->
+										<item override="value1" label="use VLAN Tag control" value="1" setdef="LETH.PORT$PORT$_MAC_VLAN_INCL.VLC.enabled=1"/>
+										<item override="value2" label="use Tx Descriptor" value="0" setdef="LETH.PORT$PORT$_MAC_VLAN_INCL.VLC.enabled=0"/>
+									</combo>
+									<combo define="LETH.PORT$PORT$_MAC_VLAN_INCL.VLC" default="label=disabled">
+										<item override="value1" label="disabled"/>
+										<item override="value2" label="VLAN tag deletion"/>
+										<item override="value3" label="VLAN tag insertion"/>
+										<item override="value4" label="VLAN tag replacement"/>
+									</combo>
+								</horizontalcontainer>
+								<horizontalcontainer label="VLAN Tag">
+									<combo define="LETH.PORT$PORT$_MAC_VLAN_INCL.VLTI" default="1">
+										<!--item override="value1" label="use Queue VLAN Tag" value="0" setdef="LETH.PORT$PORT$_MAC_VLAN_INCL0_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL1_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL2_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL3_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL4_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL5_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL6_CONT.enabled=1;LETH.PORT$PORT$_MAC_VLAN_INCL7_CONT.enabled=1;LETH.DMA_CH0_CDES3_VT.enabled=0;LETH.DMA_CH1_CDES3_VT.enabled=0;LETH.DMA_CH2_CDES3_VT.enabled=0;LETH.DMA_CH3_CDES3_VT.enabled=0;LETH.DMA_CH4_CDES3_VT.enabled=0;LETH.DMA_CH5_CDES3_VT.enabled=0;LETH.DMA_CH6_CDES3_VT.enabled=0;LETH.DMA_CH7_CDES3_VT.enabled=0"/-->
+										<!--item override="value2" label="use Tx Descriptor" setdef="LETH.PORT$PORT$_MAC_VLAN_INCL0_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL1_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL2_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL3_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL4_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL5_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL6_CONT.enabled=0;LETH.PORT$PORT$_MAC_VLAN_INCL7_CONT.enabled=0;LETH.DMA_CH0_CDES3_VT.enabled=1;LETH.DMA_CH1_CDES3_VT.enabled=1;LETH.DMA_CH2_CDES3_VT.enabled=1;LETH.DMA_CH3_CDES3_VT.enabled=1;LETH.DMA_CH4_CDES3_VT.enabled=1;LETH.DMA_CH5_CDES3_VT.enabled=1;LETH.DMA_CH6_CDES3_VT.enabled=1;LETH.DMA_CH7_CDES3_VT.enabled=1"/-->
+										<item override="value1" label="use Queue VLAN Tag"/>
+										<item override="value2" label="use Tx Descriptor"/>
+									</combo>
+								</horizontalcontainer>
+							</formcontainer>
+						</groupcontainer>
+						<groupcontainer label="Inner VLAN Tag" size="397;-1" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+							<formcontainer>
+								<horizontalcontainer label="VLAN Tag Control">
+									<combo define="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLP" default="1">
+										<item override="value1" label="use VLAN Tag control" value="1" setdef="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLC.enabled=1"/>
+										<item override="value2" label="use Tx Descriptor" value="0" setdef="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLC.enabled=0"/>
+									</combo>
+									<combo define="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLC" default="label=disabled">
+										<item override="value1" label="disabled"/>
+										<item override="value2" label="VLAN tag deletion"/>
+										<item override="value3" label="VLAN tag insertion"/>
+										<item override="value4" label="VLAN tag replacement"/>
+									</combo>
+								</horizontalcontainer>
+								<horizontalcontainer label="VLAN Type" stretch="2">
+									<radio define="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.CSVL" default="0">
+										<radiobutton label="C-VLAN (0x8100)" value="0"/>
+										<radiobutton label="S-VLAN (0x88A8)" value="1"/>
+									</radio>
+								</horizontalcontainer>
+								<horizontalcontainer label="VLAN Tag">
+									<combo define="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLTI" default="0">
+										<item override="value1" label="use VLAN Tag" value="0" setdef="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLT.enabled=1"/>
+										<item override="value2" label="use Tx Descriptor" value="1" setdef="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLT.enabled=0"/>
+									</combo>
+									<hexspinbox define="LETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLT" range="0;65535"/>
+								</horizontalcontainer>
+							</formcontainer>
+						</groupcontainer>
+					</verticalcontainer>
+				</horizontalcontainer>
+				<gridcontainer columns="2" size="398;-1">
+					<include PORT="$PORT$" IDX="0">icw_tc4d_leth_mac_filter_vlan_tmpl.xml</include>
+				</gridcontainer>
+			</verticalcontainer>
+			<verticalcontainer label="EtherTypes" stretch="2" size="400;400">
+				<include PORT="$PORT$" IDX="0">icw_tc4d_leth_mac_filter_type_tmpl.xml</include>
+			</verticalcontainer>
+		</tabcontainer>
+	</verticalcontainer>
+</ifxmlcfg>

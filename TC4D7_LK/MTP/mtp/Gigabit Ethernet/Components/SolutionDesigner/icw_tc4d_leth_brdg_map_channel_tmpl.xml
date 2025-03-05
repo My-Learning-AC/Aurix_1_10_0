@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Bridge Channel Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX : channel index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>f6b4627182a50f1bd8f2605dd277303da0d9cc9e6b1ad42a5db88a99b1f2e335</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+	<setdefine define="port_sel" value="$PORT$"/>
+	<setdefine define="idx_sel" value="$IDX$"/>
+    <edit visible="false" define="LETH.BRDG_PORT$PORT$_Tx$IDX$_EnVis" default="hidden"/>
+    <edit visible="false" define="LETH.BRDG_PORT$PORT$_Tx$IDX$_DisVis" default="visible"/>
+    <edit visible="false" define="LETH.BRDG_PORT$PORT$_Rx$IDX$_EnVis" default="hidden"/>
+    <edit visible="false" define="LETH.BRDG_PORT$PORT$_Rx$IDX$_DisVis" default="visible"/>
+	<horizontalcontainer stretch="3">
+		<text label="$IDX$" readonly="true"/>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==0" stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN">
+			<action event="checked"   cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==1" stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN">
+			<action event="checked"   cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==2" stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN">
+			<action event="checked"   cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==3" stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN">
+			<action event="checked"   cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==4" stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN">
+			<action event="checked"   cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==5" stretch="3">
+		<checkbox visible="false" define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN"/>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==6" stretch="3">
+		<checkbox visible="false" define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN"/>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==7" stretch="3">
+		<checkbox visible="false" define="LETH.PORT$PORT$_CTRL_REG.TXQ$IDX$_EN"/>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==0" define="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT">
+		<combo define="LETH.PORT$PORT$_TXQ_MAP.TXQ$IDX$_MAP" default="value=$IDX$">
+			<item label="Channel0"/>
+			<item label="Channel1"/>
+			<item label="Channel2"/>
+			<item label="Channel3"/>
+			<item label="Channel4"/>
+			<item label="Channel5"/>
+			<item label="Channel6"/>
+			<item label="Channel7"/>
+		</combo>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==1" define="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT">
+		<combo define="LETH.PORT$PORT$_TXQ_MAP.TXQ$IDX$_MAP" default="value=$IDX$">
+			<item label="Channel0"/>
+			<item label="Channel1"/>
+			<item label="Channel2"/>
+			<item label="Channel3"/>
+			<item label="Channel4"/>
+			<item label="Channel5"/>
+			<item label="Channel6"/>
+			<item label="Channel7"/>
+		</combo>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==2" define="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT">
+		<combo define="LETH.PORT$PORT$_TXQ_MAP.TXQ$IDX$_MAP" default="value=$IDX$">
+			<item label="Channel0"/>
+			<item label="Channel1"/>
+			<item label="Channel2"/>
+			<item label="Channel3"/>
+			<item label="Channel4"/>
+			<item label="Channel5"/>
+			<item label="Channel6"/>
+			<item label="Channel7"/>
+		</combo>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==3" define="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT">
+		<combo define="LETH.PORT$PORT$_TXQ_MAP.TXQ$IDX$_MAP" default="value=$IDX$">
+			<item label="Channel0"/>
+			<item label="Channel1"/>
+			<item label="Channel2"/>
+			<item label="Channel3"/>
+			<item label="Channel4"/>
+			<item label="Channel5"/>
+			<item label="Channel6"/>
+			<item label="Channel7"/>
+		</combo>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==4" define="LETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT">
+		<combo define="LETH.PORT$PORT$_TXQ_MAP.TXQ$IDX$_MAP" default="value=$IDX$">
+			<item label="Channel0"/>
+			<item label="Channel1"/>
+			<item label="Channel2"/>
+			<item label="Channel3"/>
+			<item label="Channel4"/>
+			<item label="Channel5"/>
+			<item label="Channel6"/>
+			<item label="Channel7"/>
+		</combo>
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==5">
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==6">
+	</horizontalcontainer>
+	<horizontalcontainer startcond="idx_sel==7">
+	</horizontalcontainer>
+	<horizontalcontainer stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.RXC$IDX$_EN">
+			<action event="checked"   cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_RXCH$IDX$_CONT.enabled=1;LETH.BRIDGE_PORT$PORT$_FWD$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.BRIDGE_PORT$PORT$_MAP_RXCH$IDX$_CONT.enabled=0;LETH.BRIDGE_PORT$PORT$_FWD$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer define="LETH.BRIDGE_PORT$PORT$_MAP_RXCH$IDX$_CONT" enabled="true">
+		<combo define="LETH.PORT$PORT$_RXC_MAP.RXC$IDX$_MAP" default="value=$IDX$">
+			<item label="Channel0"/>
+			<item label="Channel1"/>
+			<item label="Channel2"/>
+			<item label="Channel3"/>
+			<item label="Channel4"/>
+			<item label="Channel5"/>
+			<item label="Channel6"/>
+			<item label="Channel7"/>
+		</combo>
+	</horizontalcontainer>
+	<horizontalcontainer define="LETH.BRIDGE_PORT$PORT$_FWD$IDX$_CONT" enabled="false" stretch="3">
+		<checkbox define="LETH.PORT$PORT$_CTRL_REG.FWD$IDX$_EN">
+			<action event="unchecked" cmd="setdef" data="LETH.BRIDGE_PORT$PORT$_MAP_FWD$IDX$_CONT.enabled=0"/>
+			<action event="checked"   cmd="setdef" data="LETH.BRIDGE_PORT$PORT$_MAP_FWD$IDX$_CONT.enabled=1"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer define="LETH.BRIDGE_PORT$PORT$_MAP_FWD$IDX$_CONT" enabled="true">
+		<combo startcond="port_sel==0" define="LETH.PORT$PORT$_FWD_PORT_MAP.TXQ$IDX$_FWD_PORT_NUM">
+			<item label="Port1" value="1"/>
+			<item label="Port2" value="2"/>
+			<item label="Port3" value="3"/>
+		</combo>
+		<combo startcond="port_sel==1" define="LETH.PORT$PORT$_FWD_PORT_MAP.TXQ$IDX$_FWD_PORT_NUM">
+			<item label="Port0" value="0"/>
+			<item label="Port2" value="2"/>
+			<item label="Port3" value="3"/>
+		</combo>
+		<combo startcond="port_sel==2" define="LETH.PORT$PORT$_FWD_PORT_MAP.TXQ$IDX$_FWD_PORT_NUM">
+			<item label="Port0" value="0"/>
+			<item label="Port1" value="1"/>
+			<item label="Port3" value="3"/>
+		</combo>
+		<combo startcond="port_sel==3" define="LETH.PORT$PORT$_FWD_PORT_MAP.TXQ$IDX$_FWD_PORT_NUM">
+			<item label="Port0" value="0"/>
+			<item label="Port1" value="1"/>
+			<item label="Port2" value="2"/>
+		</combo>
+	</horizontalcontainer>
+	<math visible="false" define="LETH.BRDG_PORT$PORT$_CH$IDX$_FWD_CONT_EN" formula="LETH.PORT_$PORT$_CONTROL.TXQ$IDX$_EN.+LETH.PORT_$PORT$_CONTROL.RXC$IDX$_EN">
+		<action event="changed" cmd="setdef" data="LETH.BRIDGE_PORT$PORT$_FWD$IDX$_CONT.enabled=LETH.BRDG_PORT$PORT$_CH$IDX$_FWD_CONT_EN"/>
+	</math>
+</ifxmlcfg>

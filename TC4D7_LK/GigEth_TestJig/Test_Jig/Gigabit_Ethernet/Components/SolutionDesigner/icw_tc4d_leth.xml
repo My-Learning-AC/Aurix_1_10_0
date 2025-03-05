@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+	<checksum>39d8149739ca33b5d64319db17acef89afc45c246567a14e915f73bcaaee08fa</checksum>
+	<version label="V0.1.0"/>
+	<!--usesPython/-->
+	<!--tooltipconfig value="0x1FFF"/-->
+	<!--pythonstartup file="icw_tc4d_pre.py"/>
+	<pythonstartup file="icw_tc4d.py" afterinit="1"/-->
+	<!--initialactions value="1"/>
+	<showprogressbar value="1"/-->
+	<horizontalcontainer label="LETH">
+		<tabcontainer resize="1">
+			<include PORT="0">icw_tc4d_leth_mac.xml</include>
+			<include PORT="1">icw_tc4d_leth_mac.xml</include>
+			<include PORT="2">icw_tc4d_leth_mac.xml</include>
+			<include PORT="3">icw_tc4d_leth_mac.xml</include>
+			<include>icw_tc4d_leth_brdg.xml</include>
+			<include>icw_tc4d_leth_dma.xml</include>
+		</tabcontainer>
+		<!--include>icw_tc4d_geth_graph.xml</include-->
+	</horizontalcontainer>
+</ifxmlcfg>

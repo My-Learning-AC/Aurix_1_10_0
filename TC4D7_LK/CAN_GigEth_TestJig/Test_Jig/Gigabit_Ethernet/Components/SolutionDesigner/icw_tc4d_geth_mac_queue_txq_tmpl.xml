@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- MAC Transmit Queue Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: queue index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>7182f1fca3be9286359811545ed31fac493e796265037ccf490b0104b2e95390</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+	<groupcontainer label="Transmit" size="-1;-1" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Tx$IDX$_EnVis" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Tx$IDX$_DisVis" default="visible"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Tx$IDX$_AvVis" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_To_Brdg_Tx$IDX$_Link" default="hidden"/>
+		<verticalcontainer stretch="2">
+			<horizontalcontainer stretch="2" visible="true">
+				<text label="Queue Mode"/>
+				<radio define="GETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TXQEN" default="0">
+					<radiobutton label="disabled" value="0" setDef="GETH.PORT$PORT$_MAC_TXQ$IDX$_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL$IDX$_CONT.enabled=0"/>
+					<radiobutton label="enabled"  value="2" setDef="GETH.PORT$PORT$_MAC_TXQ$IDX$_CONT.enabled=1"/>
+					<radiobutton label="AVB Mode" value="1" setDef="GETH.PORT$PORT$_MAC_TXQ$IDX$_CONT.enabled=1"/>
+				</radio>
+			</horizontalcontainer>
+			<horizontalcontainer define="GETH.PORT$PORT$_MAC_TXQ$IDX$_CONT" enabled="false" stretch="2">
+				<formcontainer size="290;150">
+					<text label=""/>
+					<checkbox label="Store and Forward (TSF)" define="GETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TSF" default="0"/>
+					<spinbox enabled="false" label="est. Payload Size (for CBS)" suffix=" Bytes" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_PAYLOAD_SIZE" range="64;1518" default="64"/>
+					<combo label="Threshold Control (TTC)" define="GETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TTC">
+						<item label="64 Bytes" value="0"/>
+						<item label="96 Bytes" value="2"/>
+						<item label="128 Bytes" value="3"/>
+						<item label="256 Bytes" value="4"/>
+						<item label="384 Bytes" value="5"/>
+						<item label="512 Bytes" value="6"/>
+					</combo>
+					<combo label="Queue Size (TQS)" define="GETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TQS" default="label=2 KBytes">
+						<item label="256 Bytes" value="0"/>
+						<item label="512 Bytes" value="1"/>
+						<item label="768 Bytes" value="2"/>
+						<item label="1024 Bytes" value="3"/>
+						<item label="1280 Bytes" value="4"/>
+						<item label="1536 Bytes" value="5"/>
+						<item label="1792 Bytes" value="6"/>
+						<item label="2 KBytes" value="7"/>
+						<item label="3 KBytes" value="11"/>
+						<item label="4 KBytes" value="15"/>
+						<item label="5 KBytes" value="19"/>
+						<item label="6 KBytes" value="23"/>
+						<item label="7 KBytes" value="27"/>
+						<item label="8 KBytes" value="31"/>
+					</combo>
+					<combo label="Traffic Class" define="GETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.Q2TCMAP" default="value=$IDX$">
+						<item label="0" value="0"/>
+						<item label="1" value="1"/>
+						<item label="2" value="2"/>
+						<item label="3" value="3"/>
+						<item label="4" value="4"/>
+						<item label="5" value="5"/>
+						<item label="6" value="6"/>
+						<item label="7" value="7"/>
+					</combo>
+				</formcontainer>
+			</horizontalcontainer>
+			<include PORT="$PORT$" IDX="$IDX$">icw_tc4d_geth_mac_vlan_incl_tmpl.xml</include>	
+		</verticalcontainer>
+	</groupcontainer>
+</ifxmlcfg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   TP: target port for forward: range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>40db18285caa54476fd5388892cbae50d41fbca6bfde28ec4de99ad84212f445</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <groupcontainer label="Bridge Port$PORT$" define="LETH.PORT$PORT$_MAP_CONT" color="104;201;173">
+            <gridcontainer columns="11" stretch="2">
+                <!--headline-->
+                <text visible="false"/>
+                <text visible="false"/>
+                <text visible="false"/>
+                <text visible="false"/>
+                <text label="  Ch Index" readonly="true"/>
+                <text label="  Tx" readonly="true"/>
+                <text label=" DMA TxLink" readonly="true"/>
+                <text label="  Rx" readonly="true"/>
+                <text label=" DMA RxLink" readonly="true"/>
+                <text label=" Forward" readonly="true"/>
+                <text label=" Fwd. Port" readonly="true"/>
+                <!--line1-->
+                <include PORT="$PORT$" IDX="0">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="1">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="2">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="3">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="4">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="5">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="6">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" IDX="7">icw_tc4d_leth_brdg_map_channel_tmpl.xml</include>
+            </gridcontainer>
+    </groupcontainer>
+</ifxmlcfg>

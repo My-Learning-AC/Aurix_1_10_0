@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- MAC Transmit Queue Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: queue index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>151f3f78369999784391e98baeff44195d27566d7cba2f352d17ddba432f1156</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <!--verticalcontainer label="Queue$IDX$" stretch="2" size="-1;-1"-->
+    <verticalcontainer label="Queue$IDX$">
+		<groupcontainer label="Access Rights" font="Source Sans Pro,12,0,0,64,0,0,0,0,0" stretch="2">
+			<gridcontainer columns="7">
+				<horizontalcontainer size="80;-1" stretch="3">
+					<text label="Source"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label="Core" alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label="Core" alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label="Core" alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label="Core" alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label="Core" alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label="Core" alignment="4"/>
+				</horizontalcontainer>
+				<!-- next row -->
+				<horizontalcontainer size="80;-1" stretch="3">
+					<text label=" "/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label=" 0  " alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label=" 1  " alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label=" 2  " alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label=" 3  " alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label=" 4  " alignment="4"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<text label=" 5  " alignment="4"/>
+				</horizontalcontainer>
+				<!-- next row -->
+				<horizontalcontainer size="80;-1" stretch="3">
+					<text label="Write Access"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN00" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN02" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN04" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN06" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN08" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN10" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<!-- next row -->
+				<horizontalcontainer size="80;-1" stretch="3">
+					<text label="Read Access"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN00" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN02" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN04" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN06" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN08" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN10" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN01" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN03" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN05" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN07" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN09" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN11" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN01" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN03" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN05" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN07" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN09" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+				<math visible="false" define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN11" formula="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+			</gridcontainer>
+			<gridcontainer columns="1" size="40;-1">
+				<horizontalcontainer size="40;-1">
+					<text label="DAP" alignment="4"/>
+				</horizontalcontainer>
+				<!-- next row -->
+				<horizontalcontainer size="40;-1">
+					<text label="" alignment="4"/>
+				</horizontalcontainer>
+				<!-- next row -->
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_WRA_EN28" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+				<!-- next row -->
+				<horizontalcontainer size="40;-1">
+					<checkbox define="GETH.MAC$PORT$_TCQ$IDX$_ACCEN_RDA_EN28" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+				</horizontalcontainer>
+			</gridcontainer>
+		</groupcontainer>
+        <horizontalcontainer>
+            <include PORT="$PORT$" IDX="$IDX$"                                      >icw_tc4d_geth_mac_queue_txq_tmpl.xml</include>
+            <include PORT="$PORT$" IDX="$IDX$" SFRIDX="$SFRIDX$" SFR2IDX="$SFR2IDX$">icw_tc4d_geth_mac_queue_rxq_tmpl.xml</include>
+        </horizontalcontainer>
+    </verticalcontainer>
+</ifxmlcfg>

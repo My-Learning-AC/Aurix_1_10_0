@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- MAC Receive Queue Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: queue index, range 0..7 -->
+<!--   SFRIDX: n index for the PORTx_MTL_RXQ_DMA_MAPn register, for IDX=0..3 => n= 0, for IDX=4..7 => n=1 -->
+<!--   SFR2IDX: n index for the GETH.PORTx_MAC_RXQ_CTRLn.PSRQy register, for IDX=0..3 => n=2, for IDX=4..7 => n=3 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>dfc50f75c1b5917e1644a5f4150a57093ca735df2a92ae19be5f411c4a18c0de</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+	<groupcontainer label="Receive" size="-1;-1" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_EnVis" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_DisVis" default="visible"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_AvVis" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_To_Brdg_Rx$IDX$_EnVis" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx0_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx1_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx2_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx3_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx4_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx5_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx6_Link" default="hidden"/>
+		<edit visible="false" define="GETH_PORT$PORT$_MAC_Rx$IDX$_To_Brdg_Rx7_Link" default="hidden"/>
+		<verticalcontainer stretch="2">
+			<horizontalcontainer stretch="2" visible="true">
+				<text label="Queue Mode"/>
+				<radio define="GETH.PORT$PORT$_MAC_RXQ_CTRL0.RXQ$IDX$EN" default="0">
+					<radiobutton label="disabled" value="0" setDef="GETH.PORT$PORT$_MAC_RXQ$IDX$_CONT.enabled=0"/>
+					<radiobutton label="enabled"  value="2" setDef="GETH.PORT$PORT$_MAC_RXQ$IDX$_CONT.enabled=1"/>
+					<radiobutton label="AVB Mode" value="1" setDef="GETH.PORT$PORT$_MAC_RXQ$IDX$_CONT.enabled=1"/>
+				</radio>
+			</horizontalcontainer>
+			<horizontalcontainer define="GETH.PORT$PORT$_MAC_RXQ$IDX$_CONT" enabled="false" stretch="2">
+				<formcontainer size="350;280">
+					<text label=""/>
+					<checkbox label="Store and Forward (RSF)" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.RSF" default="0"/>
+					<checkbox label="Hardware Flow Control (EHFC)" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.EHFC" default="0"/>
+					<checkbox label="Forward Error Frames (FEF)" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.FEF" default="0"/>
+					<checkbox label="Forward undersized Frames (FUF)" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.FUF" default="0"/>
+					<combo label="Threshold Control (RTC)" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.RTC">
+						<item label="64 Bytes" value="0"/>
+						<item label="96 Bytes" value="2"/>
+						<item label="128 Bytes" value="3"/>
+					</combo>
+					<combo label="Queue Size (RQS)" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.RQS" default="label=2 KBytes">
+						<item label="256 Bytes" value="0"/>
+						<item label="512 Bytes" value="1"/>
+						<item label="768 Bytes" value="2"/>
+						<item label="1024 Bytes" value="3"/>
+						<item label="1280 Bytes" value="4"/>
+						<item label="1536 Bytes" value="5"/>
+						<item label="1792 Bytes" value="6"/>
+						<item label="2 KBytes" value="7"/>
+						<item label="3 KBytes" value="11"/>
+						<item label="4 KBytes" value="15"/>
+						<item label="5 KBytes" value="19"/>
+						<item label="6 KBytes" value="23"/>
+						<item label="7 KBytes" value="27"/>
+						<item label="8 KBytes" value="31"/>
+					</combo>
+					<checkbox label="Dynamic DMA Channel Selection" define="GETH.PORT$PORT$_MTL_RXQ_DMA_MAP$SFRIDX$.Q$IDX$DDMACH">
+						<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MTL_RXQ_DMA_MAP$SFRIDX$.Q$IDX$MDMACH.enabled=0"/>
+						<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MTL_RXQ_DMA_MAP$SFRIDX$.Q$IDX$MDMACH.enabled=1"/>
+					</checkbox>
+					<combo label="DMA Channel Select" define="GETH.PORT$PORT$_MTL_RXQ_DMA_MAP$SFRIDX$.Q$IDX$MDMACH" default="value=$IDX$">
+						<item label="DMA Channel 0" value="0"/>
+						<item label="DMA Channel 1" value="1"/>
+						<item label="DMA Channel 2" value="2"/>
+						<item label="DMA Channel 3" value="3"/>
+						<item label="DMA Channel 4" value="4"/>
+						<item label="DMA Channel 5" value="5"/>
+						<item label="DMA Channel 6" value="6"/>
+						<item label="DMA Channel 7" value="7"/>
+					</combo>
+					<combo label="Weight" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_CONTROL.RXQ_WEGT" default="value=$IDX$">
+						<item label="0"/>
+						<item label="1"/>
+						<item label="2"/>
+						<item label="3"/>
+						<item label="4"/>
+						<item label="5"/>
+						<item label="6"/>
+						<item label="7"/>
+					</combo>
+					<combo label="Arbitration Control" define="GETH.PORT$PORT$_MTL_RXQ$IDX$_CONTROL.RXQ_PKT_ARBIT" default="0">
+						<item label="PBL based arbitration"/>
+						<item label="packet-level arbitration"/>
+					</combo>
+					<horizontalcontainer>
+						<text label="7"/>
+						<text label="6"/>
+						<text label="5"/>
+						<text label="4"/>
+						<text label="3"/>
+						<text label="2"/>
+						<text label="1"/>
+						<text label="0"/>
+					</horizontalcontainer>
+					<horizontalcontainer label="Queue Priority (PSRQ)">
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_7"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_6"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_5"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_4"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_3"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_2"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_1"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_0"/>
+					</horizontalcontainer>
+					<math visible="false" define="GETH.PORT$PORT$_MAC_RXQ_CTRL$SFR2IDX$.PSRQ$IDX$" formula="GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_7*128+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_6*64+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_5*32+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_4*16+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_3*8+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_2*4+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_1*2+GETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_0"/>
+				</formcontainer>
+			</horizontalcontainer>
+		</verticalcontainer>
+	</groupcontainer>
+</ifxmlcfg>

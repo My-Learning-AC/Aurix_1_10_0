@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+	<checksum>53c0009b1d4650e3cf04c397034fd8a4cbf7270559ce62fd2086f06f09df122b</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<pythonstartup file="icw_tc4d_pre.py"/>
+	<pythonstartup file="icw_tc4d.py" afterinit="1"/>
+	<initialactions value="1"/>
+	<horizontalcontainer>
+		<tabcontainer resize="1">
+			<verticalcontainer label="LwIP Config" size="400;400" stretch="2">
+				<header file="lwip_cfg.h">
+					<text label=""/>
+					<groupcontainer label="IP Settings - NetIF0" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+						<verticalcontainer>
+							<checkbox label="Enable" define="LWIP.NETIF0_EN">
+								<action event="checked" cmd="setDef" data="LWIP.NETIF0_CONT.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="LWIP.NETIF0_CONT.enabled=0"/>
+							</checkbox>
+							<formcontainer define="LWIP.NETIF0_CONT">
+								<combo label="DMA Channel" define="LWIP.NETIF0_DMA_CHANNEL">
+									<item label="Channel 0"/>
+									<item label="Channel 1"/>
+									<item label="Channel 2"/>
+									<item label="Channel 3"/>
+									<item label="Channel 4"/>
+									<item label="Channel 5"/>
+									<item label="Channel 6"/>
+									<item label="Channel 7"/>
+								</combo>
+								<horizontalcontainer label="IP Address">
+									<spinbox define="LWIP.NETIF0_IP_ADDR0" range="0;255" default="192"/>
+									<spinbox define="LWIP.NETIF0_IP_ADDR1" range="0;255" default="168"/>
+									<spinbox define="LWIP.NETIF0_IP_ADDR2" range="0;255" default="0"/>
+									<spinbox define="LWIP.NETIF0_IP_ADDR3" range="0;255" default="100"/>
+								</horizontalcontainer>
+								<horizontalcontainer label="Network Mask">
+									<spinbox define="LWIP.NETIF0_NET_MSK0" range="0;255" default="255"/>
+									<spinbox define="LWIP.NETIF0_NET_MSK1" range="0;255" default="255"/>
+									<spinbox define="LWIP.NETIF0_NET_MSK2" range="0;255" default="255"/>
+									<spinbox define="LWIP.NETIF0_NET_MSK3" range="0;255" default="0"/>
+								</horizontalcontainer>
+								<horizontalcontainer label="Gateway Address">
+									<spinbox define="LWIP.NETIF0_GATE_ADDR0" range="0;255" default="192"/>
+									<spinbox define="LWIP.NETIF0_GATE_ADDR1" range="0;255" default="168"/>
+									<spinbox define="LWIP.NETIF0_GATE_ADDR2" range="0;255" default="0"/>
+									<spinbox define="LWIP.NETIF0_GATE_ADDR3" range="0;255" default="1"/>
+								</horizontalcontainer>
+							</formcontainer>
+						</verticalcontainer>
+					</groupcontainer>
+					<groupcontainer label="IP Settings - NetIF1" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+						<verticalcontainer>
+							<formcontainer>
+								<checkbox label="Enable" define="LWIP.NETIF1_EN">
+								<action event="checked" cmd="setDef" data="LWIP.NETIF1_CONT.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="LWIP.NETIF1_CONT.enabled=0"/>
+							</checkbox>								
+							</formcontainer>
+							<formcontainer define="LWIP.NETIF1_CONT">
+								<combo label="DMA Channel" define="LWIP.NETIF1_DMA_CHANNEL">
+									<item label="Channel 0"/>
+									<item label="Channel 1"/>
+									<item label="Channel 2"/>
+									<item label="Channel 3"/>
+									<item label="Channel 4"/>
+									<item label="Channel 5"/>
+									<item label="Channel 6"/>
+									<item label="Channel 7"/>
+								</combo>
+								<horizontalcontainer label="IP Address">
+									<spinbox define="LWIP.NETIF1_IP_ADDR0" range="0;255" default="192"/>
+									<spinbox define="LWIP.NETIF1_IP_ADDR1" range="0;255" default="168"/>
+									<spinbox define="LWIP.NETIF1_IP_ADDR2" range="0;255" default="0"/>
+									<spinbox define="LWIP.NETIF1_IP_ADDR3" range="0;255" default="101"/>
+								</horizontalcontainer>
+								<horizontalcontainer label="Network Mask">
+									<spinbox define="LWIP.NETIF1_NET_MSK0" range="0;255" default="255"/>
+									<spinbox define="LWIP.NETIF1_NET_MSK1" range="0;255" default="255"/>
+									<spinbox define="LWIP.NETIF1_NET_MSK2" range="0;255" default="255"/>
+									<spinbox define="LWIP.NETIF1_NET_MSK3" range="0;255" default="0"/>
+								</horizontalcontainer>
+								<horizontalcontainer label="Gateway Address">
+									<spinbox define="LWIP.NETIF1_GATE_ADDR0" range="0;255" default="192"/>
+									<spinbox define="LWIP.NETIF1_GATE_ADDR1" range="0;255" default="168"/>
+									<spinbox define="LWIP.NETIF1_GATE_ADDR2" range="0;255" default="0"/>
+									<spinbox define="LWIP.NETIF1_GATE_ADDR3" range="0;255" default="1"/>
+								</horizontalcontainer>
+							</formcontainer>
+						</verticalcontainer>
+					</groupcontainer>
+				</header>
+			</verticalcontainer>
+			<include>icw_tc4d.xml</include>
+		</tabcontainer>
+	</horizontalcontainer>
+</ifxmlcfg>

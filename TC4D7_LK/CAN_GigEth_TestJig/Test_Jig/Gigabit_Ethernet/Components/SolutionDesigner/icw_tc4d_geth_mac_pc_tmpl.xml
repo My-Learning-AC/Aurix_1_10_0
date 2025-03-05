@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_geth_mac_cfg.h">
+		<gridcontainer columns="2">
+			<include PORT="$PORT$" IDX="0">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="1">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="2">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="3">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="4">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="5">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="6">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+			<include PORT="$PORT$" IDX="7">icw_tc4d_geth_mac_pcx_tmpl.xml</include>
+		</gridcontainer>
+	</header>
+</ifxmlcfg>

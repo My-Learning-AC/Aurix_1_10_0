@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+	<checksum>39d8149739ca33b5d64319db17acef89afc45c246567a14e915f73bcaaee08fa</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<!--tooltipconfig value="0x1FFF"/-->
+	<!--pythonstartup file="icw_tc4d_pre.py"/>
+	<pythonstartup file="icw_tc4d.py" afterinit="1"/>
+	<initialactions value="1"/-->
+	<horizontalcontainer label="GETH">
+		<tabcontainer resize="1">
+			<include PORT="0">icw_tc4d_geth_mac.xml</include>
+			<include PORT="1">icw_tc4d_geth_mac.xml</include>
+			<include>icw_tc4d_geth_mac_int.xml</include>
+			<include>icw_tc4d_geth_brdg.xml</include>
+			<include>icw_tc4d_geth_dma.xml</include>
+		</tabcontainer>
+		<include>icw_tc4d_geth_graph.xml</include>
+		
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN00" formula="GETH.DMA_ACCENCH0_WRA_EN00.+GETH.MAC0_TCQ0_ACCEN_WRA_EN00.+GETH.MAC0_TCQ4_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN01" formula="GETH.DMA_ACCENCH0_WRA_EN01.+GETH.MAC0_TCQ0_ACCEN_WRA_EN01.+GETH.MAC0_TCQ4_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN02" formula="GETH.DMA_ACCENCH0_WRA_EN02.+GETH.MAC0_TCQ0_ACCEN_WRA_EN02.+GETH.MAC0_TCQ4_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN03" formula="GETH.DMA_ACCENCH0_WRA_EN03.+GETH.MAC0_TCQ0_ACCEN_WRA_EN03.+GETH.MAC0_TCQ4_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN04" formula="GETH.DMA_ACCENCH0_WRA_EN04.+GETH.MAC0_TCQ0_ACCEN_WRA_EN04.+GETH.MAC0_TCQ4_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN05" formula="GETH.DMA_ACCENCH0_WRA_EN05.+GETH.MAC0_TCQ0_ACCEN_WRA_EN05.+GETH.MAC0_TCQ4_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN06" formula="GETH.DMA_ACCENCH0_WRA_EN06.+GETH.MAC0_TCQ0_ACCEN_WRA_EN06.+GETH.MAC0_TCQ4_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN07" formula="GETH.DMA_ACCENCH0_WRA_EN07.+GETH.MAC0_TCQ0_ACCEN_WRA_EN07.+GETH.MAC0_TCQ4_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN08" formula="GETH.DMA_ACCENCH0_WRA_EN08.+GETH.MAC0_TCQ0_ACCEN_WRA_EN08.+GETH.MAC0_TCQ4_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN09" formula="GETH.DMA_ACCENCH0_WRA_EN09.+GETH.MAC0_TCQ0_ACCEN_WRA_EN09.+GETH.MAC0_TCQ4_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN10" formula="GETH.DMA_ACCENCH0_WRA_EN10.+GETH.MAC0_TCQ0_ACCEN_WRA_EN10.+GETH.MAC0_TCQ4_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN11" formula="GETH.DMA_ACCENCH0_WRA_EN11.+GETH.MAC0_TCQ0_ACCEN_WRA_EN11.+GETH.MAC0_TCQ4_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_WRA.EN28" formula="GETH.DMA_ACCENCH0_WRA_EN28.+GETH.MAC0_TCQ0_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN00" formula="GETH.DMA_ACCENCH1_WRA_EN00.+GETH.MAC0_TCQ1_ACCEN_WRA_EN00.+GETH.MAC0_TCQ5_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN01" formula="GETH.DMA_ACCENCH1_WRA_EN01.+GETH.MAC0_TCQ1_ACCEN_WRA_EN01.+GETH.MAC0_TCQ5_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN02" formula="GETH.DMA_ACCENCH1_WRA_EN02.+GETH.MAC0_TCQ1_ACCEN_WRA_EN02.+GETH.MAC0_TCQ5_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN03" formula="GETH.DMA_ACCENCH1_WRA_EN03.+GETH.MAC0_TCQ1_ACCEN_WRA_EN03.+GETH.MAC0_TCQ5_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN04" formula="GETH.DMA_ACCENCH1_WRA_EN04.+GETH.MAC0_TCQ1_ACCEN_WRA_EN04.+GETH.MAC0_TCQ5_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN05" formula="GETH.DMA_ACCENCH1_WRA_EN05.+GETH.MAC0_TCQ1_ACCEN_WRA_EN05.+GETH.MAC0_TCQ5_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN06" formula="GETH.DMA_ACCENCH1_WRA_EN06.+GETH.MAC0_TCQ1_ACCEN_WRA_EN06.+GETH.MAC0_TCQ5_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN07" formula="GETH.DMA_ACCENCH1_WRA_EN07.+GETH.MAC0_TCQ1_ACCEN_WRA_EN07.+GETH.MAC0_TCQ5_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN08" formula="GETH.DMA_ACCENCH1_WRA_EN08.+GETH.MAC0_TCQ1_ACCEN_WRA_EN08.+GETH.MAC0_TCQ5_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN09" formula="GETH.DMA_ACCENCH1_WRA_EN09.+GETH.MAC0_TCQ1_ACCEN_WRA_EN09.+GETH.MAC0_TCQ5_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN10" formula="GETH.DMA_ACCENCH1_WRA_EN10.+GETH.MAC0_TCQ1_ACCEN_WRA_EN10.+GETH.MAC0_TCQ5_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN11" formula="GETH.DMA_ACCENCH1_WRA_EN11.+GETH.MAC0_TCQ1_ACCEN_WRA_EN11.+GETH.MAC0_TCQ5_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_WRA.EN28" formula="GETH.DMA_ACCENCH1_WRA_EN28.+GETH.MAC0_TCQ1_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN00" formula="GETH.DMA_ACCENCH2_WRA_EN00.+GETH.MAC0_TCQ2_ACCEN_WRA_EN00.+GETH.MAC0_TCQ6_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN01" formula="GETH.DMA_ACCENCH2_WRA_EN01.+GETH.MAC0_TCQ2_ACCEN_WRA_EN01.+GETH.MAC0_TCQ6_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN02" formula="GETH.DMA_ACCENCH2_WRA_EN02.+GETH.MAC0_TCQ2_ACCEN_WRA_EN02.+GETH.MAC0_TCQ6_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN03" formula="GETH.DMA_ACCENCH2_WRA_EN03.+GETH.MAC0_TCQ2_ACCEN_WRA_EN03.+GETH.MAC0_TCQ6_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN04" formula="GETH.DMA_ACCENCH2_WRA_EN04.+GETH.MAC0_TCQ2_ACCEN_WRA_EN04.+GETH.MAC0_TCQ6_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN05" formula="GETH.DMA_ACCENCH2_WRA_EN05.+GETH.MAC0_TCQ2_ACCEN_WRA_EN05.+GETH.MAC0_TCQ6_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN06" formula="GETH.DMA_ACCENCH2_WRA_EN06.+GETH.MAC0_TCQ2_ACCEN_WRA_EN06.+GETH.MAC0_TCQ6_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN07" formula="GETH.DMA_ACCENCH2_WRA_EN07.+GETH.MAC0_TCQ2_ACCEN_WRA_EN07.+GETH.MAC0_TCQ6_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN08" formula="GETH.DMA_ACCENCH2_WRA_EN08.+GETH.MAC0_TCQ2_ACCEN_WRA_EN08.+GETH.MAC0_TCQ6_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN09" formula="GETH.DMA_ACCENCH2_WRA_EN09.+GETH.MAC0_TCQ2_ACCEN_WRA_EN09.+GETH.MAC0_TCQ6_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN10" formula="GETH.DMA_ACCENCH2_WRA_EN10.+GETH.MAC0_TCQ2_ACCEN_WRA_EN10.+GETH.MAC0_TCQ6_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN11" formula="GETH.DMA_ACCENCH2_WRA_EN11.+GETH.MAC0_TCQ2_ACCEN_WRA_EN11.+GETH.MAC0_TCQ6_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_WRA.EN28" formula="GETH.DMA_ACCENCH2_WRA_EN28.+GETH.MAC0_TCQ2_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN00" formula="GETH.DMA_ACCENCH3_WRA_EN00.+GETH.MAC0_TCQ3_ACCEN_WRA_EN00.+GETH.MAC0_TCQ7_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN01" formula="GETH.DMA_ACCENCH3_WRA_EN01.+GETH.MAC0_TCQ3_ACCEN_WRA_EN01.+GETH.MAC0_TCQ7_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN02" formula="GETH.DMA_ACCENCH3_WRA_EN02.+GETH.MAC0_TCQ3_ACCEN_WRA_EN02.+GETH.MAC0_TCQ7_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN03" formula="GETH.DMA_ACCENCH3_WRA_EN03.+GETH.MAC0_TCQ3_ACCEN_WRA_EN03.+GETH.MAC0_TCQ7_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN04" formula="GETH.DMA_ACCENCH3_WRA_EN04.+GETH.MAC0_TCQ3_ACCEN_WRA_EN04.+GETH.MAC0_TCQ7_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN05" formula="GETH.DMA_ACCENCH3_WRA_EN05.+GETH.MAC0_TCQ3_ACCEN_WRA_EN05.+GETH.MAC0_TCQ7_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN06" formula="GETH.DMA_ACCENCH3_WRA_EN06.+GETH.MAC0_TCQ3_ACCEN_WRA_EN06.+GETH.MAC0_TCQ7_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN07" formula="GETH.DMA_ACCENCH3_WRA_EN07.+GETH.MAC0_TCQ3_ACCEN_WRA_EN07.+GETH.MAC0_TCQ7_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN08" formula="GETH.DMA_ACCENCH3_WRA_EN08.+GETH.MAC0_TCQ3_ACCEN_WRA_EN08.+GETH.MAC0_TCQ7_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN09" formula="GETH.DMA_ACCENCH3_WRA_EN09.+GETH.MAC0_TCQ3_ACCEN_WRA_EN09.+GETH.MAC0_TCQ7_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN10" formula="GETH.DMA_ACCENCH3_WRA_EN10.+GETH.MAC0_TCQ3_ACCEN_WRA_EN10.+GETH.MAC0_TCQ7_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN11" formula="GETH.DMA_ACCENCH3_WRA_EN11.+GETH.MAC0_TCQ3_ACCEN_WRA_EN11.+GETH.MAC0_TCQ7_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_WRA.EN28" formula="GETH.DMA_ACCENCH3_WRA_EN28.+GETH.MAC0_TCQ3_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN00" formula="GETH.DMA_ACCENCH0_RDA_EN00.+GETH.MAC0_TCQ0_ACCEN_RDA_EN00.+GETH.MAC0_TCQ4_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN01" formula="GETH.DMA_ACCENCH0_RDA_EN01.+GETH.MAC0_TCQ0_ACCEN_RDA_EN01.+GETH.MAC0_TCQ4_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN02" formula="GETH.DMA_ACCENCH0_RDA_EN02.+GETH.MAC0_TCQ0_ACCEN_RDA_EN02.+GETH.MAC0_TCQ4_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN03" formula="GETH.DMA_ACCENCH0_RDA_EN03.+GETH.MAC0_TCQ0_ACCEN_RDA_EN03.+GETH.MAC0_TCQ4_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN04" formula="GETH.DMA_ACCENCH0_RDA_EN04.+GETH.MAC0_TCQ0_ACCEN_RDA_EN04.+GETH.MAC0_TCQ4_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN05" formula="GETH.DMA_ACCENCH0_RDA_EN05.+GETH.MAC0_TCQ0_ACCEN_RDA_EN05.+GETH.MAC0_TCQ4_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN06" formula="GETH.DMA_ACCENCH0_RDA_EN06.+GETH.MAC0_TCQ0_ACCEN_RDA_EN06.+GETH.MAC0_TCQ4_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN07" formula="GETH.DMA_ACCENCH0_RDA_EN07.+GETH.MAC0_TCQ0_ACCEN_RDA_EN07.+GETH.MAC0_TCQ4_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN08" formula="GETH.DMA_ACCENCH0_RDA_EN08.+GETH.MAC0_TCQ0_ACCEN_RDA_EN08.+GETH.MAC0_TCQ4_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN09" formula="GETH.DMA_ACCENCH0_RDA_EN09.+GETH.MAC0_TCQ0_ACCEN_RDA_EN09.+GETH.MAC0_TCQ4_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN10" formula="GETH.DMA_ACCENCH0_RDA_EN10.+GETH.MAC0_TCQ0_ACCEN_RDA_EN10.+GETH.MAC0_TCQ4_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN11" formula="GETH.DMA_ACCENCH0_RDA_EN11.+GETH.MAC0_TCQ0_ACCEN_RDA_EN11.+GETH.MAC0_TCQ4_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH0_RDA.EN28" formula="GETH.DMA_ACCENCH0_RDA_EN28.+GETH.MAC0_TCQ0_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN00" formula="GETH.DMA_ACCENCH1_RDA_EN00.+GETH.MAC0_TCQ1_ACCEN_RDA_EN00.+GETH.MAC0_TCQ5_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN01" formula="GETH.DMA_ACCENCH1_RDA_EN01.+GETH.MAC0_TCQ1_ACCEN_RDA_EN01.+GETH.MAC0_TCQ5_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN02" formula="GETH.DMA_ACCENCH1_RDA_EN02.+GETH.MAC0_TCQ1_ACCEN_RDA_EN02.+GETH.MAC0_TCQ5_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN03" formula="GETH.DMA_ACCENCH1_RDA_EN03.+GETH.MAC0_TCQ1_ACCEN_RDA_EN03.+GETH.MAC0_TCQ5_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN04" formula="GETH.DMA_ACCENCH1_RDA_EN04.+GETH.MAC0_TCQ1_ACCEN_RDA_EN04.+GETH.MAC0_TCQ5_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN05" formula="GETH.DMA_ACCENCH1_RDA_EN05.+GETH.MAC0_TCQ1_ACCEN_RDA_EN05.+GETH.MAC0_TCQ5_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN06" formula="GETH.DMA_ACCENCH1_RDA_EN06.+GETH.MAC0_TCQ1_ACCEN_RDA_EN06.+GETH.MAC0_TCQ5_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN07" formula="GETH.DMA_ACCENCH1_RDA_EN07.+GETH.MAC0_TCQ1_ACCEN_RDA_EN07.+GETH.MAC0_TCQ5_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN08" formula="GETH.DMA_ACCENCH1_RDA_EN08.+GETH.MAC0_TCQ1_ACCEN_RDA_EN08.+GETH.MAC0_TCQ5_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN09" formula="GETH.DMA_ACCENCH1_RDA_EN09.+GETH.MAC0_TCQ1_ACCEN_RDA_EN09.+GETH.MAC0_TCQ5_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN10" formula="GETH.DMA_ACCENCH1_RDA_EN10.+GETH.MAC0_TCQ1_ACCEN_RDA_EN10.+GETH.MAC0_TCQ5_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN11" formula="GETH.DMA_ACCENCH1_RDA_EN11.+GETH.MAC0_TCQ1_ACCEN_RDA_EN11.+GETH.MAC0_TCQ5_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH1_RDA.EN28" formula="GETH.DMA_ACCENCH1_RDA_EN28.+GETH.MAC0_TCQ1_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN00" formula="GETH.DMA_ACCENCH2_RDA_EN00.+GETH.MAC0_TCQ2_ACCEN_RDA_EN00.+GETH.MAC0_TCQ6_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN01" formula="GETH.DMA_ACCENCH2_RDA_EN01.+GETH.MAC0_TCQ2_ACCEN_RDA_EN01.+GETH.MAC0_TCQ6_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN02" formula="GETH.DMA_ACCENCH2_RDA_EN02.+GETH.MAC0_TCQ2_ACCEN_RDA_EN02.+GETH.MAC0_TCQ6_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN03" formula="GETH.DMA_ACCENCH2_RDA_EN03.+GETH.MAC0_TCQ2_ACCEN_RDA_EN03.+GETH.MAC0_TCQ6_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN04" formula="GETH.DMA_ACCENCH2_RDA_EN04.+GETH.MAC0_TCQ2_ACCEN_RDA_EN04.+GETH.MAC0_TCQ6_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN05" formula="GETH.DMA_ACCENCH2_RDA_EN05.+GETH.MAC0_TCQ2_ACCEN_RDA_EN05.+GETH.MAC0_TCQ6_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN06" formula="GETH.DMA_ACCENCH2_RDA_EN06.+GETH.MAC0_TCQ2_ACCEN_RDA_EN06.+GETH.MAC0_TCQ6_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN07" formula="GETH.DMA_ACCENCH2_RDA_EN07.+GETH.MAC0_TCQ2_ACCEN_RDA_EN07.+GETH.MAC0_TCQ6_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN08" formula="GETH.DMA_ACCENCH2_RDA_EN08.+GETH.MAC0_TCQ2_ACCEN_RDA_EN08.+GETH.MAC0_TCQ6_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN09" formula="GETH.DMA_ACCENCH2_RDA_EN09.+GETH.MAC0_TCQ2_ACCEN_RDA_EN09.+GETH.MAC0_TCQ6_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN10" formula="GETH.DMA_ACCENCH2_RDA_EN10.+GETH.MAC0_TCQ2_ACCEN_RDA_EN10.+GETH.MAC0_TCQ6_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN11" formula="GETH.DMA_ACCENCH2_RDA_EN11.+GETH.MAC0_TCQ2_ACCEN_RDA_EN11.+GETH.MAC0_TCQ6_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH2_RDA.EN28" formula="GETH.DMA_ACCENCH2_RDA_EN28.+GETH.MAC0_TCQ2_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN00" formula="GETH.DMA_ACCENCH3_RDA_EN00.+GETH.MAC0_TCQ3_ACCEN_RDA_EN00.+GETH.MAC0_TCQ7_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN01" formula="GETH.DMA_ACCENCH3_RDA_EN01.+GETH.MAC0_TCQ3_ACCEN_RDA_EN01.+GETH.MAC0_TCQ7_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN02" formula="GETH.DMA_ACCENCH3_RDA_EN02.+GETH.MAC0_TCQ3_ACCEN_RDA_EN02.+GETH.MAC0_TCQ7_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN03" formula="GETH.DMA_ACCENCH3_RDA_EN03.+GETH.MAC0_TCQ3_ACCEN_RDA_EN03.+GETH.MAC0_TCQ7_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN04" formula="GETH.DMA_ACCENCH3_RDA_EN04.+GETH.MAC0_TCQ3_ACCEN_RDA_EN04.+GETH.MAC0_TCQ7_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN05" formula="GETH.DMA_ACCENCH3_RDA_EN05.+GETH.MAC0_TCQ3_ACCEN_RDA_EN05.+GETH.MAC0_TCQ7_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN06" formula="GETH.DMA_ACCENCH3_RDA_EN06.+GETH.MAC0_TCQ3_ACCEN_RDA_EN06.+GETH.MAC0_TCQ7_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN07" formula="GETH.DMA_ACCENCH3_RDA_EN07.+GETH.MAC0_TCQ3_ACCEN_RDA_EN07.+GETH.MAC0_TCQ7_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN08" formula="GETH.DMA_ACCENCH3_RDA_EN08.+GETH.MAC0_TCQ3_ACCEN_RDA_EN08.+GETH.MAC0_TCQ7_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN09" formula="GETH.DMA_ACCENCH3_RDA_EN09.+GETH.MAC0_TCQ3_ACCEN_RDA_EN09.+GETH.MAC0_TCQ7_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN10" formula="GETH.DMA_ACCENCH3_RDA_EN10.+GETH.MAC0_TCQ3_ACCEN_RDA_EN10.+GETH.MAC0_TCQ7_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN11" formula="GETH.DMA_ACCENCH3_RDA_EN11.+GETH.MAC0_TCQ3_ACCEN_RDA_EN11.+GETH.MAC0_TCQ7_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH3_RDA.EN28" formula="GETH.DMA_ACCENCH3_RDA_EN28.+GETH.MAC0_TCQ3_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+
+
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN00" formula="GETH.DMA_ACCENCH4_WRA_EN00.+GETH.MAC1_TCQ0_ACCEN_WRA_EN00.+GETH.MAC1_TCQ4_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN01" formula="GETH.DMA_ACCENCH4_WRA_EN01.+GETH.MAC1_TCQ0_ACCEN_WRA_EN01.+GETH.MAC1_TCQ4_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN02" formula="GETH.DMA_ACCENCH4_WRA_EN02.+GETH.MAC1_TCQ0_ACCEN_WRA_EN02.+GETH.MAC1_TCQ4_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN03" formula="GETH.DMA_ACCENCH4_WRA_EN03.+GETH.MAC1_TCQ0_ACCEN_WRA_EN03.+GETH.MAC1_TCQ4_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN04" formula="GETH.DMA_ACCENCH4_WRA_EN04.+GETH.MAC1_TCQ0_ACCEN_WRA_EN04.+GETH.MAC1_TCQ4_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN05" formula="GETH.DMA_ACCENCH4_WRA_EN05.+GETH.MAC1_TCQ0_ACCEN_WRA_EN05.+GETH.MAC1_TCQ4_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN06" formula="GETH.DMA_ACCENCH4_WRA_EN06.+GETH.MAC1_TCQ0_ACCEN_WRA_EN06.+GETH.MAC1_TCQ4_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN07" formula="GETH.DMA_ACCENCH4_WRA_EN07.+GETH.MAC1_TCQ0_ACCEN_WRA_EN07.+GETH.MAC1_TCQ4_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN08" formula="GETH.DMA_ACCENCH4_WRA_EN08.+GETH.MAC1_TCQ0_ACCEN_WRA_EN08.+GETH.MAC1_TCQ4_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN09" formula="GETH.DMA_ACCENCH4_WRA_EN09.+GETH.MAC1_TCQ0_ACCEN_WRA_EN09.+GETH.MAC1_TCQ4_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN10" formula="GETH.DMA_ACCENCH4_WRA_EN10.+GETH.MAC1_TCQ0_ACCEN_WRA_EN10.+GETH.MAC1_TCQ4_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN11" formula="GETH.DMA_ACCENCH4_WRA_EN11.+GETH.MAC1_TCQ0_ACCEN_WRA_EN11.+GETH.MAC1_TCQ4_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_WRA.EN28" formula="GETH.DMA_ACCENCH4_WRA_EN28.+GETH.MAC1_TCQ0_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN00" formula="GETH.DMA_ACCENCH5_WRA_EN00.+GETH.MAC1_TCQ1_ACCEN_WRA_EN00.+GETH.MAC1_TCQ5_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN01" formula="GETH.DMA_ACCENCH5_WRA_EN01.+GETH.MAC1_TCQ1_ACCEN_WRA_EN01.+GETH.MAC1_TCQ5_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN02" formula="GETH.DMA_ACCENCH5_WRA_EN02.+GETH.MAC1_TCQ1_ACCEN_WRA_EN02.+GETH.MAC1_TCQ5_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN03" formula="GETH.DMA_ACCENCH5_WRA_EN03.+GETH.MAC1_TCQ1_ACCEN_WRA_EN03.+GETH.MAC1_TCQ5_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN04" formula="GETH.DMA_ACCENCH5_WRA_EN04.+GETH.MAC1_TCQ1_ACCEN_WRA_EN04.+GETH.MAC1_TCQ5_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN05" formula="GETH.DMA_ACCENCH5_WRA_EN05.+GETH.MAC1_TCQ1_ACCEN_WRA_EN05.+GETH.MAC1_TCQ5_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN06" formula="GETH.DMA_ACCENCH5_WRA_EN06.+GETH.MAC1_TCQ1_ACCEN_WRA_EN06.+GETH.MAC1_TCQ5_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN07" formula="GETH.DMA_ACCENCH5_WRA_EN07.+GETH.MAC1_TCQ1_ACCEN_WRA_EN07.+GETH.MAC1_TCQ5_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN08" formula="GETH.DMA_ACCENCH5_WRA_EN08.+GETH.MAC1_TCQ1_ACCEN_WRA_EN08.+GETH.MAC1_TCQ5_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN09" formula="GETH.DMA_ACCENCH5_WRA_EN09.+GETH.MAC1_TCQ1_ACCEN_WRA_EN09.+GETH.MAC1_TCQ5_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN10" formula="GETH.DMA_ACCENCH5_WRA_EN10.+GETH.MAC1_TCQ1_ACCEN_WRA_EN10.+GETH.MAC1_TCQ5_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN11" formula="GETH.DMA_ACCENCH5_WRA_EN11.+GETH.MAC1_TCQ1_ACCEN_WRA_EN11.+GETH.MAC1_TCQ5_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_WRA.EN28" formula="GETH.DMA_ACCENCH5_WRA_EN28.+GETH.MAC1_TCQ1_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN00" formula="GETH.DMA_ACCENCH6_WRA_EN00.+GETH.MAC1_TCQ2_ACCEN_WRA_EN00.+GETH.MAC1_TCQ6_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN01" formula="GETH.DMA_ACCENCH6_WRA_EN01.+GETH.MAC1_TCQ2_ACCEN_WRA_EN01.+GETH.MAC1_TCQ6_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN02" formula="GETH.DMA_ACCENCH6_WRA_EN02.+GETH.MAC1_TCQ2_ACCEN_WRA_EN02.+GETH.MAC1_TCQ6_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN03" formula="GETH.DMA_ACCENCH6_WRA_EN03.+GETH.MAC1_TCQ2_ACCEN_WRA_EN03.+GETH.MAC1_TCQ6_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN04" formula="GETH.DMA_ACCENCH6_WRA_EN04.+GETH.MAC1_TCQ2_ACCEN_WRA_EN04.+GETH.MAC1_TCQ6_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN05" formula="GETH.DMA_ACCENCH6_WRA_EN05.+GETH.MAC1_TCQ2_ACCEN_WRA_EN05.+GETH.MAC1_TCQ6_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN06" formula="GETH.DMA_ACCENCH6_WRA_EN06.+GETH.MAC1_TCQ2_ACCEN_WRA_EN06.+GETH.MAC1_TCQ6_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN07" formula="GETH.DMA_ACCENCH6_WRA_EN07.+GETH.MAC1_TCQ2_ACCEN_WRA_EN07.+GETH.MAC1_TCQ6_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN08" formula="GETH.DMA_ACCENCH6_WRA_EN08.+GETH.MAC1_TCQ2_ACCEN_WRA_EN08.+GETH.MAC1_TCQ6_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN09" formula="GETH.DMA_ACCENCH6_WRA_EN09.+GETH.MAC1_TCQ2_ACCEN_WRA_EN09.+GETH.MAC1_TCQ6_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN10" formula="GETH.DMA_ACCENCH6_WRA_EN10.+GETH.MAC1_TCQ2_ACCEN_WRA_EN10.+GETH.MAC1_TCQ6_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN11" formula="GETH.DMA_ACCENCH6_WRA_EN11.+GETH.MAC1_TCQ2_ACCEN_WRA_EN11.+GETH.MAC1_TCQ6_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_WRA.EN28" formula="GETH.DMA_ACCENCH6_WRA_EN28.+GETH.MAC1_TCQ2_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN00" formula="GETH.DMA_ACCENCH7_WRA_EN00.+GETH.MAC1_TCQ3_ACCEN_WRA_EN00.+GETH.MAC1_TCQ7_ACCEN_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN01" formula="GETH.DMA_ACCENCH7_WRA_EN01.+GETH.MAC1_TCQ3_ACCEN_WRA_EN01.+GETH.MAC1_TCQ7_ACCEN_WRA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN02" formula="GETH.DMA_ACCENCH7_WRA_EN02.+GETH.MAC1_TCQ3_ACCEN_WRA_EN02.+GETH.MAC1_TCQ7_ACCEN_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN03" formula="GETH.DMA_ACCENCH7_WRA_EN03.+GETH.MAC1_TCQ3_ACCEN_WRA_EN03.+GETH.MAC1_TCQ7_ACCEN_WRA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN04" formula="GETH.DMA_ACCENCH7_WRA_EN04.+GETH.MAC1_TCQ3_ACCEN_WRA_EN04.+GETH.MAC1_TCQ7_ACCEN_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN05" formula="GETH.DMA_ACCENCH7_WRA_EN05.+GETH.MAC1_TCQ3_ACCEN_WRA_EN05.+GETH.MAC1_TCQ7_ACCEN_WRA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN06" formula="GETH.DMA_ACCENCH7_WRA_EN06.+GETH.MAC1_TCQ3_ACCEN_WRA_EN06.+GETH.MAC1_TCQ7_ACCEN_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN07" formula="GETH.DMA_ACCENCH7_WRA_EN07.+GETH.MAC1_TCQ3_ACCEN_WRA_EN07.+GETH.MAC1_TCQ7_ACCEN_WRA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN08" formula="GETH.DMA_ACCENCH7_WRA_EN08.+GETH.MAC1_TCQ3_ACCEN_WRA_EN08.+GETH.MAC1_TCQ7_ACCEN_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN09" formula="GETH.DMA_ACCENCH7_WRA_EN09.+GETH.MAC1_TCQ3_ACCEN_WRA_EN09.+GETH.MAC1_TCQ7_ACCEN_WRA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN10" formula="GETH.DMA_ACCENCH7_WRA_EN10.+GETH.MAC1_TCQ3_ACCEN_WRA_EN10.+GETH.MAC1_TCQ7_ACCEN_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN11" formula="GETH.DMA_ACCENCH7_WRA_EN11.+GETH.MAC1_TCQ3_ACCEN_WRA_EN11.+GETH.MAC1_TCQ7_ACCEN_WRA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_WRA.EN28" formula="GETH.DMA_ACCENCH7_WRA_EN28.+GETH.MAC1_TCQ3_ACCEN_WRA_EN28" header="tc4d_geth_prot_cfg.h"/>
+
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN00" formula="GETH.DMA_ACCENCH4_RDA_EN00.+GETH.MAC1_TCQ0_ACCEN_RDA_EN00.+GETH.MAC1_TCQ4_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN01" formula="GETH.DMA_ACCENCH4_RDA_EN01.+GETH.MAC1_TCQ0_ACCEN_RDA_EN01.+GETH.MAC1_TCQ4_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN02" formula="GETH.DMA_ACCENCH4_RDA_EN02.+GETH.MAC1_TCQ0_ACCEN_RDA_EN02.+GETH.MAC1_TCQ4_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN03" formula="GETH.DMA_ACCENCH4_RDA_EN03.+GETH.MAC1_TCQ0_ACCEN_RDA_EN03.+GETH.MAC1_TCQ4_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN04" formula="GETH.DMA_ACCENCH4_RDA_EN04.+GETH.MAC1_TCQ0_ACCEN_RDA_EN04.+GETH.MAC1_TCQ4_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN05" formula="GETH.DMA_ACCENCH4_RDA_EN05.+GETH.MAC1_TCQ0_ACCEN_RDA_EN05.+GETH.MAC1_TCQ4_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN06" formula="GETH.DMA_ACCENCH4_RDA_EN06.+GETH.MAC1_TCQ0_ACCEN_RDA_EN06.+GETH.MAC1_TCQ4_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN07" formula="GETH.DMA_ACCENCH4_RDA_EN07.+GETH.MAC1_TCQ0_ACCEN_RDA_EN07.+GETH.MAC1_TCQ4_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN08" formula="GETH.DMA_ACCENCH4_RDA_EN08.+GETH.MAC1_TCQ0_ACCEN_RDA_EN08.+GETH.MAC1_TCQ4_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN09" formula="GETH.DMA_ACCENCH4_RDA_EN09.+GETH.MAC1_TCQ0_ACCEN_RDA_EN09.+GETH.MAC1_TCQ4_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN10" formula="GETH.DMA_ACCENCH4_RDA_EN10.+GETH.MAC1_TCQ0_ACCEN_RDA_EN10.+GETH.MAC1_TCQ4_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN11" formula="GETH.DMA_ACCENCH4_RDA_EN11.+GETH.MAC1_TCQ0_ACCEN_RDA_EN11.+GETH.MAC1_TCQ4_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH4_RDA.EN28" formula="GETH.DMA_ACCENCH4_RDA_EN28.+GETH.MAC1_TCQ0_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN00" formula="GETH.DMA_ACCENCH5_RDA_EN00.+GETH.MAC1_TCQ1_ACCEN_RDA_EN00.+GETH.MAC1_TCQ5_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN01" formula="GETH.DMA_ACCENCH5_RDA_EN01.+GETH.MAC1_TCQ1_ACCEN_RDA_EN01.+GETH.MAC1_TCQ5_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN02" formula="GETH.DMA_ACCENCH5_RDA_EN02.+GETH.MAC1_TCQ1_ACCEN_RDA_EN02.+GETH.MAC1_TCQ5_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN03" formula="GETH.DMA_ACCENCH5_RDA_EN03.+GETH.MAC1_TCQ1_ACCEN_RDA_EN03.+GETH.MAC1_TCQ5_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN04" formula="GETH.DMA_ACCENCH5_RDA_EN04.+GETH.MAC1_TCQ1_ACCEN_RDA_EN04.+GETH.MAC1_TCQ5_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN05" formula="GETH.DMA_ACCENCH5_RDA_EN05.+GETH.MAC1_TCQ1_ACCEN_RDA_EN05.+GETH.MAC1_TCQ5_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN06" formula="GETH.DMA_ACCENCH5_RDA_EN06.+GETH.MAC1_TCQ1_ACCEN_RDA_EN06.+GETH.MAC1_TCQ5_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN07" formula="GETH.DMA_ACCENCH5_RDA_EN07.+GETH.MAC1_TCQ1_ACCEN_RDA_EN07.+GETH.MAC1_TCQ5_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN08" formula="GETH.DMA_ACCENCH5_RDA_EN08.+GETH.MAC1_TCQ1_ACCEN_RDA_EN08.+GETH.MAC1_TCQ5_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN09" formula="GETH.DMA_ACCENCH5_RDA_EN09.+GETH.MAC1_TCQ1_ACCEN_RDA_EN09.+GETH.MAC1_TCQ5_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN10" formula="GETH.DMA_ACCENCH5_RDA_EN10.+GETH.MAC1_TCQ1_ACCEN_RDA_EN10.+GETH.MAC1_TCQ5_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN11" formula="GETH.DMA_ACCENCH5_RDA_EN11.+GETH.MAC1_TCQ1_ACCEN_RDA_EN11.+GETH.MAC1_TCQ5_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH5_RDA.EN28" formula="GETH.DMA_ACCENCH5_RDA_EN28.+GETH.MAC1_TCQ1_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN00" formula="GETH.DMA_ACCENCH6_RDA_EN00.+GETH.MAC1_TCQ2_ACCEN_RDA_EN00.+GETH.MAC1_TCQ6_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN01" formula="GETH.DMA_ACCENCH6_RDA_EN01.+GETH.MAC1_TCQ2_ACCEN_RDA_EN01.+GETH.MAC1_TCQ6_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN02" formula="GETH.DMA_ACCENCH6_RDA_EN02.+GETH.MAC1_TCQ2_ACCEN_RDA_EN02.+GETH.MAC1_TCQ6_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN03" formula="GETH.DMA_ACCENCH6_RDA_EN03.+GETH.MAC1_TCQ2_ACCEN_RDA_EN03.+GETH.MAC1_TCQ6_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN04" formula="GETH.DMA_ACCENCH6_RDA_EN04.+GETH.MAC1_TCQ2_ACCEN_RDA_EN04.+GETH.MAC1_TCQ6_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN05" formula="GETH.DMA_ACCENCH6_RDA_EN05.+GETH.MAC1_TCQ2_ACCEN_RDA_EN05.+GETH.MAC1_TCQ6_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN06" formula="GETH.DMA_ACCENCH6_RDA_EN06.+GETH.MAC1_TCQ2_ACCEN_RDA_EN06.+GETH.MAC1_TCQ6_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN07" formula="GETH.DMA_ACCENCH6_RDA_EN07.+GETH.MAC1_TCQ2_ACCEN_RDA_EN07.+GETH.MAC1_TCQ6_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN08" formula="GETH.DMA_ACCENCH6_RDA_EN08.+GETH.MAC1_TCQ2_ACCEN_RDA_EN08.+GETH.MAC1_TCQ6_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN09" formula="GETH.DMA_ACCENCH6_RDA_EN09.+GETH.MAC1_TCQ2_ACCEN_RDA_EN09.+GETH.MAC1_TCQ6_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN10" formula="GETH.DMA_ACCENCH6_RDA_EN10.+GETH.MAC1_TCQ2_ACCEN_RDA_EN10.+GETH.MAC1_TCQ6_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN11" formula="GETH.DMA_ACCENCH6_RDA_EN11.+GETH.MAC1_TCQ2_ACCEN_RDA_EN11.+GETH.MAC1_TCQ6_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH6_RDA.EN28" formula="GETH.DMA_ACCENCH6_RDA_EN28.+GETH.MAC1_TCQ2_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+                                                                                                                                 
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN00" formula="GETH.DMA_ACCENCH7_RDA_EN00.+GETH.MAC1_TCQ3_ACCEN_RDA_EN00.+GETH.MAC1_TCQ7_ACCEN_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN01" formula="GETH.DMA_ACCENCH7_RDA_EN01.+GETH.MAC1_TCQ3_ACCEN_RDA_EN01.+GETH.MAC1_TCQ7_ACCEN_RDA_EN01" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN02" formula="GETH.DMA_ACCENCH7_RDA_EN02.+GETH.MAC1_TCQ3_ACCEN_RDA_EN02.+GETH.MAC1_TCQ7_ACCEN_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN03" formula="GETH.DMA_ACCENCH7_RDA_EN03.+GETH.MAC1_TCQ3_ACCEN_RDA_EN03.+GETH.MAC1_TCQ7_ACCEN_RDA_EN03" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN04" formula="GETH.DMA_ACCENCH7_RDA_EN04.+GETH.MAC1_TCQ3_ACCEN_RDA_EN04.+GETH.MAC1_TCQ7_ACCEN_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN05" formula="GETH.DMA_ACCENCH7_RDA_EN05.+GETH.MAC1_TCQ3_ACCEN_RDA_EN05.+GETH.MAC1_TCQ7_ACCEN_RDA_EN05" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN06" formula="GETH.DMA_ACCENCH7_RDA_EN06.+GETH.MAC1_TCQ3_ACCEN_RDA_EN06.+GETH.MAC1_TCQ7_ACCEN_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN07" formula="GETH.DMA_ACCENCH7_RDA_EN07.+GETH.MAC1_TCQ3_ACCEN_RDA_EN07.+GETH.MAC1_TCQ7_ACCEN_RDA_EN07" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN08" formula="GETH.DMA_ACCENCH7_RDA_EN08.+GETH.MAC1_TCQ3_ACCEN_RDA_EN08.+GETH.MAC1_TCQ7_ACCEN_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN09" formula="GETH.DMA_ACCENCH7_RDA_EN09.+GETH.MAC1_TCQ3_ACCEN_RDA_EN09.+GETH.MAC1_TCQ7_ACCEN_RDA_EN09" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN10" formula="GETH.DMA_ACCENCH7_RDA_EN10.+GETH.MAC1_TCQ3_ACCEN_RDA_EN10.+GETH.MAC1_TCQ7_ACCEN_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN11" formula="GETH.DMA_ACCENCH7_RDA_EN11.+GETH.MAC1_TCQ3_ACCEN_RDA_EN11.+GETH.MAC1_TCQ7_ACCEN_RDA_EN11" header="tc4d_geth_prot_cfg.h"/>
+		<math visible="false" define="GETH.ACCENCH7_RDA.EN28" formula="GETH.DMA_ACCENCH7_RDA_EN28.+GETH.MAC1_TCQ3_ACCEN_RDA_EN28" header="tc4d_geth_prot_cfg.h"/>
+
+	</horizontalcontainer>
+</ifxmlcfg>

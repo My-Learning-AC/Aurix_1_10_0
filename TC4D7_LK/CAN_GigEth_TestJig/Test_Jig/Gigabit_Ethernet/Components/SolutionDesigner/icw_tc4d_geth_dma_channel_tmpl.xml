@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DMA Channel Template -->
+<!-- Parameters: -->
+<!--   IDX: channel index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>d9404350c6c5d3bc35a768f4540ed3ed227c7e9df1022e24b69afd48528a73ae</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <verticalcontainer label="Channel$IDX$" stretch="2" size="-1;700">
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx0_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx1_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx2_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx3_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx4_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx5_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx6_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx7_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx0_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx1_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx2_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx3_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx4_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx5_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx6_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx7_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_DMA$IDX$_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx0_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx1_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx2_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx3_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx4_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx5_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx6_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Tx7_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx0_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx1_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx2_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx3_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx4_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx5_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx6_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Tx7_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_DMA$IDX$_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_DMA$IDX$_Dashed_Link" default="hidden"/>
+		<!--checkbox label="Channel enable" define="GETH.DMA_CH$IDX$_EN" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+			<action event="checked" cmd="setDef" data="GETH.DMA_CH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="GETH.DMA_CH$IDX$_CONT.enabled=0"/>
+		</checkbox-->
+		<math visible="false" define="GETH.DMA_CH$IDX$_EN" formula="GETH.DMA_TXCH$IDX$_EN.+GETH.DMA_RXCH$IDX$_EN"/>
+        <verticalcontainer define="GETH.DMA_CH$IDX$_CONT">
+			<groupcontainer label="Access Rights" font="Source Sans Pro,12,0,0,64,0,0,0,0,0" stretch="2">
+				<gridcontainer columns="7">
+					<horizontalcontainer size="80;-1" stretch="3">
+						<text label="Source"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Core" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Core" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Core" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Core" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Core" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Core" alignment="4"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="80;-1" stretch="3">
+						<text label=" "/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label=" 0  " alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label=" 1  " alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label=" 2  " alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label=" 3  " alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label=" 4  " alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label=" 5  " alignment="4"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="80;-1" stretch="3">
+						<text label="Write Access"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN00" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN02" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN04" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN06" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN08" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN10" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="80;-1" stretch="3">
+						<text label="Read Access"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN00" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN02" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN04" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN06" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN08" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN10" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_WRA_EN01" formula="GETH.DMA_ACCENCH$IDX$_WRA_EN00" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_WRA_EN03" formula="GETH.DMA_ACCENCH$IDX$_WRA_EN02" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_WRA_EN05" formula="GETH.DMA_ACCENCH$IDX$_WRA_EN04" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_WRA_EN07" formula="GETH.DMA_ACCENCH$IDX$_WRA_EN06" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_WRA_EN09" formula="GETH.DMA_ACCENCH$IDX$_WRA_EN08" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_WRA_EN11" formula="GETH.DMA_ACCENCH$IDX$_WRA_EN10" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_RDA_EN01" formula="GETH.DMA_ACCENCH$IDX$_RDA_EN00" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_RDA_EN03" formula="GETH.DMA_ACCENCH$IDX$_RDA_EN02" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_RDA_EN05" formula="GETH.DMA_ACCENCH$IDX$_RDA_EN04" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_RDA_EN07" formula="GETH.DMA_ACCENCH$IDX$_RDA_EN06" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_RDA_EN09" formula="GETH.DMA_ACCENCH$IDX$_RDA_EN08" header="tc4d_geth_prot_cfg.h"/>
+					<math visible="false" define="GETH.DMA_ACCENCH$IDX$_RDA_EN11" formula="GETH.DMA_ACCENCH$IDX$_RDA_EN10" header="tc4d_geth_prot_cfg.h"/>
+				</gridcontainer>
+				<gridcontainer columns="4" size="310;-1">
+					<horizontalcontainer size="40;-1">
+						<text label="DMA0" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="DMA0" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="DMA1" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="DMA1" alignment="4"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="40;-1">
+						<text label="Ch0" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Ch1" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Ch0" alignment="4"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<text label="Ch1" alignment="4"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_WRA.EN16" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_WRA.EN17" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_WRB.EN32" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_WRB.EN33" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_RDA.EN16" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_RDA.EN17" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_RDB.EN32" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.ACCENCH$IDX$_RDB.EN33" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+				</gridcontainer>
+				<gridcontainer columns="1" size="40;-1">
+					<horizontalcontainer size="40;-1">
+						<text label="DAP" alignment="4"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="40;-1">
+						<text label="" alignment="4"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_WRA_EN28" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+					<!-- next row -->
+					<horizontalcontainer size="40;-1">
+						<checkbox define="GETH.DMA_ACCENCH$IDX$_RDA_EN28" default="1" alignment="4" header="tc4d_geth_prot_cfg.h"/>
+					</horizontalcontainer>
+				</gridcontainer>
+			</groupcontainer>
+			<groupcontainer label="Port selection" font="Source Sans Pro,12,0,0,64,0,0,0,0,0" stretch="2">
+				<!--combo label="Brdg Port" define="GETH.DMA_PORT_SELECTION_CH$IDX$" default="label=Bridge.Port0" header="tc4d_geth_brdg_cfg.h">
+					<item label="Bridge.Port0"/>
+					<item label="Bridge.Port1"/>
+				</combo-->
+				<radio define="GETH.DMA_PORT_SELECTION_CH$IDX$" default="0">
+					<radiobutton label="Bridge.Port0" value="0"/>
+					<radiobutton label="Bridge.Port1" value="1"/>
+				</radio>
+			</groupcontainer>
+			<horizontalcontainer>
+				<include IDX="$IDX$">icw_tc4d_geth_dma_tx_tmpl.xml</include>
+				<include IDX="$IDX$">icw_tc4d_geth_dma_rx_tmpl.xml</include>
+				<!--combo visible="false" label="Brdg Port" define="GETH.DMA_PORT_SELECTION_CH$IDX$" default="label=Bridge.Port0" header="tc4d_geth_brdg_cfg.h">
+					<item label="Bridge.Port0"/>
+					<item label="Bridge.Port1"/>
+				</combo-->
+			</horizontalcontainer>
+        </verticalcontainer>
+    </verticalcontainer>
+</ifxmlcfg>

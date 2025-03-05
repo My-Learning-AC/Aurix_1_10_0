@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- VLAN Insertion Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: address index, range 1..31 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>99cf25f237651aa750fd3223a8059b715484522c892b782046c094f48525ed0a</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<groupcontainer enabled="false" label="VLAN Inclusion" define="GETH.PORT$PORT$_MAC_VLAN_INCL$IDX$_CONT">
+		<gridcontainer columns="3">
+			<text label="VLAN Type"/>
+			<radio define="GETH.PORT$PORT$_MAC_VLAN_INCL$IDX$.CSVL" default="0">
+				<radiobutton label="C-VLAN (0x8100)" value="0"/>
+				<radiobutton label="S-VLAN (0x88A8)" value="1"/>
+			</radio>
+
+			<text label="VLAN Tag"/>
+			<hexspinbox define="GETH.PORT$PORT$_MAC_VLAN_INCL$IDX$.VLT" range="0;65535"/>
+		</gridcontainer>
+	</groupcontainer>
+</ifxmlcfg>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- MAC Address Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: address index, range 1..31 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>5b61c4275e52a4dd2c015ad368bfe0ab21426bd3e8b931679cf362cca3732756</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<groupcontainer label="MAC Address $IDX$" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_CONT">
+		<verticalcontainer>
+			<horizontalcontainer stretch="2">
+				<text label="Enable"/>
+				<checkbox define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH.AE" default="0">
+					<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC.ADDR$IDX$_CONTAINTER.enabled=1;GETH.PORT$PORT$_MAC_ADDRESS$IDX$_CONT.color=0x68C9AD"/>
+					<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC.ADDR$IDX$_CONTAINTER.enabled=0;GETH.PORT$PORT$_MAC_ADDRESS$IDX$_CONT.color=0xFFFFFF"/>
+				</checkbox>
+			</horizontalcontainer>
+			<groupcontainer define="GETH.PORT$PORT$_MAC.ADDR$IDX$_CONTAINTER" enabled="false" stretch="2" size="-1;400">
+				<formcontainer size="400;-1">
+					<combo label="Address Type" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH.SA" default="label=Destination Address">
+						<item label="Destination Address"/>
+						<item label="Source Address"/>
+					</combo>
+					<edit label="MAC Address" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$" numeric="1" validator="([0-9A-FXa-fx]{2}[:]){5}([0-9A-FXa-fx]{2})" default="FF:FF:FF:FF:FF:FF"/>
+					<text label="DMA Select"/>
+					<horizontalcontainer define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_DCS_CONT">
+						<combo define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH.DCS" default="label=Channel 0">
+							<item label="Channel 0" value="0"/>
+							<item label="Channel 1" value="1"/>
+							<item label="Channel 2" value="2"/>
+							<item label="Channel 3" value="3"/>
+							<item label="Channel 4" value="4"/>
+							<item label="Channel 5" value="5"/>
+							<item label="Channel 6" value="6"/>
+							<item label="Channel 7" value="7"/>
+						</combo>
+					</horizontalcontainer>
+					<horizontalcontainer visible="false" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_XDCS_CONT1">
+						<text label="7"/>
+						<text label="6"/>
+						<text label="5"/>
+						<text label="4"/>
+						<text label="3"/>
+						<text label="2"/>
+						<text label="1"/>
+						<text label="0"/>
+					</horizontalcontainer>
+					<horizontalcontainer visible="false" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_XDCS_CONT2">
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[7]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[6]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[5]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[4]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[3]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[2]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[1]"/>
+						<checkbox define="GETH.PORT$PORT$_MAC_DCHSEL_INDREG$IDX$[0]"/>
+					</horizontalcontainer>
+					<horizontalcontainer label="Policy Counter">
+						<verticalcontainer size="30;-1">
+							<checkbox define="GETH.PORT$PORT$_MAC_DPCSEL_INDREG$IDX$.PCEN">
+								<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_DPCSEL_INDREG$IDX$_CONT.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_DPCSEL_INDREG$IDX$_CONT.enabled=0"/>
+							</checkbox>
+						</verticalcontainer>
+						<verticalcontainer enabled="false" define="GETH.PORT$PORT$_MAC_DPCSEL_INDREG$IDX$_CONT">
+							<spinbox define="GETH.PORT$PORT$_MAC_DPCSEL_INDREG$IDX$.PCNUM" range="0;15"/>
+						</verticalcontainer>
+					</horizontalcontainer>
+				</formcontainer>
+				<var define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH_VAR" default="0xFFFF"/>
+				<var define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_LOW_VAR" default="0xFFFFFFFF"/>
+				<math visible="false" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH.ADDRHI" formula="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH_VAR"/>
+				<math visible="false" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_LOW.ADDRLO" formula="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_LOW_VAR"/>
+				<var define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_MASK_VAR" default="0x0"/>
+				<math visible="false" define="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_HIGH.MBC" formula="GETH.PORT$PORT$_MAC_ADDRESS$IDX$_MASK_VAR"/>
+			</groupcontainer>
+		</verticalcontainer>
+	</groupcontainer>
+</ifxmlcfg>

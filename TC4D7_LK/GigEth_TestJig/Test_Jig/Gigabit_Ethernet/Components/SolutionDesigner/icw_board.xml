@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+	<checksum>53c0009b1d4650e3cf04c397034fd8a4cbf7270559ce62fd2086f06f09df122b</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<pythonstartup file="icw_tc4d_pre.py"/>
+	<pythonstartup file="icw_tc4d_geth.py" afterinit="1"/>
+	<pythonstartup file="icw_tc4d_leth.py" afterinit="1"/>
+	<initialactions value="1"/>
+	<horizontalcontainer>
+		<tabcontainer resize="1">
+			<verticalcontainer label="Board" size="1050;450" stretch="2">
+				<header file="icw_tc4d_board_cfg.h">
+					<formcontainer size="400;-1" stretch="2">
+						<combo label="Board Selection" define="BOARD.SLECTION" default="label=TC4D COM TriBoard">
+							<item label="TC4D COM TriBoard" lockon="LETH.PORT0_EN=0;LETH.PORT1_EN=0;LETH.PORT2_EN=0;LETH.PORT3_EN=0;LETH.DMA_MODE.SWR=0">
+								<action event="selected" cmd="setDef" data="BOARD.TRIBOARD_TOP.visible=1;BOARD.DUT_BOARD_TOP.visible=0;"/>
+							</item>
+							<item label="TC4D DUT Board V1.1">
+								<action event="selected" cmd="setDef" data="BOARD.TRIBOARD_TOP.visible=0;BOARD.DUT_BOARD_TOP.visible=1"/>
+							</item>
+							<item label="TC4D RootComplex Board" lockon="GETH.MACEN.MAC0=0;LETH.PORT0_EN=0;LETH.PORT1_EN=0;LETH.PORT2_EN=0;LETH.PORT3_EN=0;LETH.DMA_MODE.SWR=0">
+								<action event="selected" cmd="setDef" data="BOARD.TRIBOARD_TOP.visible=0;BOARD.DUT_BOARD_TOP.visible=0"/>
+							</item>
+							<item label="TC4D Gateway Board">
+								<action event="selected" cmd="setDef" data="BOARD.TRIBOARD_TOP.visible=0;BOARD.DUT_BOARD_TOP.visible=0"/>
+							</item>
+							<item label="manual">
+								<action event="selected" cmd="setDef" data="BOARD.TRIBOARD_TOP.visible=0;BOARD.DUT_BOARD_TOP.visible=0"/>
+							</item>
+						</combo>
+					</formcontainer>
+					<groupcontainer label="TC4D COM TriBoard" define="BOARD.TRIBOARD_TOP" size="400;400">
+						<horizontalcontainer>
+							<groupcontainer label="Phy0 (GETH.Port0)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.TRIBOARD_PHY0_MII" default="label=SGMII">
+										<item label="SGMII"/>
+									</combo>
+									<formcontainer define="BOARD.TRIBOARD_PHY0_RGMII">
+									</formcontainer>
+								</formcontainer>
+							</groupcontainer>
+							<groupcontainer label="Phy1 (GETH.Port1)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.TRIBOARD_PHY1_MII" default="label=SGMII">
+										<item label="SGMII"/>
+									</combo>
+									<formcontainer define="BOARD.TRIBOARD_PHY1_RGMII">
+									</formcontainer>
+								</formcontainer>
+							</groupcontainer>
+						</horizontalcontainer>
+					</groupcontainer>
+					<groupcontainer visible="false" label="TC4D DUT Board V1.1" define="BOARD.DUT_BOARD_TOP" size="1000;400">
+						<horizontalcontainer>
+							<groupcontainer label="Phy0 (GETH.Port0)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.DUT_BOARD_PHY0_MII" default="label=SGMII">
+										<item label="XGMII"/>
+										<item label="SGMII"/>
+										<item label="RGMII"/>
+										<item label="GMII"/>
+										<item label="RMII"/>
+										<item label="MII"/>
+									</combo>
+								</formcontainer>
+							</groupcontainer>
+							<groupcontainer label="Phy1 (GETH.Port1)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.DUT_BOARD_PHY1_MII" default="label=SGMII">
+										<item label="XGMII"/>
+										<item label="SGMII"/>
+										<item label="RGMII"/>
+										<item label="GMII"/>
+										<item label="RMII"/>
+										<item label="MII"/>
+									</combo>
+								</formcontainer>
+							</groupcontainer>
+							<groupcontainer label="Phy2 (LETH.Port0)">
+								<verticalcontainer>
+									<checkbox label="lock pins" define="BOARD.DUT_BOARD_PHY2_LOCK" default="1">
+										<action event="checked" cmd="setDef" data="BOARD.DUT_BOARD_PHY2_PINS_CONT.enabled=0"/>
+										<action event="unchecked" cmd="setDef" data="BOARD.DUT_BOARD_PHY2_PINS_CONT.enabled=1"/>
+									</checkbox>
+									<formcontainer enabled="false" define="BOARD.DUT_BOARD_PHY2_PINS_CONT">
+										<combo label="MII" define="BOARD.DUT_BOARD_PHY2_MII" default="label=RMII">
+											<item label="RMII"/>
+											<item label="MII"/>
+										</combo>
+										<combo label="TXEN" define="BOARD.DUT_BOARD_PHY2_RMII_TXEN" default="label=IfxLeth0_P0_RMIIB_TXEN_P21_1_OUT">
+											<item label="IfxLeth0_P0_RMIIB_TXEN_P21_1_OUT"/>
+											<item label="IfxLeth0_P0_RMIIB_TXEN_P20_6_OUT"/>
+											<item label="IfxLeth0_P0_RMIIC_TXEN_P16_13_OUT"/>
+										</combo>
+										<combo label="TXD0" define="BOARD.DUT_BOARD_PHY2_RMII_TXD0" default="label=IfxLeth0_P0_RMIIB_TXD0_P20_10_OUT">
+											<item label="IfxLeth0_P0_RMIIB_TXD0_P20_1_OUT"/>
+											<item label="IfxLeth0_P0_RMIIB_TXD0_P20_10_OUT"/>
+											<item label="IfxLeth0_P0_RMIIC_TXD0_P16_6_OUT"/>
+											<item label="IfxLeth0_P0_RMIIC_TXD0_P16_9_OUT"/>
+										</combo>
+										<combo label="TXD1" define="BOARD.DUT_BOARD_PHY2_RMII_TXD1" default="label=IfxLeth0_P0_RMIIB_TXD1_P20_9_OUT">
+											<item label="IfxLeth0_P0_RMIIB_TXD1_P20_7_OUT"/>
+											<item label="IfxLeth0_P0_RMIIB_TXD1_P20_9_OUT"/>
+											<item label="IfxLeth0_P0_RMIIC_TXD1_P16_8_OUT"/>
+										</combo>
+										<combo label="RXCLK" define="BOARD.DUT_BOARD_PHY2_RMII_RXCLK" default="label=IfxLeth0_P0_REFCLKB_P21_4_IN">
+											<item label="IfxLeth0_P0_REFCLKB_P21_4_IN"/>
+											<item label="IfxLeth0_P0_REFCLKC_P16_2_IN"/>
+											<item label="IfxLeth0_P0_REFCLKD_P16_2_IN"/>
+										</combo>
+										<combo label="RXD0" define="BOARD.DUT_BOARD_PHY2_RMII_RXD0" default="label=IfxLeth0_P0_MII_RMII_RXD0B_P20_12_IN">
+											<item label="IfxLeth0_P0_MII_RMII_RXD0B_P20_12_IN"/>
+											<item label="IfxLeth0_P0_MII_RMII_RXD0C_P16_4_IN"/>
+											<item label="IfxLeth0_P0_MII_RMII_RXD0D_P16_4_IN"/>
+										</combo>
+										<combo label="RXD1" define="BOARD.DUT_BOARD_PHY2_RMII_RXD1" default="label=IfxLeth0_P0_MII_RMII_RXD1B_P20_11_IN">
+											<item label="IfxLeth0_P0_MII_RMII_RXD1B_P20_11_IN"/>
+											<item label="IfxLeth0_P0_MII_RMII_RXD1C_P16_3_IN"/>
+											<item label="IfxLeth0_P0_MII_RMII_RXD1D_P16_0_IN"/>
+										</combo>
+										<combo label="RXDV" define="BOARD.DUT_BOARD_PHY2_RMII_RXDV" default="label=IfxLeth0_P0_MII_RMII_RXDVB_P20_8_IN">
+											<item label="IfxLeth0_P0_MII_RMII_RXDVB_P20_8_IN"/>
+											<item label="IfxLeth0_P0_MII_RMII_RXDVC_P16_1_IN"/>
+											<item label="IfxLeth0_P0_MII_RMII_RXDVD_P16_10_IN"/>
+										</combo>
+									</formcontainer>
+								</verticalcontainer>
+							</groupcontainer>
+							<groupcontainer label="Phy3 (LETH.Port1)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.DUT_BOARD_PHY3_MII" default="label=RMII">
+										<item label="RMII"/>
+										<item label="MII"/>
+									</combo>
+								</formcontainer>
+							</groupcontainer>
+							<groupcontainer label="Phy4 (LETH.Port2)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.DUT_BOARD_PHY4_MII" default="label=RMII">
+										<item label="RMII"/>
+										<item label="MII"/>
+									</combo>
+								</formcontainer>
+							</groupcontainer>
+							<groupcontainer label="Phy5 (LETH.Port3)">
+								<formcontainer>
+									<combo label="MII" define="BOARD.DUT_BOARD_PHY5_MII" default="label=RMII">
+										<item label="RMII"/>
+										<item label="MII"/>
+									</combo>
+								</formcontainer>
+							</groupcontainer>
+						</horizontalcontainer>
+					</groupcontainer>
+					<math visible="false" define="BOARD.PHY0_MII" formula="BOARD.SLECTION==0?BOARD.TRIBOARD_PHY0_MII:BOARD.SLECTION==1?BOARD.DUT_BOARD_PHY0_MII:0"/>
+				</header>
+			</verticalcontainer>
+			<include>icw_tc4d_geth.xml</include>
+			<include>icw_tc4d_leth.xml</include>
+			<include>icw_tc4d_stm.xml</include>
+			<include>icw_tc4d_led.xml</include>
+		</tabcontainer>
+	</horizontalcontainer>
+</ifxmlcfg>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+	<moduledesc name="LETH MAC" description="Light Ethernet MAC" singleton="1" hide="0"/>
+	<verticalcontainer label="Leth MAC$PORT$">
+		<header file="tc4d_leth_mac_cfg.h">
+			<edit visible="false" define="LETH.PORT$PORT$_MAC_GRAPH_COLOR" svd="0" default="ABD9E4"/>
+			<checkbox label="Enable MAC$PORT$" define="LETH.PORT$PORT$_EN" default="1" font="Source Sans Pro,15,0,0,100,1,0,0,0,0" color="255;128;64">
+				<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_TOP.enabled=1;LETH.PORT$PORT$_MAC_GRAPH_COLOR=ABD9E4"/>
+				<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_TOP.enabled=0;LETH.PORT$PORT$_MAC_GRAPH_COLOR=D0D0D0"/>
+			</checkbox>
+			<groupcontainer enabled="false" define="LETH.PORT$PORT$_MAC_TOP" font="Source Sans Pro,12,0,0,100,0,0,0,0,0">
+				<verticalcontainer>
+					<groupcontainer label="General Settings" font="Source Sans Pro,12,0,0,64,0,0,0,0,0" size="800;400">
+						<verticalcontainer>
+							<formcontainer>
+								<checkbox visible="false" define="LETH.PORT$PORT$_MAC_CONFIGURATION.PS" value="1"/>
+								<var define="LETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS" default="10"/>
+								<var define="LETH.PORT$PORT$_CBS_CLK_PERIOD_NS" default="40"/>
+								<var define="LETH.PORT$PORT$_CBS_BITS_PER_CLK" default="4"/>
+								<checkbox label="10BASE-T1S (TC14) enable" define="LETH.PORT$PORT$_B10T1S_EN" default="0" lockon="LETH.PORT$PORT$_MAC_CONFIGURATION_FES_USER=0;LETH.PORT$PORT$_MAC_CONFIGURATION.DM=0;LETH.PORT$PORT$_MTL_TXQ1_OPERATION_MODE.TXQEN=0;LETH.PORT$PORT$_MTL_TXQ2_OPERATION_MODE.TXQEN=0;LETH.PORT$PORT$_MTL_TXQ3_OPERATION_MODE.TXQEN=0;LETH.PORT$PORT$_MTL_TXQ4_OPERATION_MODE.TXQEN=0;">
+									<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_10BT1S_CONT.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_10BT1S_CONT.enabled=0"/>
+								</checkbox>
+								<combo label="Link Speed" define="LETH.PORT$PORT$_MAC_CONFIGURATION_FES_USER" default="value=1">
+									<item label="10 Mbps" value="0" setdef="LETH.PORT$PORT$_MAC_CONFIGURATION.PS=1;LETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=100;LETH.PORT$PORT$_CBS_CLK_PERIOD_NS=400;LETH.PORT$PORT$_CBS_BITS_PER_CLK=4"/>
+									<item label="100 Mbps" value="1" setdef="LETH.PORT$PORT$_MAC_CONFIGURATION.PS=1;LETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=10;LETH.PORT$PORT$_CBS_CLK_PERIOD_NS=40;LETH.PORT$PORT$_CBS_BITS_PER_CLK=4"/>
+									<item label="1000 Mbps" value="2" setdef="LETH.PORT$PORT$_MAC_CONFIGURATION.PS=0;LETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=1;LETH.PORT$PORT$_CBS_CLK_PERIOD_NS=8;LETH.PORT$PORT$_CBS_BITS_PER_CLK=8"/>
+								</combo>
+								<math visible="false" define="LETH.PORT$PORT$_MAC_CONFIGURATION.FES" formula="LETH.PORT$PORT$_MAC_CONFIGURATION_FES_USER.*1"/>
+								<combo label="Duplex Mode" define="LETH.PORT$PORT$_MAC_CONFIGURATION.DM" default="1">
+									<item label="Half Duplex" override="value1" value="0"/>
+									<item label="Full Duplex" override="value2" value="1"/>
+								</combo>
+							</formcontainer>
+							<horizontalcontainer>
+								<groupcontainer label="Tx Settings" size="250;-1">
+									<formcontainer>
+										<combo label="Tx Scheduling" define="LETH.PORT$PORT$_MTL_OPERATION_MODE.SCHALG">
+											<item label="Weighted Round Robin" override="value1" value="0"/>
+											<item hide="value2"/>
+											<item hide="value3"/>
+											<item label="Strict priority" override="value4" value="3"/>
+										</combo>
+										<combo label="Source Address Control" define="LETH.PORT$PORT$_MAC_CONFIGURATION.SARC">
+											<item override="value1" label="TDES3.SAIC" value="0"/>
+											<item override="value2" label="insert SA from MAC Address 0" value="2"/>
+											<item override="value3" label="insert SA from MAC Address 1" value="6" setDef="GETH.PORT$PORT$_MAC_ADDRESS1_HIGH.AE=1"/>
+											<item override="value4" label="replace SA by MAC Address 0" value="3"/>
+											<item override="value5" label="replace SA by MAC Address 1" value="7" setDef="GETH.PORT$PORT$_MAC_ADDRESS1_HIGH.AE=1"/>
+										</combo>
+										<checkbox label="Flow Control" define="LETH.PORT$PORT$_MAC_Q0_TX_FLOW_CTRL.TFE"/>
+										<spinbox label="Pause Time" range="0;65535" define="LETH.PORT$PORT$_MAC_Q0_TX_FLOW_CTRL.PT"/>
+									</formcontainer>
+								</groupcontainer>
+								<groupcontainer label="Rx Settings" size="200;-1">
+									<formcontainer>
+										<checkbox label="Jumbo Packets Enable" define="LETH.PORT$PORT$_MAC_CONFIGURATION.JE" default="0"/>
+										<checkbox label="Checksum Offload for L3/L4" define="LETH.PORT$PORT$_MAC_CONFIGURATION.IPC" default="0"/>
+										<checkbox label="Loopback Mode Enable" define="LETH.PORT$PORT$_MAC_CONFIGURATION.LM" default="0"/>
+										<checkbox label="Rx-Watchdog Enable" define="LETH.PORT$PORT$_MAC_CONFIGURATION.WD" role="inverted" default="1"/>
+										<checkbox label="CRC Checking for Received Packets" define="LETH.PORT$PORT$_MAC_EXT_CONFIGURATION.DCRCC" role="inverted" default="0"/>
+										<checkbox label="Flow Control" define="LETH.PORT$PORT$_MAC_RX_FLOW_CTRL.RFE"/>
+									</formcontainer>
+								</groupcontainer>
+								<groupcontainer enable="false" label="10BASE-T1S Settings" define="LETH.PORT$PORT$_10BT1S_CONT">
+									<formcontainer>
+										<combo label="Duplex Mode" define="LETH.PORT$PORT$_B10T1S_PCS_CTRL.DM" default="1">
+											<item label="Full Duplex" value="0"/>
+											<item label="Half Duplex" value="1"/>
+										</combo>
+										<checkbox label="PCS Loopback enable" define="LETH.PORT$PORT$_B10T1S_PCS_CTRL.LB"/>
+										<checkbox label="PMA Loopback enable" define="LETH.PORT$PORT$_B10T1S_PMA_CTRL.LB"/>
+										<checkbox label="Multidrop enable" define="LETH.PORT$PORT$_B10T1S_PMA_CTRL.MM"/>
+										<spinbox label="Maximum Additional Packets in Burst" define="LETH.PORT$PORT$_B10T1S_PLCA_CTRL.MAX_BC" range="0;255" default="0"/>
+										<checkbox label="PLCA enable" define="LETH.PORT$PORT$_B10T1S_PLCA_CTRL.PLCA_EN"/>
+										<spinbox label="Node ID" define="LETH.PORT$PORT$_B10T1S_PLCA_NODE_CTRL.LNI" range="0;255" default="0">
+											<action event="changed" cond="LETH.PORT$PORT$_B10T1S_PLCA_NODE_CTRL.LNI==0" cmd="setDef" data="LETH.PORT$PORT$_B10T1S_PLCA_NODE_CTRL.PNC.enabled=1"/>
+											<action event="changed" cond="LETH.PORT$PORT$_B10T1S_PLCA_NODE_CTRL.LNI&gt;0" cmd="setDef" data="LETH.PORT$PORT$_B10T1S_PLCA_NODE_CTRL.PNC.enabled=0"/>
+										</spinbox>
+										<spinbox label="Nodes Count" define="LETH.PORT$PORT$_B10T1S_PLCA_NODE_CTRL.PNC" range="0;255" default="1"/>
+										<spinbox label="Opportunity Timer" suffix=" bittimes" define="LETH.PORT$PORT$_B10T1S_PLCA_TIMER.TOT" range="0;255" default="1"/>
+										<spinbox label="Burst Timer" suffix=" bittimes" define="LETH.PORT$PORT$_B10T1S_PLCA_TIMER.BT" range="0;255" default="1"/>
+									</formcontainer>
+								</groupcontainer>
+							</horizontalcontainer>
+						</verticalcontainer>
+					</groupcontainer>
+					<tabcontainer>
+						<verticalcontainer label="Queues" stretch="2">
+							<groupcontainer label="Transmit" font="Source Sans Pro,12,0,0,64,0,0,0,0,0" stretch="2" size="1800;430">
+								<include PORT="$PORT$" IDX="0">icw_tc4d_leth_mac_txq0_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="1">icw_tc4d_leth_mac_txq_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="2">icw_tc4d_leth_mac_txq_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="3">icw_tc4d_leth_mac_txq_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="4">icw_tc4d_leth_mac_txq_tmpl.xml</include>
+							</groupcontainer>
+							<groupcontainer label="Receive" font="Source Sans Pro,12,0,0,64,0,0,0,0,0" stretch="2" size="1800;350">
+								<include PORT="$PORT$" IDX="0">icw_tc4d_leth_mac_rxq_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="1">icw_tc4d_leth_mac_rxq_tmpl.xml</include>
+							</groupcontainer>
+						</verticalcontainer>
+						<verticalcontainer label="Filters" stretch="2">
+							<include PORT="$PORT$">icw_tc4d_leth_mac_filter_tmpl.xml</include>
+						</verticalcontainer>
+						<verticalcontainer label="Time Stamping" stretch="2">
+							<include PORT="$PORT$">icw_tc4d_leth_mac_timestamp_tmpl.xml</include>
+						</verticalcontainer>
+						<verticalcontainer label="Interrupts" stretch="2">
+							<include PORT="$PORT$">icw_tc4d_leth_mac_interrupt_tmpl.xml</include>
+						</verticalcontainer>
+						<verticalcontainer label="TSN" stretch="2" size="500;-1">
+							<include PORT="$PORT$">icw_tc4d_leth_mac_tas_tmpl.xml</include>
+						</verticalcontainer>
+					</tabcontainer>
+				</verticalcontainer>
+			</groupcontainer>
+		</header>
+	</verticalcontainer>
+</ifxmlcfg>

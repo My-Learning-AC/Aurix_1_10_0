@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- VLAN Filtering Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: address index, range 1..31 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>159c3ee300975b59fdca7185a230e59b656385f8388e44335f001aa22551c8c0</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<verticalcontainer>
+		<formcontainer>
+			<combo label="Type of Service" define="LETH.PORT$PORT$_MAC_INT_TOS">
+				<item label="IfxSrc_Tos_cpu0"/>
+				<item label="IfxSrc_Tos_cpu1"/>
+				<item label="IfxSrc_Tos_cpu2"/>
+				<item label="IfxSrc_Tos_cpu3"/>
+				<item label="IfxSrc_Tos_cpu4"/>
+				<item label="IfxSrc_Tos_cpu5"/>
+			</combo>
+			<spinbox label="Priority" define="LETH.PORT$PORT$_MAC_INT_PRIO" range="0;255" default="0"/>
+			<gridcontainer columns="3">
+				<text label="Timestamp generated"/>
+				<checkbox define="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE">
+					<action event="checked" cmd="setdef" data="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_TSIE_ISR.enabled=1"/>
+					<action event="unchecked" cmd="setdef" data="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_TSIE_ISR.enabled=0"/>
+				</checkbox>
+				<edit label="Timestamp Callback" enabled="false" define="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_TSIE_ISR" default="enter callback function here"/>
+
+				<text label="Transmit Error"/>
+				<checkbox define="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TXESIE">
+					<action event="checked" cmd="setdef" data="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_TXESIS_ISR.enabled=1"/>
+					<action event="unchecked" cmd="setdef" data="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_TXESIS_ISR.enabled=0"/>
+				</checkbox>
+				<edit enabled="false" define="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_TXESIS_ISR" default="enter callback function here"/>
+
+				<text label="Receive Error"/>
+				<checkbox define="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.RXESIE">
+					<action event="checked" cmd="setdef" data="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_RXESIS_ISR.enabled=1"/>
+					<action event="unchecked" cmd="setdef" data="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_RXESIS_ISR.enabled=0"/>
+				</checkbox>
+				<edit enabled="false" define="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE_RXESIS_ISR" default="enter callback function here"/>
+			</gridcontainer>
+		</formcontainer>
+	</verticalcontainer>
+</ifxmlcfg>

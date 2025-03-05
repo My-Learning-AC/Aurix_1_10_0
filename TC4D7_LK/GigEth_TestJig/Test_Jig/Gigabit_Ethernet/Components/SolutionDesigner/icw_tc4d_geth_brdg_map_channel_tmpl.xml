@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Bridge Channel Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX : channel index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>f6b4627182a50f1bd8f2605dd277303da0d9cc9e6b1ad42a5db88a99b1f2e335</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <edit visible="false" define="GETH_BRDG_PORT$PORT$_Tx$IDX$_EnVis" default="hidden"/>
+    <edit visible="false" define="GETH_BRDG_PORT$PORT$_Tx$IDX$_DisVis" default="visible"/>
+    <edit visible="false" define="GETH_BRDG_PORT$PORT$_Rx$IDX$_EnVis" default="hidden"/>
+    <edit visible="false" define="GETH_BRDG_PORT$PORT$_Rx$IDX$_DisVis" default="visible"/>
+	<horizontalcontainer stretch="3">
+		<text label="$IDX$" readonly="true"/>
+	</horizontalcontainer>
+	<horizontalcontainer stretch="3">
+		<checkbox define="GETH.PORT_$PORT$_CONTROL.TXQ_EN$IDX$">
+			<action event="checked"   cmd="setDef" data="GETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="GETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_MAP_TXCH$IDX$_CONT" enabled="false">
+		<horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_DMA_TXCH$IDX$_CONT">
+			<combo define="GETH.TXQ_MAP_PORT_$PORT$_TXQ$IDX$_DMA_MAP" default="value=$IDX$">
+				<item label="Channel0        "/>
+				<item label="Channel1        "/>
+				<item label="Channel2        "/>
+				<item label="Channel3        "/>
+				<item label="Channel4        "/>
+				<item label="Channel5        "/>
+				<item label="Channel6        "/>
+				<item label="Channel7        "/>
+			</combo>
+		</horizontalcontainer>
+		<!--horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_FWD_TXCH$IDX$_CONT" visible="false">
+			<combo define="GETH.TXQ_MAP_PORT_$PORT$_TXQ$IDX$_FWD_MAP" default="value=$IDX$">
+				<item label="Port$TP$.Queue0"/>
+				<item label="Port$TP$.Queue1"/>
+				<item label="Port$TP$.Queue2"/>
+				<item label="Port$TP$.Queue3"/>
+				<item label="Port$TP$.Queue4"/>
+				<item label="Port$TP$.Queue5"/>
+				<item label="Port$TP$.Queue6"/>
+				<item label="Port$TP$.Queue7"/>
+			</combo>
+		</horizontalcontainer-->
+	</horizontalcontainer>
+	<horizontalcontainer stretch="3">
+		<checkbox define="GETH.PORT_$PORT$_CONTROL.RXC_EN$IDX$">
+			<action event="checked"   cmd="setDef" data="GETH.BRIDGE_PORT$PORT$_MAP_RXCH$IDX$_CONT.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="GETH.BRIDGE_PORT$PORT$_MAP_RXCH$IDX$_CONT.enabled=0"/>
+		</checkbox>
+	</horizontalcontainer>
+	<horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_MAP_RXCH$IDX$_CONT" enabled="false">
+		<horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_DMA_RXCH$IDX$_CONT" visible="true">
+			<combo define="GETH.RXQ_MAP_PORT_$PORT$_RXQ$IDX$_DMA_MAP" default="value=$IDX$">
+				<item label="Channel0        "/>
+				<item label="Channel1        "/>
+				<item label="Channel2        "/>
+				<item label="Channel3        "/>
+				<item label="Channel4        "/>
+				<item label="Channel5        "/>
+				<item label="Channel6        "/>
+				<item label="Channel7        "/>
+			</combo>
+		</horizontalcontainer>
+		<horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_FWD_RXCH$IDX$_CONT" visible="false">
+			<combo define="GETH.RXQ_MAP_PORT_$PORT$_RXQ$IDX$_FWD_MAP" default="value=$IDX$">
+				<item label="Port$TP$.Queue0"/>
+				<item label="Port$TP$.Queue1"/>
+				<item label="Port$TP$.Queue2"/>
+				<item label="Port$TP$.Queue3"/>
+				<item label="Port$TP$.Queue4"/>
+				<item label="Port$TP$.Queue5"/>
+				<item label="Port$TP$.Queue6"/>
+				<item label="Port$TP$.Queue7"/>
+			</combo>
+		</horizontalcontainer>
+	</horizontalcontainer>
+	<horizontalcontainer define="GETH.BRIDGE_PORT$PORT$_FWD$IDX$_CONT" enabled="false" stretch="3">
+		<checkbox define="GETH.PORT_$PORT$_CONTROL.FWD_EN$IDX$">
+			<action event="unchecked" cmd="setdef" data="GETH.BRIDGE_PORT$PORT$_DMA_TXCH$IDX$_CONT.enabled=1;GETH.BRIDGE_PORT$PORT$_DMA_RXCH$IDX$_CONT.visible=1;GETH.BRIDGE_PORT$PORT$_FWD_RXCH$IDX$_CONT.visible=0"/>
+			<action event="checked"   cmd="setdef" data="GETH.BRIDGE_PORT$PORT$_DMA_TXCH$IDX$_CONT.enabled=0;GETH.BRIDGE_PORT$PORT$_DMA_RXCH$IDX$_CONT.visible=0;GETH.BRIDGE_PORT$PORT$_FWD_RXCH$IDX$_CONT.visible=1"/>
+		</checkbox>
+	</horizontalcontainer>
+	<math visible="false" define="GETH.BRDG_PORT$PORT$_CH$IDX$_FWD_CONT_EN" formula="GETH.PORT_$PORT$_CONTROL.TXQ_EN$IDX$.+GETH.PORT_$PORT$_CONTROL.RXC_EN$IDX$">
+		<action event="changed" cmd="setdef" data="GETH.BRIDGE_PORT$PORT$_FWD$IDX$_CONT.enabled=GETH.BRDG_PORT$PORT$_CH$IDX$_FWD_CONT_EN"/>
+	</math>
+	<math visible="false" define="GETH.TXQ_MAP_PORT_$PORT$.TXQ$IDX$" formula="GETH.PORT_$PORT$_CONTROL.FWD_EN$IDX$==0?GETH.TXQ_MAP_PORT_$PORT$_TXQ$IDX$_DMA_MAP:GETH.RXQ_MAP_PORT_$PORT$_RXQ$IDX$_FWD_MAP"/>
+	<math visible="false" define="GETH.RXC_MAP_PORT_$PORT$.RXC$IDX$" formula="GETH.PORT_$PORT$_CONTROL.FWD_EN$IDX$==0?GETH.RXQ_MAP_PORT_$PORT$_RXQ$IDX$_DMA_MAP:GETH.RXQ_MAP_PORT_$PORT$_RXQ$IDX$_FWD_MAP"/>
+</ifxmlcfg>

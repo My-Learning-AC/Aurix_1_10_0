@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+    <checksum>c8583630c4e28893f798cf174c7a42f480670dc1b5f4f49c410eaa61c8b97d9e</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+	<moduledesc name="Geth DMA" description="Gigabit Ethernet DMA" exporter="ModuleExporter.py" hide="0"/>
+    <header file="tc4d_geth_dma_cfg.h">
+		<verticalcontainer label="Geth DMA" stretch="2">
+		    <edit visible="false" define="GETH.DMA_DESC_TYPE_NORMAL" default="(0)"/>
+            <edit visible="false" define="GETH.DMA_DESC_TYPE_NORMAL_CONTEXT" default="(1)"/>
+            <edit visible="false" define="GETH.DMA_DESC_TYPE_ENHANCED" default="(2)"/>
+            <checkbox label="Enable DMA" define="GETH.DMA_MODE.SWR" default="1" font="Source Sans Pro,15,0,0,100,1,0,0,0,0" color="255;128;64">
+                <action event="checked" cmd="setDef" data="GETH.DMA_TOP.enabled=1"/>
+                <action event="unchecked" cmd="setDef" data="GETH.DMA_TOP.enabled=0"/>
+            </checkbox>
+			<groupcontainer define="GETH.DMA_TOP" font="Source Sans Pro,12,0,0,100,0,0,0,0,0">
+				<verticalcontainer>
+					<groupcontainer label="DMA Configuration" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+						<formcontainer>
+							<checkbox label="Address-Aligned Beats" define="GETH.DMA_SYSBUS_MODE.AAL" default="1"/>
+							<combo label="AXI Burst Length" define="GETH.DMA_SYSBUS_MODE_BLENx" svd="0" default="label=16">
+								<item label="4"   value="4"/>
+								<item label="8"   value="8"/>
+								<item label="16"  value="16"/>
+							</combo>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN4"   formula="GETH.DMA_SYSBUS_MODE_BLENx==4?1:0"/>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN8"   formula="GETH.DMA_SYSBUS_MODE_BLENx==8?1:0"/>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN16"  formula="GETH.DMA_SYSBUS_MODE_BLENx==16?1:0"/>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN32"  formula="GETH.DMA_SYSBUS_MODE_BLENx==32?1:0"/>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN64"  formula="GETH.DMA_SYSBUS_MODE_BLENx==64?1:0"/>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN128" formula="GETH.DMA_SYSBUS_MODE_BLENx==128?1:0"/>
+							<math visible="false" define="GETH.DMA_SYSBUS_MODE.BLEN256" formula="GETH.DMA_SYSBUS_MODE_BLENx==256?1:0"/>
+							<combo label="Tx Descriptor Pre-fetch threshold" define="GETH.DMA_TX_EDMA_CONTROL.TDPS" default="value=0">
+								<item label="0 descriptors"/>
+								<item label="4 descriptors"/>
+								<item label="8 descriptors"/>
+								<item label="12 descriptors"/>
+							</combo>
+							<combo label="Rx Descriptor Pre-fetch threshold" define="GETH.DMA_RX_EDMA_CONTROL.RDPS" default="value=0">
+								<item label="0 descriptors"/>
+								<item label="4 descriptors"/>
+								<item label="8 descriptors"/>
+								<item label="12 descriptors"/>
+							</combo>
+						</formcontainer>
+					</groupcontainer>
+					<tabcontainer define="GETH.DMA_CHANNEL_SELECT">
+						<include IDX="0">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="1">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="2">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="3">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="4">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="5">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="6">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+						<include IDX="7">icw_tc4d_geth_dma_channel_tmpl.xml</include>
+					</tabcontainer>
+				</verticalcontainer>
+			</groupcontainer>
+			<math visible="false" define="GETH.DMA_PORT_SELECTION.DMAPORTSEL" formula="GETH.DMA_PORT_SELECTION_CH7*128+GETH.DMA_PORT_SELECTION_CH6*64+GETH.DMA_PORT_SELECTION_CH5*32+GETH.DMA_PORT_SELECTION_CH4*16+GETH.DMA_PORT_SELECTION_CH3*8+GETH.DMA_PORT_SELECTION_CH2*4+GETH.DMA_PORT_SELECTION_CH1*2+GETH.DMA_PORT_SELECTION_CH0" header="tc4d_geth_brdg_cfg.h"/>
+		</verticalcontainer>
+    </header>
+</ifxmlcfg>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   IDX: channel index, range 0..7 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>da6f4040b08c2f88ca778b0142a2e05659e1916b25e452a38a42123186326518</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <groupcontainer label="Receive" size="-1;520" define="LETH.DMA_CH$IDX$_Rx_Top_Cont" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+        <verticalcontainer stretch="2" >
+            <var define="LETH.DMA_CH$IDX$_Rx_Descr_Fac" default="1"/>
+            <edit visible="false" define="LETH.DMA_CH$IDX$_Rx_EnVis" default="hidden"/>
+            <edit visible="false" define="LETH.DMA_CH$IDX$_Rx_DisVis" default="visible"/>
+            <spinbox visible="false" define="LETH.DMA_CH$IDX$_Rx_Connect_Cnt" default="0"/>
+			<horizontalcontainer stretch="2" visible="true">
+				<text label="Channel Mode"/>
+				<radio define="LETH.DMA_RXCH$IDX$_EN" default="0">
+					<radiobutton label="disabled" value="0" setDef="LETH.DMA_CH$IDX$_Rx_Cont.enabled=0;LETH.DMA_CH$IDX$_Rx_Int_Cont.enabled=0"/>
+					<radiobutton label="enabled"  value="1" setDef="LETH.DMA_CH$IDX$_Rx_Cont.enabled=1;LETH.DMA_CH$IDX$_Rx_Int_Cont.enabled=1"/>
+				</radio>
+			</horizontalcontainer>
+            <verticalcontainer stretch="2" define="LETH.DMA_CH$IDX$_Rx_Cont" size="-1;250">
+                <formcontainer>
+                    <combo label="Burst Length" define="LETH.DMA_CH$IDX$_RX_CONTROL.RXPBL" default="label=16 bytes">
+                        <item label="1 byte" value="1"/>
+                        <item label="2 bytes" value="2"/>
+                        <item label="4 bytes" value="4"/>
+                        <item label="8 bytes" value="8"/>
+                        <item label="16 bytes" value="16"/>
+                        <item label="32 bytes" value="32"/>
+                    </combo>
+                    <checkbox label="Header/Payload split" define="LETH.DMA_CH$IDX$_CONTROL.SPH" default="0"/>
+                    <spinbox label="Receive Buffer Size" define="LETH.DMA_CH$IDX$_RX_BUFFER_SIZE" suffix=" bytes" range="8;16384" default="1518"/>
+                    <math visible="false" define="LETH.DMA_CH$IDX$_RX_CONTROL.RBSZ" formula="(LETH.DMA_CH$IDX$_RX_BUFFER_SIZE-1)/8"/>
+                    <horizontalcontainer label="Descriptor List reference">
+						<checkbox visible="false" define="LETH.DMA_CH$IDX$_TS_EN" lockon="LETH.DMA_CH$IDX$_RX_DESC_TYPE.value=1"/>
+						<edit readonly="1" define="LETH.DMA_CH$IDX$_RX_DESC_LIST_REF" default="lethRxReadDscrCh$IDX$"/>
+						<combo define="LETH.DMA_CH$IDX$_RX_DESC_TYPE">
+							<item label="Normal Descriptor" setdef="LETH.DMA_CH$IDX$_Rx_Descr_Fac=1"/>
+							<item label="Normal+Context Descriptor" setdef="LETH.DMA_CH$IDX$_Rx_Descr_Fac=2"/>
+						</combo>
+						<combo define="LETH.DMA_CH$IDX$_RX_DESC_LOCATION_IDX" default="label=CPU0.DSPR">
+							<item label="CPU0.DSPR"/>
+							<item label="CPU0.DLMU"/>
+							<item label="CPU1.DSPR"/>
+							<item label="CPU1.DLMU"/>
+							<item label="CPU2.DSPR"/>
+							<item label="CPU2.DLMU"/>
+							<item label="CPU3.DSPR"/>
+							<item label="CPU3.DLMU"/>
+							<item label="CPU4.DSPR"/>
+							<item label="CPU4.DLMU"/>
+							<item label="CPU5.DSPR"/>
+							<item label="CPU5.DLMU"/>
+						</combo>
+					</horizontalcontainer>
+                    <spinbox label="Descriptor List length" define="LETH.DMA_CH$IDX$_RX_DESC_LIST_LENGTH" range="2;255" default="4"/>
+                    <math visible="false" define="LETH.DMA_CH$IDX$_RX_CONTROL2.RDRL" formula="(LETH.DMA_CH$IDX$_RX_DESC_LIST_LENGTH*LETH.DMA_CH$IDX$_Rx_Descr_Fac)-1"/> 
+                </formcontainer>
+            </verticalcontainer>
+            <groupcontainer label="Interrupt" define="LETH.DMA_CH$IDX$_Rx_Int_Cont">
+				<verticalcontainer>
+					<formcontainer>
+						<combo label="Type of Service" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RX_TOS">
+							<item label="IfxSrc_Tos_cpu0" value="0"/>
+							<item label="IfxSrc_Tos_cpu1" value="1"/>
+							<item label="IfxSrc_Tos_cpu2" value="2"/>
+							<item label="IfxSrc_Tos_cpu3" value="3"/>
+							<item label="IfxSrc_Tos_cpu4" value="4"/>
+							<item label="IfxSrc_Tos_cpu5" value="5"/>
+							<item label="IfxSrc_Tos_dma0" value="7"/>
+							<item label="IfxSrc_Tos_dma1" value="8"/>
+						</combo>
+						<spinbox label="Priority" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RX_PRIO" range="0;255" default="0"/>
+					</formcontainer>
+					<gridcontainer columns="3">
+						<text label="Receive done"/>
+						<checkbox define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE.RIE">
+							<action event="checked" cond="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RX_TOS.value&lt;7" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RIE_ISR.enabled=1"/>
+							<action event="unchecked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RIE_ISR.enabled=0"/>
+						</checkbox>
+						<edit enabled="false" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RIE_ISR" default="enter callback function here"/>
+
+						<text label="Receive stopped"/>
+						<checkbox define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE.RSE">
+							<action event="checked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RSE_ISR.enabled=1"/>
+							<action event="unchecked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RSE_ISR.enabled=0"/>
+						</checkbox>
+						<edit enabled="false" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RSE_ISR" default="enter callback function here"/>
+
+						<text label="Receive buffer unavailable"/>
+						<checkbox define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE.RBUE">
+							<action event="checked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RBUE_ISR.enabled=1"/>
+							<action event="unchecked" cmd="setdef" data="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RBUE_ISR.enabled=0"/>
+						</checkbox>
+						<edit enabled="false" define="LETH.DMA_CH$IDX$_INTERRUPT_ENABLE_RBUE_ISR" default="enter callback function here"/>
+					</gridcontainer>
+				</verticalcontainer>
+            </groupcontainer>
+        </verticalcontainer>
+    </groupcontainer>
+</ifxmlcfg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+	<checksum>39d8149739ca33b5d64319db17acef89afc45c246567a14e915f73bcaaee08fa</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<!--tooltipconfig value="0x1FFF"/-->
+	<pythonstartup file="icw_tc4d_pre.py"/>
+	<pythonstartup file="icw_tc4d_geth.py" afterinit="1"/>
+	<pythonstartup file="icw_tc4d_leth.py" afterinit="1"/>
+	<initialactions value="1"/>
+	<!--showprogressbar value="1"/-->
+	<horizontalcontainer label="TC4D Config">
+		<tabcontainer resize="1">
+			<include>icw_tc4d_geth.xml</include>
+			<include>icw_tc4d_leth.xml</include>
+			<include>icw_tc4d_stm.xml</include>
+			<include>icw_tc4d_led.xml</include>
+		</tabcontainer>
+		<!--include>icw_tc4d_geth_graph.xml</include-->
+	</horizontalcontainer>
+</ifxmlcfg>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+    <checksum>912c5ffe617a46d188c433e26e2f8adf4df4ce966044e8b68bde9968ff6b464f</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_geth_brdg_cfg.h">
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx0_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx1_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx2_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx3_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx4_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx5_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx6_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Tx7_TargetDMA" default="-1"/>
+
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx0_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx1_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx2_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx3_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx4_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx5_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx6_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Tx7_TargetDMA" default="-1"/>
+
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx0_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx1_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx2_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx3_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx4_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx5_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx6_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT0_Rx7_TargetDMA" default="-1"/>
+
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx0_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx1_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx2_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx3_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx4_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx5_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx6_TargetDMA" default="-1"/>
+		<spinbox visible="false" define="GETH_BRDG_PORT1_Rx7_TargetDMA" default="-1"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx0_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx1_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx2_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx3_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx4_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx5_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx6_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx7_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx0_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx1_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx2_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx3_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx4_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx5_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx6_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT0_Rx7_PORT1_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx0_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx1_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx2_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx3_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx4_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx5_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx6_PORT0_Tx7_Dashed_Link" default="hidden"/>
+
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx0_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx1_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx2_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx3_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx4_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx5_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx6_Dashed_Link" default="hidden"/>
+        <edit visible="false" define="GETH_BRDG_PORT1_Rx7_PORT0_Tx7_Dashed_Link" default="hidden"/>
+    </header>
+</ifxmlcfg>

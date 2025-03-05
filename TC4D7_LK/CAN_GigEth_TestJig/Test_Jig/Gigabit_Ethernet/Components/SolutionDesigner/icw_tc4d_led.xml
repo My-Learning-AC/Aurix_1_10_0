@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_led_cfg.h">
+		<verticalcontainer label="Onboard LEDs" stretch="2" size="900;250">
+			<include>icw_tc4d_led_acc_tmpl.xml</include>
+			<horizontalcontainer>
+				<include IDX="0">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="1">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="2">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="3">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="4">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="5">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="6">icw_tc4d_led_tmpl.xml</include>
+				<include IDX="7">icw_tc4d_led_tmpl.xml</include>
+			</horizontalcontainer>
+		</verticalcontainer>
+    </header>
+</ifxmlcfg>

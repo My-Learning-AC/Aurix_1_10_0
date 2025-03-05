@@ -1,0 +1,2859 @@
+	; Module start
+	.compiler_version	"TASKING SmartCode v10.1r1 - TriCore C compiler Build 21121068 SN-09461304"
+	.compiler_invocation	"ctc --dep-file=Silicon_Details.d --fp-model=c,l,n,r,S,T,z --user-mode=hypervisor -D__CPU__=tc49x -D__CPU_TC49X__ --core=tc1.8 --iso=99 -D__CPU__=tc49x -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Configurations -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ipc -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ipc\\\\Common -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ipc\\\\Tricore -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ipc\\\\Tricore\\\\ipc -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ipc\\\\Tricore\\\\ipc\\\\inc -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Sfr\\\\TC4DA -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Sfr\\\\TC4DA\\\\_Reg -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ssw\\\\TC4DA -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Infra\\\\Ssw\\\\TC4DA\\\\Tricore -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Comm -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\General -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Time -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Ap -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Ap\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Asclin -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Asclin\\\\Asc -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Asclin\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Clock -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Clock\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Egtm -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Egtm\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Port -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Port\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Src -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\Src\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\_Impl -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\CpuGeneric\\\\_PinMap -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Smu -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Smu\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Stm -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Vmt -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Vmt\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Wtu -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Wtu\\\\Std -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\_Lib\\\\DataHandling -g2 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Silicon_Details.src ../Silicon_Details.c"
+	.compiler_name		"ctc"
+	;source	'../Silicon_Details.c'
+
+	
+$TC18
+	
+	.sdecl	'.text.Silicon_Details.Print_Silicon_Details',code,cluster('Print_Silicon_Details')
+	.sect	'.text.Silicon_Details.Print_Silicon_Details'
+	.align	2
+	
+	.global	Print_Silicon_Details
+; Function Print_Silicon_Details
+.L33:
+Print_Silicon_Details:	.type	func
+	sub.a	a10,#8
+.L105:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L125:
+	movh.a	a2,#44608
+	lea	a2,[a2]@los(0xae400008)
+.L126:
+	st.a	[a15],a2
+.L127:
+	movh.a	a15,#@his(chipid)
+	lea	a15,[a15]@los(chipid)
+.L128:
+	movh.a	a2,#44608
+	ld.w	d15,[a2]8
+.L129:
+	st.w	[a15],d15
+.L130:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L131:
+	movh.a	a2,#44609
+	lea	a2,[a2]@los(0xae412000)
+.L132:
+	st.a	[a15],a2
+.L133:
+	movh.a	a15,#@his(ucid0)
+	lea	a15,[a15]@los(ucid0)
+.L134:
+	movh.a	a2,#44609
+	ld.w	d15,[a2]@los(0xae412000)
+.L135:
+	st.w	[a15],d15
+.L136:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L137:
+	movh.a	a2,#44609
+	lea	a2,[a2]@los(0xae412004)
+.L138:
+	st.a	[a15],a2
+.L139:
+	movh.a	a15,#@his(ucid1)
+	lea	a15,[a15]@los(ucid1)
+.L140:
+	movh.a	a2,#44609
+	ld.w	d15,[a2]@los(0xae412004)
+.L141:
+	st.w	[a15],d15
+.L142:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L143:
+	movh.a	a2,#44609
+	lea	a2,[a2]@los(0xae412008)
+.L144:
+	st.a	[a15],a2
+.L145:
+	movh.a	a15,#@his(ucid2)
+	lea	a15,[a15]@los(ucid2)
+.L146:
+	movh.a	a2,#44609
+	ld.w	d15,[a2]@los(0xae412008)
+.L147:
+	st.w	[a15],d15
+.L148:
+	movh.a	a4,#@his(.1.str)
+	lea	a4,[a4]@los(.1.str)
+	call	printf
+.L149:
+	movh.a	a15,#@his(chipid)
+	lea	a15,[a15]@los(chipid)
+	ld.w	d15,[a15]
+.L150:
+	st.w	[a10],d15
+.L151:
+	movh.a	a4,#@his(.2.str)
+	lea	a4,[a4]@los(.2.str)
+	call	printf
+.L152:
+	movh.a	a15,#@his(ucid0)
+	lea	a15,[a15]@los(ucid0)
+	ld.w	d15,[a15]
+.L153:
+	st.w	[a10],d15
+.L154:
+	movh.a	a4,#@his(.3.str)
+	lea	a4,[a4]@los(.3.str)
+	call	printf
+.L155:
+	movh.a	a15,#@his(ucid1)
+	lea	a15,[a15]@los(ucid1)
+	ld.w	d15,[a15]
+.L156:
+	st.w	[a10],d15
+.L157:
+	movh.a	a4,#@his(.3.str)
+	lea	a4,[a4]@los(.3.str)
+	call	printf
+.L158:
+	movh.a	a15,#@his(ucid2)
+	lea	a15,[a15]@los(ucid2)
+	ld.w	d15,[a15]
+.L159:
+	st.w	[a10],d15
+.L160:
+	movh.a	a4,#@his(.3.str)
+	lea	a4,[a4]@los(.3.str)
+	call	printf
+.L161:
+	movh.a	a4,#@his(.4.str)
+	lea	a4,[a4]@los(.4.str)
+	call	printf
+.L162:
+	movh.a	a15,#@his(chipid)
+	lea	a15,[a15]@los(chipid)
+	ld.w	d15,[a15]
+.L163:
+	st.w	[a10],d15
+.L164:
+	movh.a	a4,#@his(.5.str)
+	lea	a4,[a4]@los(.5.str)
+	call	printf
+.L165:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L166:
+	movh.a	a2,#61442
+	lea	a2,[a2]@los(0xf00241a8)
+.L167:
+	st.a	[a15],a2
+.L168:
+	movh.a	a15,#@his(chipinfo)
+	lea	a15,[a15]@los(chipinfo)
+.L169:
+	movh.a	a2,#61442
+	ld.w	d15,[a2]@los(0xf00241a8)
+.L170:
+	st.w	[a15],d15
+.L171:
+	movh.a	a15,#@his(chipinfo_manuf)
+	lea	a15,[a15]@los(chipinfo_manuf)
+.L172:
+	movh.a	a2,#@his(chipinfo)
+	lea	a2,[a2]@los(chipinfo)
+	ld.w	d15,[a2]
+.L173:
+	extr.u	d15,d15,#5,#11
+.L174:
+	st.h	[a15],d15
+.L175:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+.L176:
+	movh.a	a2,#@his(chipinfo)
+	lea	a2,[a2]@los(chipinfo)
+	ld.w	d15,[a2]
+.L177:
+	extr.u	d15,d15,#16,#6
+.L178:
+	st.b	[a15],d15
+.L179:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+.L180:
+	movh.a	a2,#@his(chipinfo)
+	lea	a2,[a2]@los(chipinfo)
+	ld.w	d15,[a2]
+.L181:
+	extr.u	d15,d15,#22,#2
+.L182:
+	st.b	[a15],d15
+.L183:
+	movh.a	a15,#@his(chipinfo_manuf)
+	lea	a15,[a15]@los(chipinfo_manuf)
+	ld.hu	d15,[a15]0
+	st.w	[a10],d15
+.L184:
+	movh.a	a4,#@his(.6.str)
+	lea	a4,[a4]@los(.6.str)
+	call	printf
+.L185:
+	movh.a	a15,#@his(chipinfo_manuf)
+	lea	a15,[a15]@los(chipinfo_manuf)
+	ld.hu	d0,[a15]0
+.L186:
+	mov	d15,#193
+.L187:
+	jne	d15,d0,.L2
+.L188:
+	movh.a	a4,#@his(.7.str)
+	lea	a4,[a4]@los(.7.str)
+	call	printf
+.L189:
+	j	.L3
+.L2:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L190:
+	mov	d15,#1
+.L191:
+	st.b	[a15],d15
+.L192:
+	movh.a	a4,#@his(.4.str)
+	lea	a4,[a4]@los(.4.str)
+	call	printf
+.L3:
+	movh.a	a4,#@his(.8.str)
+	lea	a4,[a4]@los(.8.str)
+	call	printf
+.L193:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L194:
+	movh.a	a4,#@his(.9.str)
+	lea	a4,[a4]@los(.9.str)
+	call	printf
+.L93:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+	ld.bu	d15,[a15]
+.L195:
+	and	d0,d15,#15
+.L106:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+	ld.bu	d15,[a15]
+.L196:
+	sha	d15,#-4
+.L108:
+	and	d15,#3
+.L197:
+	jne	d15,#0,.L4
+.L198:
+	st.w	[a10],d0
+.L199:
+	movh.a	a4,#@his(.10.str)
+	lea	a4,[a4]@los(.10.str)
+	call	printf
+.L107:
+	j	.L5
+.L4:
+	jne	d15,#1,.L6
+.L200:
+	st.w	[a10],d0
+.L201:
+	movh.a	a4,#@his(.11.str)
+	lea	a4,[a4]@los(.11.str)
+	call	printf
+.L110:
+	j	.L7
+.L6:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L202:
+	mov	d15,#1
+.L109:
+	st.b	[a15],d15
+.L7:
+.L5:
+	movh.a	a4,#@his(.4.str)
+	lea	a4,[a4]@los(.4.str)
+	call	printf
+.L203:
+	movh.a	a4,#@his(.12.str)
+	lea	a4,[a4]@los(.12.str)
+	call	printf
+.L204:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L205:
+	jne	d15,#0,.L8
+.L206:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L207:
+	mov	d15,#1
+.L208:
+	st.b	[a15],d15
+.L209:
+	j	.L9
+.L8:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L210:
+	jne	d15,#1,.L10
+.L211:
+	mov	d15,#1
+	st.w	[a10],d15
+.L212:
+	movh.a	a4,#@his(.13.str)
+	lea	a4,[a4]@los(.13.str)
+	call	printf
+.L213:
+	j	.L11
+.L10:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L214:
+	jne	d15,#2,.L12
+.L215:
+	mov	d15,#2
+	st.w	[a10],d15
+.L216:
+	movh.a	a4,#@his(.14.str)
+	lea	a4,[a4]@los(.14.str)
+	call	printf
+.L217:
+	j	.L13
+.L12:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L218:
+	jne	d15,#3,.L14
+.L219:
+	mov	d15,#3
+	st.w	[a10],d15
+.L220:
+	movh.a	a4,#@his(.15.str)
+	lea	a4,[a4]@los(.15.str)
+	call	printf
+.L14:
+.L13:
+.L11:
+.L9:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L221:
+	movh.a	a2,#44608
+	lea	a2,[a2]@los(0xae404804)
+.L222:
+	st.a	[a15],a2
+.L223:
+	movh.a	a15,#@his(ucb0_09_bmi_bmhdid)
+	lea	a15,[a15]@los(ucb0_09_bmi_bmhdid)
+.L224:
+	movh.a	a2,#44608
+	ld.w	d15,[a2]@los(0xae404804)
+.L225:
+	st.w	[a15],d15
+.L226:
+	movh.a	a15,#@his(ucb0_09_bmi_bmhdid_bmhdid)
+	lea	a15,[a15]@los(ucb0_09_bmi_bmhdid_bmhdid)
+.L227:
+	movh.a	a2,#@his(ucb0_09_bmi_bmhdid)
+	lea	a2,[a2]@los(ucb0_09_bmi_bmhdid)
+	ld.w	d15,[a2]
+.L228:
+	extr.u	d15,d15,#16,#16
+.L229:
+	st.h	[a15],d15
+.L230:
+	movh.a	a15,#@his(ucb0_09_bmi_bmhdid_bmhdid)
+	lea	a15,[a15]@los(ucb0_09_bmi_bmhdid_bmhdid)
+	ld.hu	d15,[a15]0
+	st.w	[a10],d15
+.L231:
+	movh.a	a4,#@his(.16.str)
+	lea	a4,[a4]@los(.16.str)
+	call	printf
+.L232:
+	movh.a	a15,#@his(ucid1_wafer)
+	lea	a15,[a15]@los(ucid1_wafer)
+.L233:
+	movh.a	a2,#@his(ucid1)
+	lea	a2,[a2]@los(ucid1)
+	ld.w	d15,[a2]
+.L234:
+	and	d15,#63
+.L235:
+	st.b	[a15],d15
+.L236:
+	movh.a	a15,#@his(ucid1_wafer)
+	lea	a15,[a15]@los(ucid1_wafer)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L237:
+	movh.a	a4,#@his(.17.str)
+	lea	a4,[a4]@los(.17.str)
+	call	printf
+.L238:
+	movh.a	a15,#@his(ucid0_x_coor)
+	lea	a15,[a15]@los(ucid0_x_coor)
+.L239:
+	movh.a	a2,#@his(ucid0)
+	lea	a2,[a2]@los(ucid0)
+	ld.w	d15,[a2]
+.L240:
+	extr.u	d15,d15,#23,#8
+.L241:
+	st.b	[a15],d15
+.L242:
+	movh.a	a15,#@his(ucid0_y_coor)
+	lea	a15,[a15]@los(ucid0_y_coor)
+.L243:
+	movh.a	a2,#@his(ucid0)
+	lea	a2,[a2]@los(ucid0)
+	ld.w	d15,[a2]
+.L244:
+	extr.u	d15,d15,#15,#8
+.L245:
+	st.b	[a15],d15
+.L246:
+	movh.a	a15,#@his(ucid0_man_id)
+	lea	a15,[a15]@los(ucid0_man_id)
+.L247:
+	movh.a	a2,#@his(ucid0)
+	lea	a2,[a2]@los(ucid0)
+	ld.w	d15,[a2]
+.L248:
+	and	d15,#255
+.L249:
+	st.b	[a15],d15
+.L250:
+	movh.a	a15,#@his(ucid0_blind)
+	lea	a15,[a15]@los(ucid0_blind)
+.L251:
+	movh.a	a2,#@his(ucid0)
+	lea	a2,[a2]@los(ucid0)
+	ld.w	d15,[a2]
+.L252:
+	extr.u	d15,d15,#31,#1
+.L253:
+	st.b	[a15],d15
+.L254:
+	movh.a	a15,#@his(ucid0_x_coor)
+	lea	a15,[a15]@los(ucid0_x_coor)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L255:
+	movh.a	a4,#@his(.18.str)
+	lea	a4,[a4]@los(.18.str)
+	call	printf
+.L256:
+	movh.a	a15,#@his(ucid0_y_coor)
+	lea	a15,[a15]@los(ucid0_y_coor)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L257:
+	movh.a	a4,#@his(.19.str)
+	lea	a4,[a4]@los(.19.str)
+	call	printf
+.L258:
+	movh.a	a15,#@his(ucid0_man_id)
+	lea	a15,[a15]@los(ucid0_man_id)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L259:
+	movh.a	a4,#@his(.20.str)
+	lea	a4,[a4]@los(.20.str)
+	call	printf
+.L260:
+	movh.a	a15,#@his(ucid0_man_id)
+	lea	a15,[a15]@los(ucid0_man_id)
+	ld.bu	d0,[a15]
+.L261:
+	mov	d15,#64
+.L262:
+	jne	d15,d0,.L15
+.L263:
+	movh.a	a4,#@his(.21.str)
+	lea	a4,[a4]@los(.21.str)
+	call	printf
+.L264:
+	j	.L16
+.L15:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L265:
+	mov	d15,#1
+.L266:
+	st.b	[a15],d15
+.L16:
+	movh.a	a15,#@his(ucid0_blind)
+	lea	a15,[a15]@los(ucid0_blind)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L267:
+	movh.a	a4,#@his(.22.str)
+	lea	a4,[a4]@los(.22.str)
+	call	printf
+.L268:
+	movh.a	a15,#@his(ucid0_blind)
+	lea	a15,[a15]@los(ucid0_blind)
+	ld.bu	d15,[a15]
+.L269:
+	jeq	d15,#0,.L17
+.L270:
+	movh.a	a4,#@his(.23.str)
+	lea	a4,[a4]@los(.23.str)
+	call	printf
+.L271:
+	j	.L18
+.L17:
+	movh.a	a4,#@his(.24.str)
+	lea	a4,[a4]@los(.24.str)
+	call	printf
+.L18:
+	movh.a	a15,#@his(ucid2_day)
+	lea	a15,[a15]@los(ucid2_day)
+.L272:
+	movh.a	a2,#@his(ucid2)
+	lea	a2,[a2]@los(ucid2)
+	ld.w	d15,[a2]
+.L273:
+	extr.u	d15,d15,#11,#5
+.L274:
+	st.b	[a15],d15
+.L275:
+	movh.a	a15,#@his(ucid2_month)
+	lea	a15,[a15]@los(ucid2_month)
+.L276:
+	movh.a	a2,#@his(ucid2)
+	lea	a2,[a2]@los(ucid2)
+	ld.w	d15,[a2]
+.L277:
+	extr.u	d15,d15,#16,#4
+.L278:
+	st.b	[a15],d15
+.L279:
+	movh.a	a15,#@his(ucid2_year)
+	lea	a15,[a15]@los(ucid2_year)
+.L280:
+	movh.a	a2,#@his(ucid2)
+	lea	a2,[a2]@los(ucid2)
+	ld.w	d15,[a2]
+.L281:
+	extr.u	d15,d15,#20,#8
+.L282:
+	st.b	[a15],d15
+.L283:
+	movh.a	a15,#@his(ucid2_day)
+	lea	a15,[a15]@los(ucid2_day)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L284:
+	movh.a	a4,#@his(.25.str)
+	lea	a4,[a4]@los(.25.str)
+	call	printf
+.L285:
+	movh.a	a15,#@his(ucid2_month)
+	lea	a15,[a15]@los(ucid2_month)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L286:
+	movh.a	a4,#@his(.26.str)
+	lea	a4,[a4]@los(.26.str)
+	call	printf
+.L287:
+	movh.a	a15,#@his(ucid2_year)
+	lea	a15,[a15]@los(ucid2_year)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L288:
+	movh.a	a4,#@his(.27.str)
+	lea	a4,[a4]@los(.27.str)
+	call	printf
+.L289:
+	ret
+.L92:
+	
+__Print_Silicon_Details_function_end:
+	.size	Print_Silicon_Details,__Print_Silicon_Details_function_end-Print_Silicon_Details
+.L44:
+	; End of function
+	
+	.sdecl	'.text.Silicon_Details.Print_Silicon_Details_to_Terminal',code,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.text.Silicon_Details.Print_Silicon_Details_to_Terminal'
+	.align	2
+	
+	.global	Print_Silicon_Details_to_Terminal
+; Function Print_Silicon_Details_to_Terminal
+.L35:
+Print_Silicon_Details_to_Terminal:	.type	func
+	sub.a	a10,#8
+.L111:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L294:
+	movh.a	a2,#44608
+	lea	a2,[a2]@los(0xae400008)
+.L295:
+	st.a	[a15],a2
+.L296:
+	movh.a	a15,#@his(chipid)
+	lea	a15,[a15]@los(chipid)
+.L297:
+	movh.a	a2,#44608
+	ld.w	d15,[a2]8
+.L298:
+	st.w	[a15],d15
+.L299:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L300:
+	movh.a	a2,#44609
+	lea	a2,[a2]@los(0xae412000)
+.L301:
+	st.a	[a15],a2
+.L302:
+	movh.a	a15,#@his(ucid0)
+	lea	a15,[a15]@los(ucid0)
+.L303:
+	movh.a	a2,#44609
+	ld.w	d15,[a2]@los(0xae412000)
+.L304:
+	st.w	[a15],d15
+.L305:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L306:
+	movh.a	a2,#44609
+	lea	a2,[a2]@los(0xae412004)
+.L307:
+	st.a	[a15],a2
+.L308:
+	movh.a	a15,#@his(ucid1)
+	lea	a15,[a15]@los(ucid1)
+.L309:
+	movh.a	a2,#44609
+	ld.w	d15,[a2]@los(0xae412004)
+.L310:
+	st.w	[a15],d15
+.L311:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L312:
+	movh.a	a2,#44609
+	lea	a2,[a2]@los(0xae412008)
+.L313:
+	st.a	[a15],a2
+.L314:
+	movh.a	a15,#@his(ucid2)
+	lea	a15,[a15]@los(ucid2)
+.L315:
+	movh.a	a2,#44609
+	ld.w	d15,[a2]@los(0xae412008)
+.L316:
+	st.w	[a15],d15
+.L317:
+	movh.a	a4,#@his(.1.str)
+	lea	a4,[a4]@los(.1.str)
+	call	printf
+.L318:
+	movh.a	a15,#@his(chipid)
+	lea	a15,[a15]@los(chipid)
+	ld.w	d15,[a15]
+.L319:
+	st.w	[a10],d15
+.L320:
+	movh.a	a4,#@his(.2.str)
+	lea	a4,[a4]@los(.2.str)
+	call	printf
+.L321:
+	movh.a	a15,#@his(ucid0)
+	lea	a15,[a15]@los(ucid0)
+	ld.w	d15,[a15]
+.L322:
+	st.w	[a10],d15
+.L323:
+	movh.a	a4,#@his(.3.str)
+	lea	a4,[a4]@los(.3.str)
+	call	printf
+.L324:
+	movh.a	a15,#@his(ucid1)
+	lea	a15,[a15]@los(ucid1)
+	ld.w	d15,[a15]
+.L325:
+	st.w	[a10],d15
+.L326:
+	movh.a	a4,#@his(.3.str)
+	lea	a4,[a4]@los(.3.str)
+	call	printf
+.L327:
+	movh.a	a15,#@his(ucid2)
+	lea	a15,[a15]@los(ucid2)
+	ld.w	d15,[a15]
+.L328:
+	st.w	[a10],d15
+.L329:
+	movh.a	a4,#@his(.3.str)
+	lea	a4,[a4]@los(.3.str)
+	call	printf
+.L330:
+	movh.a	a4,#@his(.4.str)
+	lea	a4,[a4]@los(.4.str)
+	call	printf
+.L331:
+	movh.a	a15,#@his(chipid)
+	lea	a15,[a15]@los(chipid)
+	ld.w	d15,[a15]
+.L332:
+	st.w	[a10],d15
+.L333:
+	movh.a	a4,#@his(.5.str)
+	lea	a4,[a4]@los(.5.str)
+	call	printf
+.L334:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L335:
+	movh.a	a2,#61442
+	lea	a2,[a2]@los(0xf00241a8)
+.L336:
+	st.a	[a15],a2
+.L337:
+	movh.a	a15,#@his(chipinfo)
+	lea	a15,[a15]@los(chipinfo)
+.L338:
+	movh.a	a2,#61442
+	ld.w	d15,[a2]@los(0xf00241a8)
+.L339:
+	st.w	[a15],d15
+.L340:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+.L341:
+	movh.a	a2,#@his(chipinfo)
+	lea	a2,[a2]@los(chipinfo)
+	ld.w	d15,[a2]
+.L342:
+	extr.u	d15,d15,#16,#6
+.L343:
+	st.b	[a15],d15
+.L344:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+.L345:
+	movh.a	a2,#@his(chipinfo)
+	lea	a2,[a2]@los(chipinfo)
+	ld.w	d15,[a2]
+.L346:
+	extr.u	d15,d15,#22,#2
+.L347:
+	st.b	[a15],d15
+.L348:
+	movh.a	a4,#@his(.8.str)
+	lea	a4,[a4]@los(.8.str)
+	call	printf
+.L349:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L350:
+	movh.a	a4,#@his(.9.str)
+	lea	a4,[a4]@los(.9.str)
+	call	printf
+.L98:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+	ld.bu	d15,[a15]
+.L351:
+	and	d0,d15,#15
+.L112:
+	movh.a	a15,#@his(chipinfo_chrev)
+	lea	a15,[a15]@los(chipinfo_chrev)
+	ld.bu	d15,[a15]
+.L352:
+	sha	d15,#-4
+.L114:
+	and	d15,#3
+.L353:
+	jne	d15,#0,.L19
+.L354:
+	st.w	[a10],d0
+.L355:
+	movh.a	a4,#@his(.10.str)
+	lea	a4,[a4]@los(.10.str)
+	call	printf
+.L113:
+	j	.L20
+.L19:
+	jne	d15,#1,.L21
+.L356:
+	st.w	[a10],d0
+.L357:
+	movh.a	a4,#@his(.11.str)
+	lea	a4,[a4]@los(.11.str)
+	call	printf
+.L116:
+	j	.L22
+.L21:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L358:
+	mov	d15,#1
+.L115:
+	st.b	[a15],d15
+.L22:
+.L20:
+	movh.a	a4,#@his(.4.str)
+	lea	a4,[a4]@los(.4.str)
+	call	printf
+.L359:
+	movh.a	a4,#@his(.12.str)
+	lea	a4,[a4]@los(.12.str)
+	call	printf
+.L360:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L361:
+	jne	d15,#0,.L23
+.L362:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L363:
+	mov	d15,#1
+.L364:
+	st.b	[a15],d15
+.L365:
+	j	.L24
+.L23:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L366:
+	jne	d15,#1,.L25
+.L367:
+	mov	d15,#1
+	st.w	[a10],d15
+.L368:
+	movh.a	a4,#@his(.13.str)
+	lea	a4,[a4]@los(.13.str)
+	call	printf
+.L369:
+	j	.L26
+.L25:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L370:
+	jne	d15,#2,.L27
+.L371:
+	mov	d15,#2
+	st.w	[a10],d15
+.L372:
+	movh.a	a4,#@his(.14.str)
+	lea	a4,[a4]@los(.14.str)
+	call	printf
+.L373:
+	j	.L28
+.L27:
+	movh.a	a15,#@his(chipinfo_chtec)
+	lea	a15,[a15]@los(chipinfo_chtec)
+	ld.bu	d15,[a15]
+.L374:
+	jne	d15,#3,.L29
+.L375:
+	mov	d15,#3
+	st.w	[a10],d15
+.L376:
+	movh.a	a4,#@his(.15.str)
+	lea	a4,[a4]@los(.15.str)
+	call	printf
+.L29:
+.L28:
+.L26:
+.L24:
+	movh.a	a15,#@his(register_ptr)
+	lea	a15,[a15]@los(register_ptr)
+.L377:
+	movh.a	a2,#44608
+	lea	a2,[a2]@los(0xae404804)
+.L378:
+	st.a	[a15],a2
+.L379:
+	movh.a	a15,#@his(ucb0_09_bmi_bmhdid)
+	lea	a15,[a15]@los(ucb0_09_bmi_bmhdid)
+.L380:
+	movh.a	a2,#44608
+	ld.w	d15,[a2]@los(0xae404804)
+.L381:
+	st.w	[a15],d15
+.L382:
+	movh.a	a15,#@his(ucb0_09_bmi_bmhdid_bmhdid)
+	lea	a15,[a15]@los(ucb0_09_bmi_bmhdid_bmhdid)
+.L383:
+	movh.a	a2,#@his(ucb0_09_bmi_bmhdid)
+	lea	a2,[a2]@los(ucb0_09_bmi_bmhdid)
+	ld.w	d15,[a2]
+.L384:
+	extr.u	d15,d15,#16,#16
+.L385:
+	st.h	[a15],d15
+.L386:
+	movh.a	a15,#@his(ucb0_09_bmi_bmhdid_bmhdid)
+	lea	a15,[a15]@los(ucb0_09_bmi_bmhdid_bmhdid)
+	ld.hu	d15,[a15]0
+	st.w	[a10],d15
+.L387:
+	movh.a	a4,#@his(.16.str)
+	lea	a4,[a4]@los(.16.str)
+	call	printf
+.L388:
+	movh.a	a15,#@his(ucid0_man_id)
+	lea	a15,[a15]@los(ucid0_man_id)
+.L389:
+	movh.a	a2,#@his(ucid0)
+	lea	a2,[a2]@los(ucid0)
+	ld.w	d15,[a2]
+.L390:
+	and	d15,#255
+.L391:
+	st.b	[a15],d15
+.L392:
+	movh.a	a15,#@his(ucid0_man_id)
+	lea	a15,[a15]@los(ucid0_man_id)
+	ld.bu	d15,[a15]
+	st.w	[a10],d15
+.L393:
+	movh.a	a4,#@his(.20.str)
+	lea	a4,[a4]@los(.20.str)
+	call	printf
+.L394:
+	movh.a	a15,#@his(ucid0_man_id)
+	lea	a15,[a15]@los(ucid0_man_id)
+	ld.bu	d0,[a15]
+.L395:
+	mov	d15,#64
+.L396:
+	jne	d15,d0,.L30
+.L397:
+	movh.a	a4,#@his(.21.str)
+	lea	a4,[a4]@los(.21.str)
+	call	printf
+.L398:
+	j	.L31
+.L30:
+	movh.a	a15,#@his(error_flag)
+	lea	a15,[a15]@los(error_flag)
+.L399:
+	mov	d15,#1
+.L400:
+	st.b	[a15],d15
+.L31:
+	ret
+.L97:
+	
+__Print_Silicon_Details_to_Terminal_function_end:
+	.size	Print_Silicon_Details_to_Terminal,__Print_Silicon_Details_to_Terminal_function_end-Print_Silicon_Details_to_Terminal
+.L49:
+	; End of function
+	
+	.sdecl	'.bss.Silicon_Details.register_ptr',data,cluster('register_ptr')
+	.sect	'.bss.Silicon_Details.register_ptr'
+	.global	register_ptr
+	.align	4
+register_ptr:	.type	object
+	.size	register_ptr,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.chipid',data,cluster('chipid')
+	.sect	'.bss.Silicon_Details.chipid'
+	.global	chipid
+	.align	4
+chipid:	.type	object
+	.size	chipid,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.ucid0',data,cluster('ucid0')
+	.sect	'.bss.Silicon_Details.ucid0'
+	.global	ucid0
+	.align	4
+ucid0:	.type	object
+	.size	ucid0,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.ucid1',data,cluster('ucid1')
+	.sect	'.bss.Silicon_Details.ucid1'
+	.global	ucid1
+	.align	4
+ucid1:	.type	object
+	.size	ucid1,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.ucid2',data,cluster('ucid2')
+	.sect	'.bss.Silicon_Details.ucid2'
+	.global	ucid2
+	.align	4
+ucid2:	.type	object
+	.size	ucid2,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.chipinfo',data,cluster('chipinfo')
+	.sect	'.bss.Silicon_Details.chipinfo'
+	.global	chipinfo
+	.align	4
+chipinfo:	.type	object
+	.size	chipinfo,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.ucb0_09_bmi_bmhdid',data,cluster('ucb0_09_bmi_bmhdid')
+	.sect	'.bss.Silicon_Details.ucb0_09_bmi_bmhdid'
+	.global	ucb0_09_bmi_bmhdid
+	.align	4
+ucb0_09_bmi_bmhdid:	.type	object
+	.size	ucb0_09_bmi_bmhdid,4
+	.space	4
+	.sdecl	'.bss.Silicon_Details.chipinfo_chrev',data,cluster('chipinfo_chrev')
+	.sect	'.bss.Silicon_Details.chipinfo_chrev'
+	.global	chipinfo_chrev
+chipinfo_chrev:	.type	object
+	.size	chipinfo_chrev,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.chipinfo_chtec',data,cluster('chipinfo_chtec')
+	.sect	'.bss.Silicon_Details.chipinfo_chtec'
+	.global	chipinfo_chtec
+chipinfo_chtec:	.type	object
+	.size	chipinfo_chtec,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid1_wafer',data,cluster('ucid1_wafer')
+	.sect	'.bss.Silicon_Details.ucid1_wafer'
+	.global	ucid1_wafer
+ucid1_wafer:	.type	object
+	.size	ucid1_wafer,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid0_x_coor',data,cluster('ucid0_x_coor')
+	.sect	'.bss.Silicon_Details.ucid0_x_coor'
+	.global	ucid0_x_coor
+ucid0_x_coor:	.type	object
+	.size	ucid0_x_coor,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid0_y_coor',data,cluster('ucid0_y_coor')
+	.sect	'.bss.Silicon_Details.ucid0_y_coor'
+	.global	ucid0_y_coor
+ucid0_y_coor:	.type	object
+	.size	ucid0_y_coor,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid0_man_id',data,cluster('ucid0_man_id')
+	.sect	'.bss.Silicon_Details.ucid0_man_id'
+	.global	ucid0_man_id
+ucid0_man_id:	.type	object
+	.size	ucid0_man_id,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid0_blind',data,cluster('ucid0_blind')
+	.sect	'.bss.Silicon_Details.ucid0_blind'
+	.global	ucid0_blind
+ucid0_blind:	.type	object
+	.size	ucid0_blind,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid2_day',data,cluster('ucid2_day')
+	.sect	'.bss.Silicon_Details.ucid2_day'
+	.global	ucid2_day
+ucid2_day:	.type	object
+	.size	ucid2_day,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid2_month',data,cluster('ucid2_month')
+	.sect	'.bss.Silicon_Details.ucid2_month'
+	.global	ucid2_month
+ucid2_month:	.type	object
+	.size	ucid2_month,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.ucid2_year',data,cluster('ucid2_year')
+	.sect	'.bss.Silicon_Details.ucid2_year'
+	.global	ucid2_year
+ucid2_year:	.type	object
+	.size	ucid2_year,1
+	.space	1
+	.sdecl	'.bss.Silicon_Details.chipinfo_manuf',data,cluster('chipinfo_manuf')
+	.sect	'.bss.Silicon_Details.chipinfo_manuf'
+	.global	chipinfo_manuf
+	.align	2
+chipinfo_manuf:	.type	object
+	.size	chipinfo_manuf,2
+	.space	2
+	.sdecl	'.bss.Silicon_Details.ucb0_09_bmi_bmhdid_bmhdid',data,cluster('ucb0_09_bmi_bmhdid_bmhdid')
+	.sect	'.bss.Silicon_Details.ucb0_09_bmi_bmhdid_bmhdid'
+	.global	ucb0_09_bmi_bmhdid_bmhdid
+	.align	2
+ucb0_09_bmi_bmhdid_bmhdid:	.type	object
+	.size	ucb0_09_bmi_bmhdid_bmhdid,2
+	.space	2
+	.sdecl	'.data.Silicon_Details.error_flag',data,cluster('error_flag')
+	.sect	'.data.Silicon_Details.error_flag'
+	.global	error_flag
+error_flag:	.type	object
+	.size	error_flag,1
+	.space	1
+	.sdecl	'.data.Silicon_Details.error_string',data,cluster('error_string')
+	.sect	'.data.Silicon_Details.error_string'
+	.global	error_string
+error_string:	.type	object
+	.size	error_string,30
+	.space	30
+	.sdecl	'.rodata.Silicon_Details..1.str',data,rom
+	.sect	'.rodata.Silicon_Details..1.str'
+.1.str:	.type	object
+	.size	.1.str,17
+	.byte	108,111,103,58
+	.byte	32,13,32,32
+	.byte	32,32,32,32
+	.byte	32,32,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..2.str',data,rom
+	.sect	'.rodata.Silicon_Details..2.str'
+.2.str:	.type	object
+	.size	.2.str,35
+	.byte	68,69,86,73
+	.byte	67,69,32,73
+	.byte	68,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	56,88
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..3.str',data,rom
+	.sect	'.rodata.Silicon_Details..3.str'
+.3.str:	.type	object
+	.size	.3.str,8
+	.byte	32,48,120,37
+	.byte	48,56,88
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..4.str',data,rom
+	.sect	'.rodata.Silicon_Details..4.str'
+.4.str:	.type	object
+	.size	.4.str,3
+	.byte	10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..5.str',data,rom
+	.sect	'.rodata.Silicon_Details..5.str'
+.5.str:	.type	object
+	.size	.5.str,37
+	.byte	67,72,73,80
+	.byte	73,68,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	56,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..6.str',data,rom
+	.sect	'.rodata.Silicon_Details..6.str'
+.6.str:	.type	object
+	.size	.6.str,35
+	.byte	67,72,73,80
+	.byte	73,78,70,79
+	.byte	46,77,65,78
+	.byte	85,70,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..7.str',data,rom
+	.sect	'.rodata.Silicon_Details..7.str'
+.7.str:	.type	object
+	.size	.7.str,27
+	.byte	32,40,73,110
+	.byte	102,105,110,101
+	.byte	111,110,32,84
+	.byte	101,99,104,110
+	.byte	111,108,111,103
+	.byte	105,101,115,41
+	.byte	10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..8.str',data,rom
+	.sect	'.rodata.Silicon_Details..8.str'
+.8.str:	.type	object
+	.size	.8.str,29
+	.byte	67,72,73,80
+	.byte	73,78,70,79
+	.byte	46,67,72,82
+	.byte	69,86,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..9.str',data,rom
+	.sect	'.rodata.Silicon_Details..9.str'
+.9.str:	.type	object
+	.size	.9.str,8
+	.byte	48,120,37,48
+	.byte	50,88,32
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..10.str',data,rom
+	.sect	'.rodata.Silicon_Details..10.str'
+.10.str:	.type	object
+	.size	.10.str,32
+	.byte	40,65,45,115
+	.byte	116,101,112,32
+	.byte	115,105,108,105
+	.byte	99,111,110,46
+	.byte	109,105,110,111
+	.byte	114,32,114,101
+	.byte	118,32,61,32
+	.byte	37,100,41
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..11.str',data,rom
+	.sect	'.rodata.Silicon_Details..11.str'
+.11.str:	.type	object
+	.size	.11.str,32
+	.byte	40,66,45,115
+	.byte	116,101,112,32
+	.byte	115,105,108,105
+	.byte	99,111,110,46
+	.byte	109,105,110,111
+	.byte	114,32,114,101
+	.byte	118,32,61,32
+	.byte	37,100,41
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..12.str',data,rom
+	.sect	'.rodata.Silicon_Details..12.str'
+.12.str:	.type	object
+	.size	.12.str,29
+	.byte	67,72,73,80
+	.byte	73,78,70,79
+	.byte	46,67,72,84
+	.byte	69,67,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..13.str',data,rom
+	.sect	'.rodata.Silicon_Details..13.str'
+.13.str:	.type	object
+	.size	.13.str,20
+	.byte	48,120,37,88
+	.byte	32,32,40,83
+	.byte	65,120,45,84
+	.byte	67,50,120,120
+	.byte	41,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..14.str',data,rom
+	.sect	'.rodata.Silicon_Details..14.str'
+.14.str:	.type	object
+	.size	.14.str,20
+	.byte	48,120,37,88
+	.byte	32,32,40,83
+	.byte	65,120,45,84
+	.byte	67,51,120,120
+	.byte	41,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..15.str',data,rom
+	.sect	'.rodata.Silicon_Details..15.str'
+.15.str:	.type	object
+	.size	.15.str,20
+	.byte	48,120,37,88
+	.byte	32,32,40,83
+	.byte	65,120,45,84
+	.byte	67,52,120,120
+	.byte	41,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..16.str',data,rom
+	.sect	'.rodata.Silicon_Details..16.str'
+.16.str:	.type	object
+	.size	.16.str,37
+	.byte	85,67,66,48
+	.byte	95,48,57,95
+	.byte	66,77,73,95
+	.byte	66,77,72,68
+	.byte	73,68,46,66
+	.byte	77,72,68,73
+	.byte	68,32,61,32
+	.byte	48,120,37,48
+	.byte	52,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..17.str',data,rom
+	.sect	'.rodata.Silicon_Details..17.str'
+.17.str:	.type	object
+	.size	.17.str,37
+	.byte	85,67,73,68
+	.byte	49,46,87,65
+	.byte	70,69,82,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..18.str',data,rom
+	.sect	'.rodata.Silicon_Details..18.str'
+.18.str:	.type	object
+	.size	.18.str,37
+	.byte	85,67,73,68
+	.byte	48,46,88,95
+	.byte	99,111,111,114
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..19.str',data,rom
+	.sect	'.rodata.Silicon_Details..19.str'
+.19.str:	.type	object
+	.size	.19.str,37
+	.byte	85,67,73,68
+	.byte	48,46,89,95
+	.byte	99,111,111,114
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..20.str',data,rom
+	.sect	'.rodata.Silicon_Details..20.str'
+.20.str:	.type	object
+	.size	.20.str,35
+	.byte	85,67,73,68
+	.byte	48,46,77,97
+	.byte	110,95,73,68
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..21.str',data,rom
+	.sect	'.rodata.Silicon_Details..21.str'
+.21.str:	.type	object
+	.size	.21.str,9
+	.byte	32,40,73,70
+	.byte	88,41,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..22.str',data,rom
+	.sect	'.rodata.Silicon_Details..22.str'
+.22.str:	.type	object
+	.size	.22.str,33
+	.byte	85,67,73,68
+	.byte	48,46,66,76
+	.byte	73,78,68,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,88
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..23.str',data,rom
+	.sect	'.rodata.Silicon_Details..23.str'
+.23.str:	.type	object
+	.size	.23.str,22
+	.byte	32,32,40,66
+	.byte	108,105,110,100
+	.byte	32,65,115,115
+	.byte	101,109,98,108
+	.byte	101,100,41,10
+	.byte	13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..24.str',data,rom
+	.sect	'.rodata.Silicon_Details..24.str'
+.24.str:	.type	object
+	.size	.24.str,19
+	.byte	32,32,40,87
+	.byte	97,102,101,114
+	.byte	32,84,101,115
+	.byte	116,101,100,41
+	.byte	10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..25.str',data,rom
+	.sect	'.rodata.Silicon_Details..25.str'
+.25.str:	.type	object
+	.size	.25.str,37
+	.byte	85,67,73,68
+	.byte	50,46,68,65
+	.byte	89,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..26.str',data,rom
+	.sect	'.rodata.Silicon_Details..26.str'
+.26.str:	.type	object
+	.size	.26.str,37
+	.byte	85,67,73,68
+	.byte	50,46,77,79
+	.byte	78,84,72,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88,10,13
+	.space	1
+	.sdecl	'.rodata.Silicon_Details..27.str',data,rom
+	.sect	'.rodata.Silicon_Details..27.str'
+.27.str:	.type	object
+	.size	.27.str,37
+	.byte	85,67,73,68
+	.byte	50,46,89,69
+	.byte	65,82,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,32,32
+	.byte	32,32,61,32
+	.byte	48,120,37,48
+	.byte	50,88,10,13
+	.space	1
+	.calls	'Print_Silicon_Details','printf'
+	.calls	'Print_Silicon_Details_to_Terminal','printf'
+	.calls	'Print_Silicon_Details','',8
+	.extern	printf
+	.extern	__printf_int
+	.calls	'Print_Silicon_Details_to_Terminal','',8
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L37:
+	.word	756
+	.half	3
+	.word	.L38
+	.byte	4
+.L36:
+	.byte	1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L39
+	.byte	2
+	.byte	'unsigned int',0,4,7,3
+	.word	178
+	.byte	4
+	.word	178
+	.byte	5
+	.byte	'__cmpswapw',0
+	.word	194
+	.byte	1,1,1,1,6
+	.byte	'p',0
+	.word	199
+	.byte	6
+	.byte	'value',0
+	.word	178
+	.byte	6
+	.byte	'compare',0
+	.word	178
+	.byte	0,2
+	.byte	'int',0,4,5,7
+	.word	256
+	.byte	8
+	.byte	'__c11_atomic_thread_fence',0,1,1,1,1,9
+	.word	263
+	.byte	0,2
+	.byte	'char',0,1,6,7
+	.word	305
+	.byte	4
+	.word	313
+	.byte	10
+	.word	318
+	.byte	11
+	.byte	'printf',0,1,141,1,16
+	.word	256
+	.byte	1,1,1,1,12,1,141,1,38
+	.word	323
+	.byte	13,1,141,1,50,0
+.L94:
+	.byte	2
+	.byte	'unsigned char',0,1,8,2
+	.byte	'short int',0,2,5,14
+	.byte	'__wchar_t',0,2,1,1
+	.word	380
+	.byte	14
+	.byte	'__size_t',0,2,1,1
+	.word	178
+	.byte	14
+	.byte	'__ptrdiff_t',0,2,1,1
+	.word	256
+	.byte	15,1,4
+	.word	448
+	.byte	14
+	.byte	'__codeptr',0,2,1,1
+	.word	450
+.L103:
+	.byte	2
+	.byte	'unsigned short int',0,2,7,14
+	.byte	'_iob_flag_t',0,1,82,25
+	.word	473
+	.byte	14
+	.byte	'boolean',0,3,103,23
+	.word	363
+	.byte	14
+	.byte	'uint8',0,3,107,23
+	.word	363
+	.byte	14
+	.byte	'uint16',0,3,111,24
+	.word	473
+.L102:
+	.byte	2
+	.byte	'unsigned long int',0,4,7,14
+	.byte	'uint32',0,3,115,23
+	.word	560
+	.byte	14
+	.byte	'sint16',0,3,128,1,15
+	.word	380
+	.byte	2
+	.byte	'long int',0,4,5,14
+	.byte	'sint32',0,3,133,1,14
+	.word	612
+	.byte	2
+	.byte	'long long int',0,8,5,14
+	.byte	'sint64',0,3,140,1,19
+	.word	640
+	.byte	2
+	.byte	'float',0,4,4,14
+	.byte	'float32',0,3,169,1,15
+	.word	673
+	.byte	16
+	.byte	'void',0,4
+	.word	699
+	.byte	14
+	.byte	'pvoid',0,4,79,24
+	.word	705
+	.byte	14
+	.byte	'Ifx_TickTime',0,4,101,16
+	.word	640
+.L101:
+	.byte	4
+	.word	560
+.L104:
+	.byte	17,30
+	.word	363
+	.byte	18,29,0,0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L38:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,53,0,73,19,0,0,4,15,0,73,19
+	.byte	0,0,5,46,1,3,8,73,19,54,15,39,12,63,12,60,12,0,0,6,5,0,3,8,73,19,0,0,7,38,0,73,19,0,0,8,46,1,3,8,54,15
+	.byte	39,12,63,12,60,12,0,0,9,5,0,73,19,0,0,10,55,0,73,19,0,0,11,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39,12
+	.byte	63,12,60,12,0,0,12,5,0,58,15,59,15,57,15,73,19,0,0,13,24,0,58,15,59,15,57,15,0,0,14,22,0,3,8,58,15,59
+	.byte	15,57,15,73,19,0,0,15,21,0,54,15,0,0,16,59,0,3,8,0,0,17,1,1,11,15,73,19,0,0,18,33,0,47,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L39:
+	.word	.L118-.L117
+.L117:
+	.half	3
+	.word	.L120-.L119
+.L119:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'C:\\Infineon\\AURIX-Studio-limited-1.10.0-L\\plugins\\com.infineon.aurix.ads.tc4xx.tools_1.10.0\\build_system\\tools\\Compilers\\Tasking_10.1r1\\ctc\\include\\',0
+	.byte	'C:\\\\Users\\\\KumarDharani\\\\Documents\\\\Aurix_Projects\\\\Projects\\\\Silicon_Details_TC4D7_Lite_Kit\\\\Libraries\\\\iLLD\\\\TC4DA\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	0
+	.byte	'stdio.h',0,1,0,0
+	.byte	'../Silicon_Details.c',0,0,0,0
+	.byte	'Platform_Types.h',0,2,0,0
+	.byte	'Ifx_Types.h',0,2,0,0,0
+.L120:
+.L118:
+	.sdecl	'.debug_info',debug,cluster('Print_Silicon_Details')
+	.sect	'.debug_info'
+.L40:
+	.word	293
+	.half	3
+	.word	.L41
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L43,.L42
+	.byte	2
+	.word	.L36
+	.byte	3
+	.byte	'Print_Silicon_Details',0,1,15,6,1,1,1
+	.word	.L33,.L92,.L32
+	.byte	4
+	.word	.L33,.L92
+	.byte	4
+	.word	.L93,.L92
+	.byte	5
+	.byte	'low_nibble',0,1,64,11
+	.word	.L94,.L95
+	.byte	5
+	.byte	'high_nibble',0,1,64,23
+	.word	.L94,.L96
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Print_Silicon_Details')
+	.sect	'.debug_abbrev'
+.L41:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Print_Silicon_Details')
+	.sect	'.debug_line'
+.L42:
+	.word	.L122-.L121
+.L121:
+	.half	3
+	.word	.L124-.L123
+.L123:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Silicon_Details.c',0,0,0,0,0
+.L124:
+	.byte	5,6,7,0,5,2
+	.word	.L33
+	.byte	3,14,1,5,5,9
+	.half	.L105-.L33
+	.byte	3,3,1,5,20,9
+	.half	.L125-.L105
+	.byte	1,5,18,9
+	.half	.L126-.L125
+	.byte	1,5,5,9
+	.half	.L127-.L126
+	.byte	3,1,1,5,14,9
+	.half	.L128-.L127
+	.byte	1,5,12,9
+	.half	.L129-.L128
+	.byte	1,5,5,9
+	.half	.L130-.L129
+	.byte	3,2,1,5,20,9
+	.half	.L131-.L130
+	.byte	1,5,18,9
+	.half	.L132-.L131
+	.byte	1,5,5,9
+	.half	.L133-.L132
+	.byte	3,1,1,5,13,9
+	.half	.L134-.L133
+	.byte	1,5,11,9
+	.half	.L135-.L134
+	.byte	1,5,5,9
+	.half	.L136-.L135
+	.byte	3,2,1,5,20,9
+	.half	.L137-.L136
+	.byte	1,5,18,9
+	.half	.L138-.L137
+	.byte	1,5,5,9
+	.half	.L139-.L138
+	.byte	3,1,1,5,13,9
+	.half	.L140-.L139
+	.byte	1,5,11,9
+	.half	.L141-.L140
+	.byte	1,5,5,9
+	.half	.L142-.L141
+	.byte	3,2,1,5,20,9
+	.half	.L143-.L142
+	.byte	1,5,18,9
+	.half	.L144-.L143
+	.byte	1,5,5,9
+	.half	.L145-.L144
+	.byte	3,1,1,5,13,9
+	.half	.L146-.L145
+	.byte	1,5,11,9
+	.half	.L147-.L146
+	.byte	1,5,12,9
+	.half	.L148-.L147
+	.byte	3,3,1,5,64,9
+	.half	.L149-.L148
+	.byte	3,1,1,5,50,9
+	.half	.L150-.L149
+	.byte	1,5,12,9
+	.half	.L151-.L150
+	.byte	1,5,37,9
+	.half	.L152-.L151
+	.byte	3,1,1,5,23,9
+	.half	.L153-.L152
+	.byte	1,5,12,9
+	.half	.L154-.L153
+	.byte	1,5,37,9
+	.half	.L155-.L154
+	.byte	3,1,1,5,23,9
+	.half	.L156-.L155
+	.byte	1,5,12,9
+	.half	.L157-.L156
+	.byte	1,5,37,9
+	.half	.L158-.L157
+	.byte	3,1,1,5,23,9
+	.half	.L159-.L158
+	.byte	1,5,12,9
+	.half	.L160-.L159
+	.byte	1,9
+	.half	.L161-.L160
+	.byte	3,1,1,5,68,9
+	.half	.L162-.L161
+	.byte	3,2,1,5,54,9
+	.half	.L163-.L162
+	.byte	1,5,12,9
+	.half	.L164-.L163
+	.byte	1,5,5,9
+	.half	.L165-.L164
+	.byte	3,2,1,5,20,9
+	.half	.L166-.L165
+	.byte	1,5,18,9
+	.half	.L167-.L166
+	.byte	1,5,5,9
+	.half	.L168-.L167
+	.byte	3,1,1,5,16,9
+	.half	.L169-.L168
+	.byte	1,5,14,9
+	.half	.L170-.L169
+	.byte	1,5,5,9
+	.half	.L171-.L170
+	.byte	3,3,1,5,24,9
+	.half	.L172-.L171
+	.byte	1,5,39,9
+	.half	.L173-.L172
+	.byte	1,5,20,9
+	.half	.L174-.L173
+	.byte	1,5,5,9
+	.half	.L175-.L174
+	.byte	3,1,1,5,24,9
+	.half	.L176-.L175
+	.byte	1,5,40,9
+	.half	.L177-.L176
+	.byte	1,5,20,9
+	.half	.L178-.L177
+	.byte	1,5,5,9
+	.half	.L179-.L178
+	.byte	3,1,1,5,24,9
+	.half	.L180-.L179
+	.byte	1,5,40,9
+	.half	.L181-.L180
+	.byte	1,5,20,9
+	.half	.L182-.L181
+	.byte	1,5,50,9
+	.half	.L183-.L182
+	.byte	3,3,1,5,12,9
+	.half	.L184-.L183
+	.byte	1,5,8,9
+	.half	.L185-.L184
+	.byte	3,1,1,5,26,9
+	.half	.L186-.L185
+	.byte	1,5,5,9
+	.half	.L187-.L186
+	.byte	1,5,20,7,9
+	.half	.L188-.L187
+	.byte	3,2,1,5,51,9
+	.half	.L189-.L188
+	.byte	1,5,9,9
+	.half	.L2-.L189
+	.byte	3,4,1,5,22,9
+	.half	.L190-.L2
+	.byte	1,5,20,9
+	.half	.L191-.L190
+	.byte	1,5,16,9
+	.half	.L192-.L191
+	.byte	3,1,1,5,12,9
+	.half	.L3-.L192
+	.byte	3,5,1,5,23,9
+	.half	.L193-.L3
+	.byte	3,1,1,5,12,9
+	.half	.L194-.L193
+	.byte	1,5,19,9
+	.half	.L93-.L194
+	.byte	3,2,1,5,34,9
+	.half	.L195-.L93
+	.byte	1,5,21,9
+	.half	.L106-.L195
+	.byte	3,1,1,5,36,9
+	.half	.L196-.L106
+	.byte	1,5,42,9
+	.half	.L108-.L196
+	.byte	1,5,5,9
+	.half	.L197-.L108
+	.byte	3,2,1,5,55,7,9
+	.half	.L198-.L197
+	.byte	3,2,1,5,20,9
+	.half	.L199-.L198
+	.byte	1,5,66,9
+	.half	.L107-.L199
+	.byte	1,5,10,9
+	.half	.L4-.L107
+	.byte	3,3,1,5,55,7,9
+	.half	.L200-.L4
+	.byte	3,2,1,5,20,9
+	.half	.L201-.L200
+	.byte	1,5,66,9
+	.half	.L110-.L201
+	.byte	1,5,13,9
+	.half	.L6-.L110
+	.byte	3,5,1,5,26,9
+	.half	.L202-.L6
+	.byte	1,5,24,9
+	.half	.L109-.L202
+	.byte	1,5,12,9
+	.half	.L5-.L109
+	.byte	3,3,1,9
+	.half	.L203-.L5
+	.byte	3,4,1,5,8,9
+	.half	.L204-.L203
+	.byte	3,1,1,5,5,9
+	.half	.L205-.L204
+	.byte	1,5,9,7,9
+	.half	.L206-.L205
+	.byte	3,2,1,5,22,9
+	.half	.L207-.L206
+	.byte	1,5,20,9
+	.half	.L208-.L207
+	.byte	1,5,26,9
+	.half	.L209-.L208
+	.byte	1,5,13,9
+	.half	.L8-.L209
+	.byte	3,3,1,5,10,9
+	.half	.L210-.L8
+	.byte	1,5,41,7,9
+	.half	.L211-.L210
+	.byte	3,2,1,5,16,9
+	.half	.L212-.L211
+	.byte	1,5,56,9
+	.half	.L213-.L212
+	.byte	1,5,13,9
+	.half	.L10-.L213
+	.byte	3,2,1,5,10,9
+	.half	.L214-.L10
+	.byte	1,5,41,7,9
+	.half	.L215-.L214
+	.byte	3,2,1,5,16,9
+	.half	.L216-.L215
+	.byte	1,5,56,9
+	.half	.L217-.L216
+	.byte	1,5,13,9
+	.half	.L12-.L217
+	.byte	3,2,1,5,10,9
+	.half	.L218-.L12
+	.byte	1,5,41,7,9
+	.half	.L219-.L218
+	.byte	3,2,1,5,16,9
+	.half	.L220-.L219
+	.byte	1,5,5,9
+	.half	.L9-.L220
+	.byte	3,4,1,5,20,9
+	.half	.L221-.L9
+	.byte	1,5,18,9
+	.half	.L222-.L221
+	.byte	1,5,5,9
+	.half	.L223-.L222
+	.byte	3,1,1,5,26,9
+	.half	.L224-.L223
+	.byte	1,5,24,9
+	.half	.L225-.L224
+	.byte	1,5,5,9
+	.half	.L226-.L225
+	.byte	3,2,1,5,35,9
+	.half	.L227-.L226
+	.byte	1,5,61,9
+	.half	.L228-.L227
+	.byte	1,5,31,9
+	.half	.L229-.L228
+	.byte	1,5,54,9
+	.half	.L230-.L229
+	.byte	3,1,1,5,12,9
+	.half	.L231-.L230
+	.byte	1,5,5,9
+	.half	.L232-.L231
+	.byte	3,3,1,5,20,9
+	.half	.L233-.L232
+	.byte	1,5,26,9
+	.half	.L234-.L233
+	.byte	1,5,17,9
+	.half	.L235-.L234
+	.byte	1,5,53,9
+	.half	.L236-.L235
+	.byte	3,1,1,5,12,9
+	.half	.L237-.L236
+	.byte	1,5,5,9
+	.half	.L238-.L237
+	.byte	3,2,1,5,22,9
+	.half	.L239-.L238
+	.byte	1,5,35,9
+	.half	.L240-.L239
+	.byte	1,5,18,9
+	.half	.L241-.L240
+	.byte	1,5,5,9
+	.half	.L242-.L241
+	.byte	3,1,1,5,22,9
+	.half	.L243-.L242
+	.byte	1,5,35,9
+	.half	.L244-.L243
+	.byte	1,5,18,9
+	.half	.L245-.L244
+	.byte	1,5,5,9
+	.half	.L246-.L245
+	.byte	3,1,1,5,21,9
+	.half	.L247-.L246
+	.byte	1,5,27,9
+	.half	.L248-.L247
+	.byte	1,5,18,9
+	.half	.L249-.L248
+	.byte	1,5,5,9
+	.half	.L250-.L249
+	.byte	3,1,1,5,22,9
+	.half	.L251-.L250
+	.byte	1,5,35,9
+	.half	.L252-.L251
+	.byte	1,5,18,9
+	.half	.L253-.L252
+	.byte	1,5,54,9
+	.half	.L254-.L253
+	.byte	3,2,1,5,12,9
+	.half	.L255-.L254
+	.byte	1,5,54,9
+	.half	.L256-.L255
+	.byte	3,1,1,5,12,9
+	.half	.L257-.L256
+	.byte	1,5,50,9
+	.half	.L258-.L257
+	.byte	3,1,1,5,12,9
+	.half	.L259-.L258
+	.byte	1,5,8,9
+	.half	.L260-.L259
+	.byte	3,1,1,5,24,9
+	.half	.L261-.L260
+	.byte	1,5,5,9
+	.half	.L262-.L261
+	.byte	1,5,16,7,9
+	.half	.L263-.L262
+	.byte	3,2,1,5,29,9
+	.half	.L264-.L263
+	.byte	1,5,9,9
+	.half	.L15-.L264
+	.byte	3,4,1,5,22,9
+	.half	.L265-.L15
+	.byte	1,5,20,9
+	.half	.L266-.L265
+	.byte	1,5,48,9
+	.half	.L16-.L266
+	.byte	3,3,1,5,12,9
+	.half	.L267-.L16
+	.byte	1,5,8,9
+	.half	.L268-.L267
+	.byte	3,1,1,5,5,9
+	.half	.L269-.L268
+	.byte	1,5,16,7,9
+	.half	.L270-.L269
+	.byte	3,1,1,5,42,9
+	.half	.L271-.L270
+	.byte	1,5,16,9
+	.half	.L17-.L271
+	.byte	3,2,1,5,5,9
+	.half	.L18-.L17
+	.byte	3,4,1,5,21,9
+	.half	.L272-.L18
+	.byte	1,5,34,9
+	.half	.L273-.L272
+	.byte	1,5,17,9
+	.half	.L274-.L273
+	.byte	1,5,5,9
+	.half	.L275-.L274
+	.byte	3,1,1,5,21,9
+	.half	.L276-.L275
+	.byte	1,5,34,9
+	.half	.L277-.L276
+	.byte	1,5,17,9
+	.half	.L278-.L277
+	.byte	1,5,5,9
+	.half	.L279-.L278
+	.byte	3,1,1,5,21,9
+	.half	.L280-.L279
+	.byte	1,5,34,9
+	.half	.L281-.L280
+	.byte	1,5,17,9
+	.half	.L282-.L281
+	.byte	1,5,54,9
+	.half	.L283-.L282
+	.byte	3,2,1,5,12,9
+	.half	.L284-.L283
+	.byte	1,5,54,9
+	.half	.L285-.L284
+	.byte	3,1,1,5,12,9
+	.half	.L286-.L285
+	.byte	1,5,54,9
+	.half	.L287-.L286
+	.byte	3,1,1,5,12,9
+	.half	.L288-.L287
+	.byte	1,5,1,9
+	.half	.L289-.L288
+	.byte	3,3,1,7,9
+	.half	.L44-.L289
+	.byte	0,1,1
+.L122:
+	.sdecl	'.debug_ranges',debug,cluster('Print_Silicon_Details')
+	.sect	'.debug_ranges'
+.L43:
+	.word	-1,.L33,0,.L44-.L33,0,0
+	.sdecl	'.debug_info',debug,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.debug_info'
+.L45:
+	.word	308
+	.half	3
+	.word	.L46
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L48,.L47
+	.byte	2
+	.word	.L36
+	.byte	3
+	.byte	'Print_Silicon_Details_to_Terminal',0,1,157,1,6,1,1,1
+	.word	.L35,.L97,.L34
+	.byte	4
+	.word	.L35,.L97
+	.byte	4
+	.word	.L98,.L97
+	.byte	5
+	.byte	'low_nibble',0,1,194,1,11
+	.word	.L94,.L99
+	.byte	5
+	.byte	'high_nibble',0,1,194,1,23
+	.word	.L94,.L100
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.debug_abbrev'
+.L46:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.debug_line'
+.L47:
+	.word	.L291-.L290
+.L290:
+	.half	3
+	.word	.L293-.L292
+.L292:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Silicon_Details.c',0,0,0,0,0
+.L293:
+	.byte	5,6,7,0,5,2
+	.word	.L35
+	.byte	3,156,1,1,5,5,9
+	.half	.L111-.L35
+	.byte	3,3,1,5,20,9
+	.half	.L294-.L111
+	.byte	1,5,18,9
+	.half	.L295-.L294
+	.byte	1,5,5,9
+	.half	.L296-.L295
+	.byte	3,1,1,5,14,9
+	.half	.L297-.L296
+	.byte	1,5,12,9
+	.half	.L298-.L297
+	.byte	1,5,5,9
+	.half	.L299-.L298
+	.byte	3,2,1,5,20,9
+	.half	.L300-.L299
+	.byte	1,5,18,9
+	.half	.L301-.L300
+	.byte	1,5,5,9
+	.half	.L302-.L301
+	.byte	3,1,1,5,13,9
+	.half	.L303-.L302
+	.byte	1,5,11,9
+	.half	.L304-.L303
+	.byte	1,5,5,9
+	.half	.L305-.L304
+	.byte	3,2,1,5,20,9
+	.half	.L306-.L305
+	.byte	1,5,18,9
+	.half	.L307-.L306
+	.byte	1,5,5,9
+	.half	.L308-.L307
+	.byte	3,1,1,5,13,9
+	.half	.L309-.L308
+	.byte	1,5,11,9
+	.half	.L310-.L309
+	.byte	1,5,5,9
+	.half	.L311-.L310
+	.byte	3,2,1,5,20,9
+	.half	.L312-.L311
+	.byte	1,5,18,9
+	.half	.L313-.L312
+	.byte	1,5,5,9
+	.half	.L314-.L313
+	.byte	3,1,1,5,13,9
+	.half	.L315-.L314
+	.byte	1,5,11,9
+	.half	.L316-.L315
+	.byte	1,5,12,9
+	.half	.L317-.L316
+	.byte	3,3,1,5,64,9
+	.half	.L318-.L317
+	.byte	3,1,1,5,50,9
+	.half	.L319-.L318
+	.byte	1,5,12,9
+	.half	.L320-.L319
+	.byte	1,5,37,9
+	.half	.L321-.L320
+	.byte	3,1,1,5,23,9
+	.half	.L322-.L321
+	.byte	1,5,12,9
+	.half	.L323-.L322
+	.byte	1,5,37,9
+	.half	.L324-.L323
+	.byte	3,1,1,5,23,9
+	.half	.L325-.L324
+	.byte	1,5,12,9
+	.half	.L326-.L325
+	.byte	1,5,37,9
+	.half	.L327-.L326
+	.byte	3,1,1,5,23,9
+	.half	.L328-.L327
+	.byte	1,5,12,9
+	.half	.L329-.L328
+	.byte	1,9
+	.half	.L330-.L329
+	.byte	3,1,1,5,68,9
+	.half	.L331-.L330
+	.byte	3,2,1,5,54,9
+	.half	.L332-.L331
+	.byte	1,5,12,9
+	.half	.L333-.L332
+	.byte	1,5,5,9
+	.half	.L334-.L333
+	.byte	3,2,1,5,20,9
+	.half	.L335-.L334
+	.byte	1,5,18,9
+	.half	.L336-.L335
+	.byte	1,5,5,9
+	.half	.L337-.L336
+	.byte	3,1,1,5,16,9
+	.half	.L338-.L337
+	.byte	1,5,14,9
+	.half	.L339-.L338
+	.byte	1,5,5,9
+	.half	.L340-.L339
+	.byte	3,4,1,5,24,9
+	.half	.L341-.L340
+	.byte	1,5,40,9
+	.half	.L342-.L341
+	.byte	1,5,20,9
+	.half	.L343-.L342
+	.byte	1,5,5,9
+	.half	.L344-.L343
+	.byte	3,1,1,5,24,9
+	.half	.L345-.L344
+	.byte	1,5,40,9
+	.half	.L346-.L345
+	.byte	1,5,20,9
+	.half	.L347-.L346
+	.byte	1,5,12,9
+	.half	.L348-.L347
+	.byte	3,4,1,5,23,9
+	.half	.L349-.L348
+	.byte	3,1,1,5,12,9
+	.half	.L350-.L349
+	.byte	1,5,19,9
+	.half	.L98-.L350
+	.byte	3,2,1,5,34,9
+	.half	.L351-.L98
+	.byte	1,5,21,9
+	.half	.L112-.L351
+	.byte	3,1,1,5,36,9
+	.half	.L352-.L112
+	.byte	1,5,42,9
+	.half	.L114-.L352
+	.byte	1,5,5,9
+	.half	.L353-.L114
+	.byte	3,2,1,5,55,7,9
+	.half	.L354-.L353
+	.byte	3,2,1,5,20,9
+	.half	.L355-.L354
+	.byte	1,5,66,9
+	.half	.L113-.L355
+	.byte	1,5,10,9
+	.half	.L19-.L113
+	.byte	3,3,1,5,55,7,9
+	.half	.L356-.L19
+	.byte	3,2,1,5,20,9
+	.half	.L357-.L356
+	.byte	1,5,66,9
+	.half	.L116-.L357
+	.byte	1,5,13,9
+	.half	.L21-.L116
+	.byte	3,5,1,5,26,9
+	.half	.L358-.L21
+	.byte	1,5,24,9
+	.half	.L115-.L358
+	.byte	1,5,12,9
+	.half	.L20-.L115
+	.byte	3,3,1,9
+	.half	.L359-.L20
+	.byte	3,4,1,5,8,9
+	.half	.L360-.L359
+	.byte	3,1,1,5,5,9
+	.half	.L361-.L360
+	.byte	1,5,9,7,9
+	.half	.L362-.L361
+	.byte	3,2,1,5,22,9
+	.half	.L363-.L362
+	.byte	1,5,20,9
+	.half	.L364-.L363
+	.byte	1,5,26,9
+	.half	.L365-.L364
+	.byte	1,5,13,9
+	.half	.L23-.L365
+	.byte	3,3,1,5,10,9
+	.half	.L366-.L23
+	.byte	1,5,41,7,9
+	.half	.L367-.L366
+	.byte	3,2,1,5,16,9
+	.half	.L368-.L367
+	.byte	1,5,56,9
+	.half	.L369-.L368
+	.byte	1,5,13,9
+	.half	.L25-.L369
+	.byte	3,2,1,5,10,9
+	.half	.L370-.L25
+	.byte	1,5,41,7,9
+	.half	.L371-.L370
+	.byte	3,2,1,5,16,9
+	.half	.L372-.L371
+	.byte	1,5,56,9
+	.half	.L373-.L372
+	.byte	1,5,13,9
+	.half	.L27-.L373
+	.byte	3,2,1,5,10,9
+	.half	.L374-.L27
+	.byte	1,5,41,7,9
+	.half	.L375-.L374
+	.byte	3,2,1,5,16,9
+	.half	.L376-.L375
+	.byte	1,5,5,9
+	.half	.L24-.L376
+	.byte	3,4,1,5,20,9
+	.half	.L377-.L24
+	.byte	1,5,18,9
+	.half	.L378-.L377
+	.byte	1,5,5,9
+	.half	.L379-.L378
+	.byte	3,1,1,5,26,9
+	.half	.L380-.L379
+	.byte	1,5,24,9
+	.half	.L381-.L380
+	.byte	1,5,5,9
+	.half	.L382-.L381
+	.byte	3,2,1,5,35,9
+	.half	.L383-.L382
+	.byte	1,5,61,9
+	.half	.L384-.L383
+	.byte	1,5,31,9
+	.half	.L385-.L384
+	.byte	1,5,54,9
+	.half	.L386-.L385
+	.byte	3,1,1,5,12,9
+	.half	.L387-.L386
+	.byte	1,5,5,9
+	.half	.L388-.L387
+	.byte	3,4,1,5,21,9
+	.half	.L389-.L388
+	.byte	1,5,27,9
+	.half	.L390-.L389
+	.byte	1,5,18,9
+	.half	.L391-.L390
+	.byte	1,5,50,9
+	.half	.L392-.L391
+	.byte	3,2,1,5,12,9
+	.half	.L393-.L392
+	.byte	1,5,8,9
+	.half	.L394-.L393
+	.byte	3,1,1,5,24,9
+	.half	.L395-.L394
+	.byte	1,5,5,9
+	.half	.L396-.L395
+	.byte	1,5,16,7,9
+	.half	.L397-.L396
+	.byte	3,2,1,5,29,9
+	.half	.L398-.L397
+	.byte	1,5,9,9
+	.half	.L30-.L398
+	.byte	3,4,1,5,22,9
+	.half	.L399-.L30
+	.byte	1,5,20,9
+	.half	.L400-.L399
+	.byte	1,5,1,9
+	.half	.L31-.L400
+	.byte	3,4,1,7,9
+	.half	.L49-.L31
+	.byte	0,1,1
+.L291:
+	.sdecl	'.debug_ranges',debug,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.debug_ranges'
+.L48:
+	.word	-1,.L35,0,.L49-.L35,0,0
+	.sdecl	'.debug_info',debug,cluster('register_ptr')
+	.sect	'.debug_info'
+.L50:
+	.word	204
+	.half	3
+	.word	.L51
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'register_ptr',0,2,7,9
+	.word	.L101
+	.byte	1,5,3
+	.word	register_ptr
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('register_ptr')
+	.sect	'.debug_abbrev'
+.L51:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('chipid')
+	.sect	'.debug_info'
+.L52:
+	.word	198
+	.half	3
+	.word	.L53
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'chipid',0,2,8,8
+	.word	.L102
+	.byte	1,5,3
+	.word	chipid
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('chipid')
+	.sect	'.debug_abbrev'
+.L53:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid0')
+	.sect	'.debug_info'
+.L54:
+	.word	197
+	.half	3
+	.word	.L55
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid0',0,2,8,16
+	.word	.L102
+	.byte	1,5,3
+	.word	ucid0
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid0')
+	.sect	'.debug_abbrev'
+.L55:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid1')
+	.sect	'.debug_info'
+.L56:
+	.word	197
+	.half	3
+	.word	.L57
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid1',0,2,8,23
+	.word	.L102
+	.byte	1,5,3
+	.word	ucid1
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid1')
+	.sect	'.debug_abbrev'
+.L57:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid2')
+	.sect	'.debug_info'
+.L58:
+	.word	197
+	.half	3
+	.word	.L59
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid2',0,2,8,30
+	.word	.L102
+	.byte	1,5,3
+	.word	ucid2
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid2')
+	.sect	'.debug_abbrev'
+.L59:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('chipinfo')
+	.sect	'.debug_info'
+.L60:
+	.word	200
+	.half	3
+	.word	.L61
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'chipinfo',0,2,8,37
+	.word	.L102
+	.byte	1,5,3
+	.word	chipinfo
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('chipinfo')
+	.sect	'.debug_abbrev'
+.L61:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucb0_09_bmi_bmhdid')
+	.sect	'.debug_info'
+.L62:
+	.word	210
+	.half	3
+	.word	.L63
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucb0_09_bmi_bmhdid',0,2,8,47
+	.word	.L102
+	.byte	1,5,3
+	.word	ucb0_09_bmi_bmhdid
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucb0_09_bmi_bmhdid')
+	.sect	'.debug_abbrev'
+.L63:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('chipinfo_chrev')
+	.sect	'.debug_info'
+.L64:
+	.word	206
+	.half	3
+	.word	.L65
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'chipinfo_chrev',0,2,10,7
+	.word	.L94
+	.byte	1,5,3
+	.word	chipinfo_chrev
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('chipinfo_chrev')
+	.sect	'.debug_abbrev'
+.L65:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('chipinfo_chtec')
+	.sect	'.debug_info'
+.L66:
+	.word	206
+	.half	3
+	.word	.L67
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'chipinfo_chtec',0,2,10,23
+	.word	.L94
+	.byte	1,5,3
+	.word	chipinfo_chtec
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('chipinfo_chtec')
+	.sect	'.debug_abbrev'
+.L67:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid1_wafer')
+	.sect	'.debug_info'
+.L68:
+	.word	203
+	.half	3
+	.word	.L69
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid1_wafer',0,2,10,39
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid1_wafer
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid1_wafer')
+	.sect	'.debug_abbrev'
+.L69:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid0_x_coor')
+	.sect	'.debug_info'
+.L70:
+	.word	204
+	.half	3
+	.word	.L71
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid0_x_coor',0,2,10,52
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid0_x_coor
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid0_x_coor')
+	.sect	'.debug_abbrev'
+.L71:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid0_y_coor')
+	.sect	'.debug_info'
+.L72:
+	.word	204
+	.half	3
+	.word	.L73
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid0_y_coor',0,2,10,66
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid0_y_coor
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid0_y_coor')
+	.sect	'.debug_abbrev'
+.L73:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid0_man_id')
+	.sect	'.debug_info'
+.L74:
+	.word	204
+	.half	3
+	.word	.L75
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid0_man_id',0,2,10,80
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid0_man_id
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid0_man_id')
+	.sect	'.debug_abbrev'
+.L75:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid0_blind')
+	.sect	'.debug_info'
+.L76:
+	.word	203
+	.half	3
+	.word	.L77
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid0_blind',0,2,10,94
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid0_blind
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid0_blind')
+	.sect	'.debug_abbrev'
+.L77:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid2_day')
+	.sect	'.debug_info'
+.L78:
+	.word	201
+	.half	3
+	.word	.L79
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid2_day',0,2,10,107
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid2_day
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid2_day')
+	.sect	'.debug_abbrev'
+.L79:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid2_month')
+	.sect	'.debug_info'
+.L80:
+	.word	203
+	.half	3
+	.word	.L81
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid2_month',0,2,10,118
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid2_month
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid2_month')
+	.sect	'.debug_abbrev'
+.L81:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucid2_year')
+	.sect	'.debug_info'
+.L82:
+	.word	203
+	.half	3
+	.word	.L83
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucid2_year',0,2,10,131,1
+	.word	.L94
+	.byte	1,5,3
+	.word	ucid2_year
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucid2_year')
+	.sect	'.debug_abbrev'
+.L83:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('chipinfo_manuf')
+	.sect	'.debug_info'
+.L84:
+	.word	206
+	.half	3
+	.word	.L85
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'chipinfo_manuf',0,2,11,8
+	.word	.L103
+	.byte	1,5,3
+	.word	chipinfo_manuf
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('chipinfo_manuf')
+	.sect	'.debug_abbrev'
+.L85:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('ucb0_09_bmi_bmhdid_bmhdid')
+	.sect	'.debug_info'
+.L86:
+	.word	217
+	.half	3
+	.word	.L87
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'ucb0_09_bmi_bmhdid_bmhdid',0,2,11,24
+	.word	.L103
+	.byte	1,5,3
+	.word	ucb0_09_bmi_bmhdid_bmhdid
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('ucb0_09_bmi_bmhdid_bmhdid')
+	.sect	'.debug_abbrev'
+.L87:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('error_flag')
+	.sect	'.debug_info'
+.L88:
+	.word	202
+	.half	3
+	.word	.L89
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'error_flag',0,2,12,9
+	.word	.L94
+	.byte	1,5,3
+	.word	error_flag
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('error_flag')
+	.sect	'.debug_abbrev'
+.L89:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('error_string')
+	.sect	'.debug_info'
+.L90:
+	.word	204
+	.half	3
+	.word	.L91
+	.byte	4,1
+	.byte	'../Silicon_Details.c',0
+	.byte	'TASKING TriCore C compiler',0
+	.byte	'C:\\Users\\KumarDharani\\Documents\\Aurix_Projects\\Projects\\Silicon_Details_TC4D7_Lite_Kit\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L36
+	.byte	3
+	.byte	'error_string',0,2,13,7
+	.word	.L104
+	.byte	1,5,3
+	.word	error_string
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('error_string')
+	.sect	'.debug_abbrev'
+.L91:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_loc',debug,cluster('Print_Silicon_Details')
+	.sect	'.debug_loc'
+.L32:
+	.word	-1,.L33,0,.L105-.L33
+	.half	2
+	.byte	138,0
+	.word	.L105-.L33,.L92-.L33
+	.half	2
+	.byte	138,8
+	.word	.L92-.L33,.L92-.L33
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L96:
+	.word	-1,.L33,.L108-.L33,.L109-.L33
+	.half	1
+	.byte	95
+	.word	0,0
+.L95:
+	.word	-1,.L33,.L106-.L33,.L107-.L33
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L4-.L33,.L110-.L33
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L6-.L33,.L5-.L33
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.debug_loc'
+.L34:
+	.word	-1,.L35,0,.L111-.L35
+	.half	2
+	.byte	138,0
+	.word	.L111-.L35,.L97-.L35
+	.half	2
+	.byte	138,8
+	.word	.L97-.L35,.L97-.L35
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L100:
+	.word	-1,.L35,.L114-.L35,.L115-.L35
+	.half	1
+	.byte	95
+	.word	0,0
+.L99:
+	.word	-1,.L35,.L112-.L35,.L113-.L35
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L19-.L35,.L116-.L35
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L21-.L35,.L20-.L35
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L401:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,27,8,26,8,28,8,29,8,30,8,31,8,34,8,35,8,32,8,33,8,16,8,17,8,24,8,25,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('Print_Silicon_Details')
+	.sect	'.debug_frame'
+	.word	36
+	.word	.L401,.L33,.L92-.L33
+	.byte	4
+	.word	(.L105-.L33)/2
+	.byte	19,8,22,26,3,19,138,8,4
+	.word	(.L92-.L105)/2
+	.byte	19,0,8,26,0,0
+	.sdecl	'.debug_frame',debug,cluster('Print_Silicon_Details_to_Terminal')
+	.sect	'.debug_frame'
+	.word	36
+	.word	.L401,.L35,.L97-.L35
+	.byte	4
+	.word	(.L111-.L35)/2
+	.byte	19,8,22,26,3,19,138,8,4
+	.word	(.L97-.L111)/2
+	.byte	19,0,8,26,0,0
+	; Module end

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- VLAN Filtering Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: address index, range 1..31 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>159c3ee300975b59fdca7185a230e59b656385f8388e44335f001aa22551c8c0</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<groupcontainer label="VLAN $IDX$" define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$_CONT">
+		<verticalcontainer>
+			<horizontalcontainer stretch="2">
+				<text label="Enable"/>
+				<checkbox define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.VEN" default="0">
+					<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$_CONTAINTER.enabled=1;LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$_CONT.color=0x68C9AD"/>
+					<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$_CONTAINTER.enabled=0;LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$_CONT.color=0xFFFFFF"/>
+				</checkbox>
+			</horizontalcontainer>
+			<groupcontainer define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$_CONTAINTER" enabled="false" stretch="2">
+				<gridcontainer columns="3">
+					<text label="VLAN Tag"/>
+					<combo define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.ETV" default="0">
+						<item label="16bit" value="0" setdef="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.VID.max=65535"/>
+						<item label="12bit" value="1" setdef="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.VID.max=4095"/>
+					</combo>
+					<hexspinbox define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.VID" range="0;65535"/>
+
+					<text label="VLAN Type"/>
+					<radio define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.ERSVLM" default="0">
+						<radiobutton label="C-VLAN (0x8100)" value="0"/>
+						<radiobutton label="S-VLAN (0x88A8)" value="1"/>
+					</radio>
+
+					<text label="Inner VLAN Tag enable"/>
+					<checkbox define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.ERIVLT"/>
+					<text visible="false"/>
+
+					<text label="DMA Select"/>
+					<combo define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.DMACHEN" default="1">
+						<item label="VLAN Tag DMA select" value="1" setdef="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.DMACHN.enabled=1"/>
+						<item label="MAC Address DMA select" value="0" setdef="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.DMACHN.enabled=0"/>
+					</combo>
+					<combo define="LETH.PORT$PORT$_MAC_VLAN_TAG_FILTER$IDX$.DMACHN" default="label=Channel 0">
+						<item label="Channel 0" value="0"/>
+						<item label="Channel 1" value="1"/>
+						<item label="Channel 2" value="2"/>
+						<item label="Channel 3" value="3"/>
+						<item label="Channel 4" value="4"/>
+						<item label="Channel 5" value="5"/>
+						<item label="Channel 6" value="6"/>
+						<item label="Channel 7" value="7"/>
+					</combo>
+				</gridcontainer>
+			</groupcontainer>
+		</verticalcontainer>
+	</groupcontainer>
+</ifxmlcfg>

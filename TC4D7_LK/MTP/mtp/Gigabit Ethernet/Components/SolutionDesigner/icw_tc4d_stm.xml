@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<!--svd file="tc4d_eth.svd"/-->
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_stm_cfg.h">
+		<verticalcontainer label="System Timer">
+			<groupcontainer label="System Clock" stretch="2">
+				<horizontalcontainer size="100;-1">
+					<combo label="Frequency" define="CLOCK.System_Frequency">
+						<item label="500 MHz" value="500000000"/>
+					</combo>
+				</horizontalcontainer>
+			</groupcontainer>
+			<tabcontainer>
+				<verticalcontainer label="STM0.0" size="400;-1" stretch="2">
+					<checkbox label="Enable" define="IFX_CFG_STM0.ENABLE_0" default="1"/>
+					<formcontainer>
+						<spinbox label="Interval" suffix=" ms" define="IFX_CFG_STM0.INTERVAL_MS_0" default="1"/>
+						<math visible="false" define="IFX_CFG_STM0.TICKS_PER_MS_0" formula="CLOCK.System_Frequency*(IFX_CFG_STM0.INTERVAL_MS_0/1000)"/>						
+					</formcontainer>
+					<groupcontainer label="Callbacks">
+						<verticalcontainer>
+							<horizontalcontainer>
+								<text label="Priority"/>
+								<spinbox label="Priority" define="IFX_CFG_STM0.INTERRUPT_PRIO_0" range="1;255" default="1"/>
+							</horizontalcontainer>
+							<gridcontainer columns="3">
+								<text label="Enable" font="Source Sans Pro,10,0,0,64,0,0,0,0,0"/>
+								<text label="Time" font="Source Sans Pro,10,0,0,64,0,0,0,0,0"/>
+								<text label="Callback Function" font="Source Sans Pro,10,0,0,64,0,0,0,0,0"/>
+
+								<checkbox define="IFX_CFG_STM0.CALLBACK0_EN_0">
+									<action event="checked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK0_CONT0_0.enabled=1;IFX_CFG_STM0.CALLBACK0_CONT1_0.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK0_CONT0_0.enabled=0;IFX_CFG_STM0.CALLBACK0_CONT1_0.enabled=0"/>
+								</checkbox>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK0_CONT0_0" enabled="false">
+									<spinbox define="IFX_CFG_STM0.CALLBACK0_MS_0" suffix=" ms" default="10"/>
+								</horizontalcontainer>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK0_CONT1_0" enabled="false">
+									<edit define="IFX_CFG_STM0.CALLBACK0_FUNC_0" default="enter callback here"/>
+								</horizontalcontainer>
+
+								<checkbox define="IFX_CFG_STM0.CALLBACK1_EN_0">
+									<action event="checked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK1_CONT0_0.enabled=1;IFX_CFG_STM0.CALLBACK1_CONT1_0.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK1_CONT0_0.enabled=0;IFX_CFG_STM0.CALLBACK1_CONT1_0.enabled=0"/>
+								</checkbox>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK1_CONT0_0" enabled="false">
+									<spinbox define="IFX_CFG_STM0.CALLBACK1_MS_0" suffix=" ms" default="100"/>
+								</horizontalcontainer>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK1_CONT1_0" enabled="false">
+									<edit define="IFX_CFG_STM0.CALLBACK1_FUNC_0" default="enter callback here"/>
+								</horizontalcontainer>
+
+								<checkbox define="IFX_CFG_STM0.CALLBACK2_EN_0" default="1">
+									<action event="checked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK2_CONT0_0.enabled=1;IFX_CFG_STM0.CALLBACK2_CONT1_0.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK2_CONT0_0.enabled=0;IFX_CFG_STM0.CALLBACK2_CONT1_0.enabled=0"/>
+								</checkbox>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK2_CONT0_0" enabled="false">
+									<spinbox define="IFX_CFG_STM0.CALLBACK2_MS_0" suffix=" ms" default="1000"/>
+								</horizontalcontainer>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK2_CONT1_0" enabled="false">
+									<edit define="IFX_CFG_STM0.CALLBACK2_FUNC_0" default="STM0_1000ms_Callback"/>
+								</horizontalcontainer>
+							</gridcontainer>
+						</verticalcontainer>
+					</groupcontainer>
+				</verticalcontainer>
+				<verticalcontainer label="STM0.1" size="400;-1" stretch="2">
+					<checkbox label="Enable" define="IFX_CFG_STM0.ENABLE_1"/>
+					<formcontainer>
+						<spinbox label="Interval" suffix=" ms" define="IFX_CFG_STM0.INTERVAL_MS_1" default="1"/>
+						<math visible="false" define="IFX_CFG_STM0.TICKS_PER_MS_1" formula="CLOCK.System_Frequency*(IFX_CFG_STM0.INTERVAL_MS_1/1000)"/>						
+					</formcontainer>
+					<groupcontainer label="Callbacks">
+						<verticalcontainer>
+							<horizontalcontainer>
+								<text label="Priority"/>
+								<spinbox label="Priority" define="IFX_CFG_STM0.INTERRUPT_PRIO_1" range="1;255" default="1"/>
+							</horizontalcontainer>
+							<gridcontainer columns="3">
+								<text label="Enable" font="Source Sans Pro,10,0,0,64,0,0,0,0,0"/>
+								<text label="Time" font="Source Sans Pro,10,0,0,64,0,0,0,0,0"/>
+								<text label="Callback Function" font="Source Sans Pro,10,0,0,64,0,0,0,0,0"/>
+
+								<checkbox define="IFX_CFG_STM0.CALLBACK0_EN_1">
+									<action event="checked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK0_CONT0_1.enabled=1;IFX_CFG_STM0.CALLBACK0_CONT1_1.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK0_CONT0_1.enabled=0;IFX_CFG_STM0.CALLBACK0_CONT1_1.enabled=0"/>
+								</checkbox>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK0_CONT0_1" enabled="false">
+									<spinbox define="IFX_CFG_STM0.CALLBACK0_MS_1" suffix=" ms" default="10"/>
+								</horizontalcontainer>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK0_CONT1_1" enabled="false">
+									<edit define="IFX_CFG_STM0.CALLBACK0_FUNC_1" default="enter callback here"/>
+								</horizontalcontainer>
+
+								<checkbox define="IFX_CFG_STM0.CALLBACK1_EN_1">
+									<action event="checked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK1_CONT0_1.enabled=1;IFX_CFG_STM0.CALLBACK1_CONT1_1.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK1_CONT0_1.enabled=0;IFX_CFG_STM0.CALLBACK1_CONT1_1.enabled=0"/>
+								</checkbox>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK1_CONT0_1" enabled="false">
+									<spinbox define="IFX_CFG_STM0.CALLBACK1_MS_1" suffix=" ms" default="100"/>
+								</horizontalcontainer>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK1_CONT1_1" enabled="false">
+									<edit define="IFX_CFG_STM0.CALLBACK1_FUNC_1" default="enter callback here"/>
+								</horizontalcontainer>
+
+								<checkbox define="IFX_CFG_STM0.CALLBACK2_EN_1" default="0">
+									<action event="checked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK2_CONT0_1.enabled=1;IFX_CFG_STM0.CALLBACK2_CONT1_1.enabled=1"/>
+									<action event="unchecked" cmd="setDef" data="IFX_CFG_STM0.CALLBACK2_CONT0_1.enabled=0;IFX_CFG_STM0.CALLBACK2_CONT1_1.enabled=0"/>
+								</checkbox>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK2_CONT0_1" enabled="false">
+									<spinbox define="IFX_CFG_STM0.CALLBACK2_MS_1" suffix=" ms" default="1000"/>
+								</horizontalcontainer>
+								<horizontalcontainer define="IFX_CFG_STM0.CALLBACK2_CONT1_1" enabled="false">
+									<edit define="IFX_CFG_STM0.CALLBACK2_FUNC_1" default="enter callback here"/>
+								</horizontalcontainer>
+							</gridcontainer>
+						</verticalcontainer>
+					</groupcontainer>
+				</verticalcontainer>
+			</tabcontainer>
+		</verticalcontainer>
+    </header>
+</ifxmlcfg>

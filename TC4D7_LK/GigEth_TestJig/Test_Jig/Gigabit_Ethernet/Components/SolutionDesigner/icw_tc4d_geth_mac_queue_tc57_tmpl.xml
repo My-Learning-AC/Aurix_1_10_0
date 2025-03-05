@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- CBS Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: channel index, range 5..7 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>9848c9d94a7994dd71b7a0b6cfc158b5548df8d1ae1338ebb7ad4674b88c81e3</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+	<verticalcontainer label="Traffic Class$IDX$" stretch="2" define="GETH.MAC$PORT$_QUEUE$IDX$_TC_CONT" size="-1;-1">
+		<!--groupcontainer label="Traffic Class Mode" stretch="2" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+			<verticalcontainer>
+				<radio define="GETH.PORT$PORT$_MTL_TC$IDX$_ETS_CONTROL.TSA" default="0">
+					<radiobutton label="Strict Priority (SP)"                  value="0" setdef="GETH.MAC$PORT$_TC$IDX$_ETS_CONT.visible=1;GETH.MAC$PORT$_TC$IDX$_CBS_CONT.visible=0"/>
+					<radiobutton label="Credit based Shaper (CBS)"             value="1" setdef="GETH.MAC$PORT$_TC$IDX$_ETS_CONT.visible=0;GETH.MAC$PORT$_TC$IDX$_CBS_CONT.visible=1"/>
+					<radiobutton label="Enhanced Transmission Selection (ETS)" value="2" setdef="GETH.MAC$PORT$_TC$IDX$_ETS_CONT.visible=1;GETH.MAC$PORT$_TC$IDX$_CBS_CONT.visible=0"/>
+				</radio>
+				<combo label="Traffic Class Type" define="GETH.PORT$PORT$_MTL_FPE_CTRL_STS.PEC_TC$IDX$" >
+					<item label="preemptable"/>
+					<item label="express"/>
+				</combo>
+			</verticalcontainer>
+		</groupcontainer-->
+		<groupcontainer label="Traffic Class" stretch="2" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+			<formcontainer>
+				<horizontalcontainer label="Mode" stretch="2">
+					<radio define="GETH.PORT$PORT$_MTL_TC$IDX$_ETS_CONTROL.TSA" default="0">
+						<radiobutton label="Strict Priority (SP)"                  value="0" setdef="GETH.MAC$PORT$_TC$IDX$_ETS_CONT.visible=1;GETH.MAC$PORT$_TC$IDX$_CBS_CONT.visible=0"/>
+						<radiobutton label="Credit based Shaper (CBS)"             value="1" setdef="GETH.MAC$PORT$_TC$IDX$_ETS_CONT.visible=0;GETH.MAC$PORT$_TC$IDX$_CBS_CONT.visible=1"/>
+						<radiobutton label="Enhanced Transmission Selection (ETS)" value="2" setdef="GETH.MAC$PORT$_TC$IDX$_ETS_CONT.visible=1;GETH.MAC$PORT$_TC$IDX$_CBS_CONT.visible=0"/>
+					</radio>
+				</horizontalcontainer>
+				<horizontalcontainer label="Type" stretch="2">
+					<radio define="GETH.PORT$PORT$_MTL_FPE_CTRL_STS.PEC_TC$IDX$" default="0">
+						<radiobutton label="express" value="0"/>
+						<radiobutton label="preemptable" value="1"/>
+					</radio>
+				</horizontalcontainer>
+			</formcontainer>
+		</groupcontainer>
+		<horizontalcontainer define="GETH.MAC$PORT$_TC$IDX$_ETS_CONT" visible="true">
+			<formcontainer>
+				<spinbox label="Weight" define="GETH.PORT$PORT$_MTL_TC$IDX$_QUANTUM_WEIGHT_QW" range="0;100" default="0"/>
+			</formcontainer>
+		</horizontalcontainer>
+		<verticalcontainer define="GETH.MAC$PORT$_TC$IDX$_CBS_CONT" visible="false">
+			<formcontainer>
+				<checkbox label="Auto Calculation" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_AUTO_CALC" default="1">
+					<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_MANUAL_CONT.enabled=0;GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_AUTO_CONT.enabled=1"/>
+					<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_AUTO_CONT.enabled=0;GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_MANUAL_CONT.enabled=1"/>
+				</checkbox>
+			</formcontainer>
+			<horizontalcontainer define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_AUTO_CONT">
+				<formcontainer>
+					<doublespinbox label="Bandwidth reservation" suffix="%" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_BANDWIDTH_RES" range="1;100" default="30"/>
+					<spinbox label="Payload Size (own)"  suffix=" Bytes" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_MAXPAYLOAD_SIZE" default="64"/>
+					<spinbox label="Payload Size (others)"  suffix=" Bytes" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_BE_MAXPAYLOAD_SIZE" default="64"/>
+					<math visible="true" label="sendSlopeTicks" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_SENDSLOPE_TICKS" formula="((GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_MAXPAYLOAD_SIZE+30)*8*GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS)/GETH.PORT$PORT$_CBS_CLK_PERIOD_NS"/>
+					<math visible="true" label="idleSlopeTicks" define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_IDLESLOPE_TICKS" formula="((GETH.PORT$PORT$_MTL_QUEUE$IDX$_BE_MAXPAYLOAD_SIZE+30)*8*GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS)/GETH.PORT$PORT$_CBS_CLK_PERIOD_NS"/>
+					<math visible="true" label="isc" define="GETH.PORT$PORT$_MTL_TC$IDX$_IDLESLOPE_CALC" formula="trunc((GETH.PORT$PORT$_CBS_BITS_PER_CLK*GETH.PORT$PORT$_MTL_QUEUE$IDX$_BANDWIDTH_RES/100)*1024)">
+						<action event="changed" cmd="setDef" data="GETH.PORT$PORT$_MTL_TC$IDX$_CBS_IDLESLOPE=GETH.PORT$PORT$_MTL_TC$IDX$_IDLESLOPE_CALC"/>
+					</math>
+					<math visible="true" label="ssc" define="GETH.PORT$PORT$_MTL_TC$IDX$_SENDSLOPE_CALC" formula="trunc((GETH.PORT$PORT$_CBS_BITS_PER_CLK*(100-GETH.PORT$PORT$_MTL_QUEUE$IDX$_BANDWIDTH_RES)/100)*1024)">
+						<action event="changed" cmd="setDef" data="GETH.PORT$PORT$_MTL_TC$IDX$_SENDSLOPECREDIT.SSC=GETH.PORT$PORT$_MTL_TC$IDX$_SENDSLOPE_CALC"/>
+					</math>
+					<math visible="true" label="lcc" define="GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT_CALC" formula="(trunc(GETH.PORT$PORT$_MTL_QUEUE$IDX$_SENDSLOPE_TICKS*GETH.PORT$PORT$_MTL_TC$IDX$_SENDSLOPE_CALC).^0x1FFFFFFF)+1"/>
+					<math visible="false" define="GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT_CALC2" formula="GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT_CALC&gt;0x1FFFFFFF?0:GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT_CALC">
+						<action event="changed" cmd="setDef" data="GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT.LC=GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT_CALC2"/>
+					</math>
+					<math visible="true" label="hcc" define="GETH.PORT$PORT$_MTL_TC$IDX$_HICREDIT_CALC" formula="trunc(GETH.PORT$PORT$_MTL_QUEUE$IDX$_IDLESLOPE_TICKS*GETH.PORT$PORT$_MTL_TC$IDX$_IDLESLOPE_CALC)">
+						<action event="changed" cmd="setDef" data="GETH.PORT$PORT$_MTL_TC$IDX$_HICREDIT.HC=GETH.PORT$PORT$_MTL_TC$IDX$_HICREDIT_CALC"/>
+					</math>
+				</formcontainer>
+			</horizontalcontainer>
+			<horizontalcontainer define="GETH.PORT$PORT$_MTL_QUEUE$IDX$_CBS_MANUAL_CONT" enabled="false">
+				<formcontainer>
+					<hexspinbox label="High Credit Value       "  suffix=" ticks" define="GETH.PORT$PORT$_MTL_TC$IDX$_HICREDIT.HC" default="0x35FCA"/>
+					<hexspinbox label="Low Credit Value         "  suffix=" ticks" define="GETH.PORT$PORT$_MTL_TC$IDX$_LOCREDIT.LC" default="0x1F82023"/>
+					<spinbox label="Send Slope" suffix=" ticks" define="GETH.PORT$PORT$_MTL_TC$IDX$_SENDSLOPECREDIT.SSC" default="5734"/>
+					<spinbox label="Idle Slope" suffix=" ticks" define="GETH.PORT$PORT$_MTL_TC$IDX$_CBS_IDLESLOPE" default="2457"/>
+				</formcontainer>
+			</horizontalcontainer>
+		</verticalcontainer>
+		<math visible="false" define="GETH.PORT$PORT$_MTL_TC$IDX$_QUANTUM_WEIGHT.QW" formula="GETH.PORT$PORT$_MTL_TC$IDX$_ETS_CONTROL.TSA==1?GETH.PORT$PORT$_MTL_TC$IDX$_CBS_IDLESLOPE:GETH.PORT$PORT$_MTL_TC$IDX$_QUANTUM_WEIGHT_QW"/>
+	</verticalcontainer>
+</ifxmlcfg>

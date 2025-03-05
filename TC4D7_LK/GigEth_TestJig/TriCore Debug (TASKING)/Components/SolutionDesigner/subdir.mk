@@ -1,0 +1,71 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../Components/SolutionDesigner/geth_dma_a.c \
+../Components/SolutionDesigner/geth_mac_a.c \
+../Components/SolutionDesigner/geth_prot_a.c \
+../Components/SolutionDesigner/leth_dma_a.c \
+../Components/SolutionDesigner/leth_mac_a.c \
+../Components/SolutionDesigner/leth_prot_a.c 
+
+COMPILED_SRCS += \
+Components/SolutionDesigner/geth_dma_a.src \
+Components/SolutionDesigner/geth_mac_a.src \
+Components/SolutionDesigner/geth_prot_a.src \
+Components/SolutionDesigner/leth_dma_a.src \
+Components/SolutionDesigner/leth_mac_a.src \
+Components/SolutionDesigner/leth_prot_a.src 
+
+C_DEPS += \
+Components/SolutionDesigner/geth_dma_a.d \
+Components/SolutionDesigner/geth_mac_a.d \
+Components/SolutionDesigner/geth_prot_a.d \
+Components/SolutionDesigner/leth_dma_a.d \
+Components/SolutionDesigner/leth_mac_a.d \
+Components/SolutionDesigner/leth_prot_a.d 
+
+OBJS += \
+Components/SolutionDesigner/geth_dma_a.o \
+Components/SolutionDesigner/geth_mac_a.o \
+Components/SolutionDesigner/geth_prot_a.o \
+Components/SolutionDesigner/leth_dma_a.o \
+Components/SolutionDesigner/leth_mac_a.o \
+Components/SolutionDesigner/leth_prot_a.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Components/SolutionDesigner/geth_dma_a.src: ../Components/SolutionDesigner/geth_dma_a.c Components/SolutionDesigner/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc49x -DIFX_PIN_PACKAGE_BGA292_COM -DCONFIG_DUT_BOARD -DCONFIG_BOARD_ETH_ENABLE -DCONFIG_BOARD_GETH_ENABLE -DCONFIG_BOARD_SERIALIO_ENABLE -DCONFIG_BOARD_LED_ENABLE -DIFX_SOLUTION_DESIGNER_GETH_ENABLE -DIFX_SOLUTION_DESIGNER_LETH_ENABLE "-fC:/Users/KumarDharani/Documents/Aurix_Projects/Projects/iLLD_TC4D7_COM_ADS_Ethernet_Tx_Rx/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=2 -O0 --tradeoff=4 --compact-max-size=200 -g -Ctc49x -Y0 -N0 -Z0 --user-mode=hypervisor -o "$@" "$<"
+Components/SolutionDesigner/geth_dma_a.o: Components/SolutionDesigner/geth_dma_a.src Components/SolutionDesigner/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 --user-mode=hypervisor --core=tc1.8 -o  "$@" "$<"
+Components/SolutionDesigner/geth_mac_a.src: ../Components/SolutionDesigner/geth_mac_a.c Components/SolutionDesigner/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc49x -DIFX_PIN_PACKAGE_BGA292_COM -DCONFIG_DUT_BOARD -DCONFIG_BOARD_ETH_ENABLE -DCONFIG_BOARD_GETH_ENABLE -DCONFIG_BOARD_SERIALIO_ENABLE -DCONFIG_BOARD_LED_ENABLE -DIFX_SOLUTION_DESIGNER_GETH_ENABLE -DIFX_SOLUTION_DESIGNER_LETH_ENABLE "-fC:/Users/KumarDharani/Documents/Aurix_Projects/Projects/iLLD_TC4D7_COM_ADS_Ethernet_Tx_Rx/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=2 -O0 --tradeoff=4 --compact-max-size=200 -g -Ctc49x -Y0 -N0 -Z0 --user-mode=hypervisor -o "$@" "$<"
+Components/SolutionDesigner/geth_mac_a.o: Components/SolutionDesigner/geth_mac_a.src Components/SolutionDesigner/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 --user-mode=hypervisor --core=tc1.8 -o  "$@" "$<"
+Components/SolutionDesigner/geth_prot_a.src: ../Components/SolutionDesigner/geth_prot_a.c Components/SolutionDesigner/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc49x -DIFX_PIN_PACKAGE_BGA292_COM -DCONFIG_DUT_BOARD -DCONFIG_BOARD_ETH_ENABLE -DCONFIG_BOARD_GETH_ENABLE -DCONFIG_BOARD_SERIALIO_ENABLE -DCONFIG_BOARD_LED_ENABLE -DIFX_SOLUTION_DESIGNER_GETH_ENABLE -DIFX_SOLUTION_DESIGNER_LETH_ENABLE "-fC:/Users/KumarDharani/Documents/Aurix_Projects/Projects/iLLD_TC4D7_COM_ADS_Ethernet_Tx_Rx/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=2 -O0 --tradeoff=4 --compact-max-size=200 -g -Ctc49x -Y0 -N0 -Z0 --user-mode=hypervisor -o "$@" "$<"
+Components/SolutionDesigner/geth_prot_a.o: Components/SolutionDesigner/geth_prot_a.src Components/SolutionDesigner/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 --user-mode=hypervisor --core=tc1.8 -o  "$@" "$<"
+Components/SolutionDesigner/leth_dma_a.src: ../Components/SolutionDesigner/leth_dma_a.c Components/SolutionDesigner/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc49x -DIFX_PIN_PACKAGE_BGA292_COM -DCONFIG_DUT_BOARD -DCONFIG_BOARD_ETH_ENABLE -DCONFIG_BOARD_GETH_ENABLE -DCONFIG_BOARD_SERIALIO_ENABLE -DCONFIG_BOARD_LED_ENABLE -DIFX_SOLUTION_DESIGNER_GETH_ENABLE -DIFX_SOLUTION_DESIGNER_LETH_ENABLE "-fC:/Users/KumarDharani/Documents/Aurix_Projects/Projects/iLLD_TC4D7_COM_ADS_Ethernet_Tx_Rx/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=2 -O0 --tradeoff=4 --compact-max-size=200 -g -Ctc49x -Y0 -N0 -Z0 --user-mode=hypervisor -o "$@" "$<"
+Components/SolutionDesigner/leth_dma_a.o: Components/SolutionDesigner/leth_dma_a.src Components/SolutionDesigner/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 --user-mode=hypervisor --core=tc1.8 -o  "$@" "$<"
+Components/SolutionDesigner/leth_mac_a.src: ../Components/SolutionDesigner/leth_mac_a.c Components/SolutionDesigner/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc49x -DIFX_PIN_PACKAGE_BGA292_COM -DCONFIG_DUT_BOARD -DCONFIG_BOARD_ETH_ENABLE -DCONFIG_BOARD_GETH_ENABLE -DCONFIG_BOARD_SERIALIO_ENABLE -DCONFIG_BOARD_LED_ENABLE -DIFX_SOLUTION_DESIGNER_GETH_ENABLE -DIFX_SOLUTION_DESIGNER_LETH_ENABLE "-fC:/Users/KumarDharani/Documents/Aurix_Projects/Projects/iLLD_TC4D7_COM_ADS_Ethernet_Tx_Rx/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=2 -O0 --tradeoff=4 --compact-max-size=200 -g -Ctc49x -Y0 -N0 -Z0 --user-mode=hypervisor -o "$@" "$<"
+Components/SolutionDesigner/leth_mac_a.o: Components/SolutionDesigner/leth_mac_a.src Components/SolutionDesigner/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 --user-mode=hypervisor --core=tc1.8 -o  "$@" "$<"
+Components/SolutionDesigner/leth_prot_a.src: ../Components/SolutionDesigner/leth_prot_a.c Components/SolutionDesigner/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc49x -DIFX_PIN_PACKAGE_BGA292_COM -DCONFIG_DUT_BOARD -DCONFIG_BOARD_ETH_ENABLE -DCONFIG_BOARD_GETH_ENABLE -DCONFIG_BOARD_SERIALIO_ENABLE -DCONFIG_BOARD_LED_ENABLE -DIFX_SOLUTION_DESIGNER_GETH_ENABLE -DIFX_SOLUTION_DESIGNER_LETH_ENABLE "-fC:/Users/KumarDharani/Documents/Aurix_Projects/Projects/iLLD_TC4D7_COM_ADS_Ethernet_Tx_Rx/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=2 -O0 --tradeoff=4 --compact-max-size=200 -g -Ctc49x -Y0 -N0 -Z0 --user-mode=hypervisor -o "$@" "$<"
+Components/SolutionDesigner/leth_prot_a.o: Components/SolutionDesigner/leth_prot_a.src Components/SolutionDesigner/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 --user-mode=hypervisor --core=tc1.8 -o  "$@" "$<"
+
+clean: clean-Components-2f-SolutionDesigner
+
+clean-Components-2f-SolutionDesigner:
+	-$(RM) Components/SolutionDesigner/geth_dma_a.d Components/SolutionDesigner/geth_dma_a.o Components/SolutionDesigner/geth_dma_a.src Components/SolutionDesigner/geth_mac_a.d Components/SolutionDesigner/geth_mac_a.o Components/SolutionDesigner/geth_mac_a.src Components/SolutionDesigner/geth_prot_a.d Components/SolutionDesigner/geth_prot_a.o Components/SolutionDesigner/geth_prot_a.src Components/SolutionDesigner/leth_dma_a.d Components/SolutionDesigner/leth_dma_a.o Components/SolutionDesigner/leth_dma_a.src Components/SolutionDesigner/leth_mac_a.d Components/SolutionDesigner/leth_mac_a.o Components/SolutionDesigner/leth_mac_a.src Components/SolutionDesigner/leth_prot_a.d Components/SolutionDesigner/leth_prot_a.o Components/SolutionDesigner/leth_prot_a.src
+
+.PHONY: clean-Components-2f-SolutionDesigner
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: counter index, range 0..15 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_geth_mac_cfg.h">
+		<groupcontainer label="Policy Counter$IDX$">
+			<formcontainer>
+				<combo label="Mode" define="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.PCM">
+					<item label="Free running counter" setdef="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.TWSEL.enabled=0"/>
+					<item label="Window-based counter" setdef="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.TWSEL.enabled=1"/>
+				</combo>
+				<combo enabled="false" label="Window Select" define="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.TWSEL">
+					<item label="Time Window 0"/>
+					<item label="Time Window 1"/>
+					<item label="Time Window 2"/>
+					<item label="Time Window 3"/>
+				</combo>
+				<combo label="Threshold" define="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.TRSLD">
+					<item label="1"/>
+					<item label="2"/>
+					<item label="4"/>
+					<item label="8"/>
+					<item label="16"/>
+					<item label="32"/>
+					<item label="64"/>
+					<item label="128"/>
+					<item label="256"/>
+					<item label="512"/>
+					<item label="1024"/>
+					<item label="2048"/>
+					<item label="4096"/>
+					<item label="8192"/>
+					<item label="16384"/>
+					<item label="32768"/>
+					<item label="65536"/>
+					<item label="128K"/>
+					<item label="256K"/>
+					<item label="512K"/>
+					<item label="1M"/>
+					<item label="2M"/>
+					<item label="4M"/>
+					<item label="8M"/>
+					<item label="16M"/>
+					<item label="32M"/>
+					<item label="64M"/>
+					<item label="128M"/>
+					<item label="256M"/>
+					<item label="512M"/>
+					<item label="1G"/>
+					<item label="2G"/>
+				</combo>
+				<checkbox label="Freeze enable" define="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.FRZ"/>
+				<checkbox label="Filter fail after Threshold" define="GETH.PORT$PORT$_MAC_PCCTRL_INDREG$IDX$.FFAT"/>
+				<horizontalcontainer label="Interrupt">
+					<checkbox define="GETH.PORT$PORT$_MAC_PCTH_INTR_ENABLE.PCTIE$IDX$">
+						<action event="checked"   cmd="setdef" data="GETH.PORT$PORT$_MAC_PCTH_INTR_ENABLE_ISR$IDX$.enabled=1"/>
+						<action event="unchecked" cmd="setdef" data="GETH.PORT$PORT$_MAC_PCTH_INTR_ENABLE_ISR$IDX$.enabled=0"/>
+					</checkbox>
+					<edit enabled="false" define="GETH.PORT$PORT$_MAC_PCTH_INTR_ENABLE_ISR$IDX$" default="enter callback function here"/>
+				</horizontalcontainer>
+			</formcontainer>
+		</groupcontainer>
+	</header>
+</ifxmlcfg>

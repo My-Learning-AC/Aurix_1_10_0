@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: slot index, range 0..10 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_leth_mac_cfg.h">
+		<horizontalcontainer stretch="2" size="20;-1">
+			<text label="$IDX$" readonly="true"/>
+		</horizontalcontainer>
+		<horizontalcontainer stretch="2" size="30;-1">
+			<checkbox define="LETH.PORT$PORT$_MTL_EST_GCL_IDX$IDX$_EN">
+				<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$_CONT.enabled=1;LETH.PORT$PORT$_MTL_EST_GCL_TIME$IDX$_CONT.enabled=1"/>
+				<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$_CONT.enabled=0;LETH.PORT$PORT$_MTL_EST_GCL_TIME$IDX$_CONT.enabled=0"/>
+			</checkbox>
+		</horizontalcontainer>
+		<horizontalcontainer enabled="false" size="200;-1" define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$_CONT">
+			<checkbox define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC4EN"/>
+			<checkbox define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC3EN"/>
+			<checkbox define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC2EN"/>
+			<checkbox define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC1EN"/>
+			<checkbox define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC0EN"/>
+		</horizontalcontainer>
+		<horizontalcontainer stretch="2" size="100;-1" define="LETH.PORT$PORT$_MTL_EST_GCL_TIME$IDX$_CONT">
+			<spinbox define="LETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.SLOT_TIME" default="1000"/>
+		</horizontalcontainer>
+	</header>
+</ifxmlcfg>

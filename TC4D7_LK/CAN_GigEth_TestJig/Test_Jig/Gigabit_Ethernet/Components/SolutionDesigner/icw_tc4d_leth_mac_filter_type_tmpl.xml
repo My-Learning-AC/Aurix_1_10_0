@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- VLAN Filtering Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>159c3ee300975b59fdca7185a230e59b656385f8388e44335f001aa22551c8c0</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<verticalcontainer define="LETH.PORT$PORT$_MAC_ETHERTYPE_FILTER_CONT" enabled="false">
+		<groupcontainer>
+			<gridcontainer columns="3">
+				<text label="Index"/>
+				<text label="EtherType"/>
+				<text label="Target Queue"/>
+
+				<text label="0"/>
+				<hexspinbox define="LETH.PORT$PORT$_MAC_TMRQ_REGS0.TYP" range="0;65535"/>
+				<combo define="LETH.PORT$PORT$_MAC_TMRQ_REGS0.TMRQ" default="0">
+					<item label="Queue0"/>
+					<item label="Queue1"/>
+				</combo>
+
+				<text label="1"/>
+				<hexspinbox define="LETH.PORT$PORT$_MAC_TMRQ_REGS1.TYP" range="0;65535"/>
+				<combo define="LETH.PORT$PORT$_MAC_TMRQ_REGS1.TMRQ" default="0">
+					<item label="Queue0"/>
+					<item label="Queue1"/>
+				</combo>
+
+				<text label="2"/>
+				<hexspinbox define="LETH.PORT$PORT$_MAC_TMRQ_REGS2.TYP" range="0;65535"/>
+				<combo define="LETH.PORT$PORT$_MAC_TMRQ_REGS2.TMRQ" default="0">
+					<item label="Queue0"/>
+					<item label="Queue1"/>
+				</combo>
+
+				<text label="3"/>
+				<hexspinbox define="LETH.PORT$PORT$_MAC_TMRQ_REGS3.TYP" range="0;65535"/>
+				<combo define="LETH.PORT$PORT$_MAC_TMRQ_REGS3.TMRQ" default="0">
+					<item label="Queue0"/>
+					<item label="Queue1"/>
+				</combo>
+			</gridcontainer>
+		</groupcontainer>
+	</verticalcontainer>
+</ifxmlcfg>

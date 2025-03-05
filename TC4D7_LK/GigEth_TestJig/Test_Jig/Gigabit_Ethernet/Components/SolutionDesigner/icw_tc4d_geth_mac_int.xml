@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+    <header file="tc4d_geth_mac_cfg.h">
+        <verticalcontainer label="Geth MAC Interrupt" stretch="2">
+			<groupcontainer label="Common Settings" size="-1;100"  font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+				<formcontainer>
+					<combo label="Type of Service" define="GETH.PORTn_MAC_INT_TOS">
+						<item label="IfxSrc_Tos_cpu0"/>
+						<item label="IfxSrc_Tos_cpu1"/>
+						<item label="IfxSrc_Tos_cpu2"/>
+						<item label="IfxSrc_Tos_cpu3"/>
+						<item label="IfxSrc_Tos_cpu4"/>
+						<item label="IfxSrc_Tos_cpu5"/>
+					</combo>
+					<spinbox label="Priority" define="GETH.PORTn_MAC_INT_PRIO" range="0;255" default="0"/>
+				</formcontainer>
+			</groupcontainer>
+			<horizontalcontainer>
+				<groupcontainer label="MAC0" size="-1;200"  font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+					<formcontainer>
+						<gridcontainer columns="3">
+							<text label="Timestamp generated"/>
+							<checkbox define="GETH.PORT0_MAC_INTERRUPT_ENABLE_TSCAPTURED">
+								<action event="checked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_TSCAPTURED_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_TSCAPTURED_ISR.enabled=0"/>
+							</checkbox>
+							<edit label="Timestamp Callback" enabled="false" define="GETH.PORT0_MAC_INTERRUPT_ENABLE_TSCAPTURED_ISR" default="enter callback function here"/>
+
+							<text label="PPS target time reached"/>
+							<checkbox define="GETH.PORT0_MAC_INTERRUPT_ENABLE_TGTTIMEREACHED">
+								<action event="checked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_TGTTIMEREACHED_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_TGTTIMEREACHED_ISR.enabled=0"/>
+							</checkbox>
+							<edit label="PPS Callback" enabled="false" define="GETH.PORT0_MAC_INTERRUPT_ENABLE_TGTTIMEREACHED_ISR" default="enter callback function here"/>
+
+							<text label="Transmit Error"/>
+							<checkbox define="GETH.PORT0_MAC_INTERRUPT_ENABLE.TXESIE">
+								<action event="checked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_TXESIS_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_TXESIS_ISR.enabled=0"/>
+							</checkbox>
+							<edit enabled="false" define="GETH.PORT0_MAC_INTERRUPT_ENABLE_TXESIS_ISR" default="enter callback function here"/>
+
+							<text label="Receive Error"/>
+							<checkbox define="GETH.PORT0_MAC_INTERRUPT_ENABLE.RXESIE">
+								<action event="checked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_RXESIS_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT0_MAC_INTERRUPT_ENABLE_RXESIS_ISR.enabled=0"/>
+							</checkbox>
+							<edit enabled="false" define="GETH.PORT0_MAC_INTERRUPT_ENABLE_RXESIS_ISR" default="enter callback function here"/>
+						</gridcontainer>
+						<math visible="false" define="GETH.PORT0_MAC_INTERRUPT_ENABLE.TSIE" formula="GETH.PORT0_MAC_INTERRUPT_ENABLE_TSCAPTURED.+GETH.PORT0_MAC_INTERRUPT_ENABLE_TGTTIMEREACHED"/>
+					</formcontainer>
+				</groupcontainer>
+				<groupcontainer label="MAC1" size="-1;200"  font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+					<formcontainer>
+						<gridcontainer columns="3">
+							<text label="Timestamp generated"/>
+							<checkbox define="GETH.PORT1_MAC_INTERRUPT_ENABLE.TSIE">
+								<action event="checked" cmd="setdef" data="GETH.PORT1_MAC_INTERRUPT_ENABLE_TSIE_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT1_MAC_INTERRUPT_ENABLE_TSIE_ISR.enabled=0"/>
+							</checkbox>
+							<edit label="Timestamp Callback" enabled="false" define="GETH.PORT1_MAC_INTERRUPT_ENABLE_TSIE_ISR" default="enter callback function here"/>
+
+							<text label="Transmit Error"/>
+							<checkbox define="GETH.PORT1_MAC_INTERRUPT_ENABLE.TXESIE">
+								<action event="checked" cmd="setdef" data="GETH.PORT1_MAC_INTERRUPT_ENABLE_TXESIS_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT1_MAC_INTERRUPT_ENABLE_TXESIS_ISR.enabled=0"/>
+							</checkbox>
+							<edit enabled="false" define="GETH.PORT1_MAC_INTERRUPT_ENABLE_TXESIS_ISR" default="enter callback function here"/>
+
+							<text label="Receive Error"/>
+							<checkbox define="GETH.PORT1_MAC_INTERRUPT_ENABLE.RXESIE">
+								<action event="checked" cmd="setdef" data="GETH.PORT1_MAC_INTERRUPT_ENABLE_RXESIS_ISR.enabled=1"/>
+								<action event="unchecked" cmd="setdef" data="GETH.PORT1_MAC_INTERRUPT_ENABLE_RXESIS_ISR.enabled=0"/>
+							</checkbox>
+							<edit enabled="false" define="GETH.PORT1_MAC_INTERRUPT_ENABLE_RXESIS_ISR" default="enter callback function here"/>
+						</gridcontainer>
+					</formcontainer>
+				</groupcontainer>
+			</horizontalcontainer>
+        </verticalcontainer>
+    </header>
+</ifxmlcfg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   TP: target port for forward: range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>40db18285caa54476fd5388892cbae50d41fbca6bfde28ec4de99ad84212f445</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+    <groupcontainer label="Bridge Port$PORT$" define="GETH.PORT$PORT$_MAP_CONT" color="104;201;173">
+            <gridcontainer columns="10" stretch="2">
+                <!--headline-->
+                <text visible="false"/>
+                <text visible="false"/>
+                <text visible="false"/>
+                <text visible="false"/>
+                <text label="  Ch Index" readonly="true"/>
+                <text label="  Tx" readonly="true"/>
+                <text label=" DMA TxLink" readonly="true"/>
+                <text label="  Rx" readonly="true"/>
+                <text label=" DMA RxLink" readonly="true"/>
+                <text label=" Forward" readonly="true"/>
+                <!--line1-->
+                <include PORT="$PORT$" TP="$TP$" IDX="0">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="1">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="2">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="3">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="4">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="5">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="6">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+                <include PORT="$PORT$" TP="$TP$" IDX="7">icw_tc4d_geth_brdg_map_channel_tmpl.xml</include>
+            </gridcontainer>
+            <!--math visible="true" define="GETH.PORT_$PORT$_CONTROL.TXQ_EN" formula="GETH.BRDG_PORT$PORT$_TXCH7_EN*128+GETH.BRDG_PORT$PORT$_TXCH6_EN*64+GETH.BRDG_PORT$PORT$_TXCH5_EN*32+GETH.BRDG_PORT$PORT$_TXCH4_EN*16+GETH.BRDG_PORT$PORT$_TXCH3_EN*8+GETH.BRDG_PORT$PORT$_TXCH2_EN*4+GETH.BRDG_PORT$PORT$_TXCH1_EN*2+GETH.BRDG_PORT$PORT$_TXCH0_EN"/-->
+            <!--math visible="true" define="GETH.PORT_$PORT$_CONTROL.RXC_EN" formula="GETH.BRDG_PORT$PORT$_RXCH7_EN*128+GETH.BRDG_PORT$PORT$_RXCH6_EN*64+GETH.BRDG_PORT$PORT$_RXCH5_EN*32+GETH.BRDG_PORT$PORT$_RXCH4_EN*16+GETH.BRDG_PORT$PORT$_RXCH3_EN*8+GETH.BRDG_PORT$PORT$_RXCH2_EN*4+GETH.BRDG_PORT$PORT$_RXCH1_EN*2+GETH.BRDG_PORT$PORT$_RXCH0_EN"/-->
+            <!--math visible="false" define="GETH.PORT_$PORT$_CONTROL.FWD_EN" formula="GETH.PORT_$PORT$_CONTROL_FWDEN7*128+GETH.PORT_$PORT$_CONTROL_FWDEN6*64+GETH.PORT_$PORT$_CONTROL_FWDEN5*32+GETH.PORT_$PORT$_CONTROL_FWDEN4*16+GETH.PORT_$PORT$_CONTROL_FWDEN3*8+GETH.PORT_$PORT$_CONTROL_FWDEN2*4+GETH.PORT_$PORT$_CONTROL_FWDEN1*2+GETH.PORT_$PORT$_CONTROL_FWDEN0"/-->
+    </groupcontainer>
+</ifxmlcfg>

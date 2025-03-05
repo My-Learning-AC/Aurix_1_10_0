@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- CBS Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: channel index, range 0..4 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>b9efbd091387b075c3755e86e8426eafe64bfb07a68ac0ceec1dbba295a2e778</checksum>
+	<version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<usesPython/>
+	<verticalcontainer label="Traffic Class$IDX$" stretch="2" define="GETH.MAC$PORT$_QUEUE$IDX$_TC_CONT" size="-1;-1">
+		<groupcontainer label="Traffic Class" stretch="2" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+			<formcontainer>
+				<horizontalcontainer label="Mode" stretch="2">
+					<radio define="GETH.PORT$PORT$_MTL_TC$IDX$_ETS_CONTROL.TSA" default="0">
+						<radiobutton label="Strict Priority (SP)" value="0"/>
+						<radiobutton label="Enhanced Transmission Selection (ETS)" value="2"/>
+					</radio>
+				</horizontalcontainer>
+				<horizontalcontainer label="Type" stretch="2">
+					<radio define="GETH.PORT$PORT$_MTL_FPE_CTRL_STS.PEC_TC$IDX$" default="0">
+						<radiobutton label="express" value="0"/>
+						<radiobutton label="preemptable" value="1"/>
+					</radio>
+				</horizontalcontainer>
+				<spinbox label="Weight" define="GETH.PORT$PORT$_MTL_TC$IDX$_QUANTUM_WEIGHT.QW" range="0;100" default="0"/>
+			</formcontainer>
+		</groupcontainer>
+	</verticalcontainer>
+</ifxmlcfg>

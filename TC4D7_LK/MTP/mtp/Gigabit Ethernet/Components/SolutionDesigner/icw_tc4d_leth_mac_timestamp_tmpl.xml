@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- VLAN Filtering Template -->
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: address index, range 1..31 -->
+<ifxmlcfg version="1.0.0">
+	<checksum>159c3ee300975b59fdca7185a230e59b656385f8388e44335f001aa22551c8c0</checksum>
+	<version label="V0.1.0"/>
+	<usesPython/>
+	<verticalcontainer>
+		<checkbox label="Enable Time Stamping" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSENA" lockon="LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE=0" lockinverted="1">
+			<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MAC_TIMESTAMP_CONT.enabled=1;LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE.enabled=1"/>
+			<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MAC_TIMESTAMP_CONT.enabled=0;LETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE.enabled=0"/>
+		</checkbox>
+		<verticalcontainer define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONT" enabled="false">
+			<formcontainer>
+				<combo label="Clock Source" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.ESTI">
+					<item override="value1" label="internal reference System Time" value="0"/>
+					<item override="value2" label="external 64-bit reference System Time" value="1"/>
+				</combo>
+				<combo label="fPTP" define="LETH.PORT$PORT$_MAC_TIMESTAMP_FPTP" default="label=200 MHz">
+					<item label="50 MHz" value="50000000"/>
+					<item label="64 MHz" value="64000000"/>
+					<item label="80 MHz" value="80000000"/>
+					<item label="100 MHz" value="100000000"/>
+					<item label="125 MHz" value="125000000"/>
+					<item label="128 MHz" value="128000000"/>
+					<item label="160 MHz" value="160000000"/>
+					<item label="200 MHz" value="200000000"/>
+					<item label="250 MHz" value="250000000"/>
+				</combo>
+				<combo label="Timestamp roll over" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSCTRLSSR" default="value=1">
+					<item override="value1" label="0x7FFFFFFF" value="0"/>
+					<item override="value2" label="0x3B9AC9FF" value="1"/>
+				</combo>
+				<checkbox label="Timestamp for all packets" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSENALL" default="1"/>
+				<checkbox label="PTP Packet Processing for Version 2 Format" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSVER2ENA"/>
+				<checkbox label="Processing of PTP over Ethernet Packets" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSIPENA"/>
+				<checkbox label="Processing of PTP Packets Sent over IPv6-UDP" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSIPV6ENA"/>
+				<checkbox label="Processing of PTP Packets Sent over IPv4-UDP" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSIPV4ENA"/>
+				<checkbox label="Timestamp Snapshot for Event Messages" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSEVNTENA"/>
+				<checkbox label="Snapshot for Messages Relevant to Master" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSMSTRENA"/>
+				<checkbox label="MAC Address for PTP Packet Filtering" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSENMACADDR"/>
+				<checkbox label="checksum correction during OST for PTP over UDP/IPv4 packets" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.CSC"/>
+				<checkbox label="AV IEEE 802.1AS Mode" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.AV8021ASMEN"/>
+				<combo label="Transmit Timestamp Status Mode" define="LETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TXTSSTSM">
+					<item override="value1" label="over-write (old timestamp lost)" value="0"/>
+					<item override="value2" label="no over-write (new timestamp lost)" value="1"/>
+				</combo>
+			</formcontainer>
+			<groupcontainer label="Pulse-per-Second">
+				<verticalcontainer>
+					<horizontalcontainer>
+						<radio label="PPS Mode" define="LETH.PORT$PORT$_MAC_PPS_CONTROL.PPSEN0">
+							<radiobutton label="fixed PPS" setDef="LETH.PORT$PORT$_MAC_PPS_FIX_CONT.enabled=1;LETH.PORT$PORT$_MAC_PPS_FLEX_CONT.enabled=0"/>
+							<radiobutton label="flexible PPS" setDef="LETH.PORT$PORT$_MAC_PPS_FIX_CONT.enabled=0;LETH.PORT$PORT$_MAC_PPS_FLEX_CONT.enabled=1"/>
+						</radio>
+					</horizontalcontainer>
+					<horizontalcontainer>
+						<groupcontainer label="fixed PPS" define="LETH.PORT$PORT$_MAC_PPS_FIX_CONT">
+							<formcontainer>
+								<combo label="PPS Frequency" define="LETH.PORT$PORT$_MAC_PPS_CONTROL_FIXED_PPSCTRL0_PPSCMD0">
+									<item label="disabled"/>
+									<item label="1 Hz"/>
+									<item label="2 Hz"/>
+									<item label="4 Hz"/>
+									<item label="8 Hz"/>
+									<item label="16 Hz"/>
+									<item label="32 Hz"/>
+									<item label="64 Hz"/>
+									<item label="128 Hz"/>
+									<item label="256 Hz"/>
+									<item label="512 Hz"/>
+									<item label="1024 Hz"/>
+									<item label="2048 Hz"/>
+									<item label="4096 Hz"/>
+									<item label="8192 Hz"/>
+									<item label="16384 Hz"/>
+								</combo>
+							</formcontainer>
+						</groupcontainer>
+						<groupcontainer label="flexible PPS" define="LETH.PORT$PORT$_MAC_PPS_FLEX_CONT" enabled="false">
+							<formcontainer>
+								<combo label="PPS Operation" define="LETH.PORT$PORT$_MAC_PPS_CONTROL_FLEX_PPSCTRL0_PPSCMD0">
+									<item label="disabled" setDef="LETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH.enabled=0;LETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER.enabled=0"/>
+									<item label="Single Pulse" setDef="LETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH.enabled=1;LETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER.enabled=0"/>
+									<item label="Pulse Train" setDef="LETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH.enabled=1;LETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER.enabled=1"/>
+								</combo>
+								<doublespinbox enabled="false" label="Pulse Width" suffix=" ms" format="%0.3f" define="LETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH"/>
+								<doublespinbox enabled="false" label="Pulse Interval" suffix=" ms" format="%0.3f" define="LETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER"/>
+								<math visible="false" define="LETH.PORT$PORT$_MAC_PPS0_WIDTH.PPSWIDTH0" formula="(LETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH/1000)*LETH.PORT$PORT$_MAC_TIMESTAMP_FPTP.value"/>
+								<math visible="false" define="LETH.PORT$PORT$_MAC_PPS0_INTERVAL.PPSINT0" formula="(LETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER/1000)*LETH.PORT$PORT$_MAC_TIMESTAMP_FPTP.value"/>
+							</formcontainer>
+						</groupcontainer>
+					</horizontalcontainer>
+					<verticalcontainer>
+						<groupcontainer label="Start Condition">
+							<formcontainer>
+								<combo label="" define="LETH.PORT$PORT$_MAC_PPS_CONTROL.TRGTMODSEL0" default="value=3">
+									<item override="value1" label="PPS generation with Interrupt" value="2" setDef="LETH.PORT$PORT$_MAC_PPS_ISR.enabled=1"/>
+									<item override="value2" label="PPS generation no Interrupt" value="3" setDef="LETH.PORT$PORT$_MAC_PPS_ISR.enabled=0"/>
+								</combo>
+								<doublespinbox label="Start Time" suffix=" sec" define="LETH.PORT$PORT$_MAC_PPS0_TARGET_TIME"/>
+								<math visible="false" define="LETH.PORT$PORT$_MAC_PPS0_TARGET_TIME_SECONDS.TSTRH0" formula="trunc(LETH.PORT$PORT$_MAC_PPS0_TARGET_TIME)"/>
+								<math visible="false" define="LETH.PORT$PORT$_MAC_PPS0_TARGET_TIME_NANOSECONDS.TTSL0" formula="(LETH.PORT$PORT$_MAC_PPS0_TARGET_TIME-trunc(LETH.PORT$PORT$_MAC_PPS0_TARGET_TIME))*1E9"/>
+							</formcontainer>
+						</groupcontainer>
+					
+						<groupcontainer label="Pin Select">
+							<setdefine define="port_sel" value="$PORT$"/>
+							<combo startcond="port_sel==0" define="LETH.PORT0_MAC_PPS0_PIN_SEL" svd="0">
+								<item label="P2.13" setDef="LETH.PORT0_MAC_PPS0_PIN=IfxLeth0_P0_PPS_P02_13_OUT"/>
+								<item label="P14.2" setDef="LETH.PORT0_MAC_PPS0_PIN=IfxLeth0_P0_PPS_P14_2_OUT"/>
+							</combo>
+							<combo startcond="port_sel==1" define="LETH.PORT1_MAC_PPS0_PIN_SEL" svd="0">
+								<item label="P21.0" setDef="LETH.PORT1_MAC_PPS0_PIN=IfxLeth0_P1_PPS_P21_0_OUT"/>
+								<item label="P32.6" setDef="LETH.PORT1_MAC_PPS0_PIN=IfxLeth0_P1_PPS_P32_6_OUT"/>
+								<item label="P35.5" setDef="LETH.PORT1_MAC_PPS0_PIN=IfxLeth0_P1_PPS_P35_5_OUT"/>
+							</combo>
+							<combo startcond="port_sel==2" define="LETH.PORT2_MAC_PPS0_PIN_SEL" svd="0">
+								<item label="P2.11" setDef="LETH.PORT2_MAC_PPS0_PIN=IfxLeth0_P2_PPS_P02_11_OUT"/>
+								<item label="P3.6" setDef="LETH.PORT2_MAC_PPS0_PIN=IfxLeth0_P2_PPS_P03_6_OUT"/>
+							</combo>
+							<combo startcond="port_sel==3" define="LETH.PORT3_MAC_PPS0_PIN_SEL" svd="0">
+								<item label="P2.14" setDef="LETH.PORT3_MAC_PPS0_PIN=IfxLeth0_P3_PPS_P02_14_OUT"/>
+								<item label="P3.13" setDef="LETH.PORT3_MAC_PPS0_PIN=IfxLeth0_P3_PPS_P03_13_OUT"/>
+							</combo>
+							<edit startcond="port_sel==0" visible="false" define="LETH.PORT0_MAC_PPS0_PIN" default="IfxLeth0_P0_PPS_P02_13_OUT"/>
+							<edit startcond="port_sel==1" visible="false" define="LETH.PORT1_MAC_PPS0_PIN" default="IfxLeth0_P1_PPS_P21_0_OUT"/>
+							<edit startcond="port_sel==2" visible="false" define="LETH.PORT2_MAC_PPS0_PIN" default="IfxLeth0_P2_PPS_P02_11_OUT"/>
+							<edit startcond="port_sel==3" visible="false" define="LETH.PORT3_MAC_PPS0_PIN" default="IfxLeth0_P3_PPS_P02_14_OUT"/>
+						</groupcontainer>
+
+						<groupcontainer label="Interrupt">
+							<formcontainer>
+								<combo label="Type of Service" define="LETH.PORT$PORT$_MAC_PPS_TOS">
+									<item label="IfxSrc_Tos_cpu0"/>
+									<item label="IfxSrc_Tos_cpu1"/>
+									<item label="IfxSrc_Tos_cpu2"/>
+									<item label="IfxSrc_Tos_cpu3"/>
+									<item label="IfxSrc_Tos_cpu4"/>
+									<item label="IfxSrc_Tos_cpu5"/>
+								</combo>
+								<spinbox label="Priority" define="LETH.PORT$PORT$_MAC_PPS_PRIO" range="0;255" default="0"/>
+								<edit label="PPS Callback" enabled="false" define="LETH.PORT$PORT$_MAC_PPS_ISR" default="enter callback function here"/>
+							</formcontainer>
+						</groupcontainer>
+					</verticalcontainer>
+				</verticalcontainer>
+				<math visible="false" define="LETH.PORT$PORT$_MAC_PPS_CONTROL.PPSCTRL0_PPSCMD0" formula="LETH.PORT$PORT$_MAC_PPS_CONTROL.PPSEN0==0?LETH.PORT$PORT$_MAC_PPS_CONTROL_FIXED_PPSCTRL0_PPSCMD0:LETH.PORT$PORT$_MAC_PPS_CONTROL_FLEX_PPSCTRL0_PPSCMD0"/>
+			</groupcontainer>
+		</verticalcontainer>
+	</verticalcontainer>
+</ifxmlcfg>

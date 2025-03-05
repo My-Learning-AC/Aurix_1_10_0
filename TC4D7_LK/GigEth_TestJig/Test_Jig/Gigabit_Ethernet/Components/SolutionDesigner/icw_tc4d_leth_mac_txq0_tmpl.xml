@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<groupcontainer label="Queue$IDX$" size="350;-1" define="LETH.PORT$PORT$_MAC_TXQ$IDX$_TOP_CONT">
+		<header file="tc4d_leth_mac_cfg.h">
+			<verticalcontainer>
+				<horizontalcontainer stretch="2" visible="true">
+					<text label="Queue Mode"/>
+					<radio define="LETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TXQEN" default="0">
+						<radiobutton label="disabled" value="0" setDef="LETH.PORT$PORT$_MAC_TXQ$IDX$_CONT.enabled=0;LETH.PORT$PORT$_MAC_TXQ$IDX$_TOP_CONT.color=0xFFFFFF"/>
+						<radiobutton label="enabled"  value="2" setDef="LETH.PORT$PORT$_MAC_TXQ$IDX$_CONT.enabled=1;LETH.PORT$PORT$_MAC_TXQ$IDX$_TOP_CONT.color=0x68C9AD"/>
+						<!--radiobutton label="AVB Mode" value="1" setDef="LETH.PORT$PORT$_MAC_TXQ$IDX$_CONT.enabled=1"/-->
+					</radio>
+				</horizontalcontainer>
+				<verticalcontainer define="LETH.PORT$PORT$_MAC_TXQ$IDX$_CONT" enabled="false" stretch="2">
+					<formcontainer>
+						<text label=""/>
+						<checkbox label="Store and Forward (TSF)" define="LETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TSF" default="0"/>
+						<combo label="Threshold Control (TTC)" define="LETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TTC">
+							<item label="32 Bytes" override="value1" value="0"/>
+							<item label="64 Bytes" override="value2" value="2"/>
+							<item label="96 Bytes" override="value3" value="3"/>
+							<item label="128 Bytes" override="value4" value="4"/>
+							<item label="192 Bytes" override="value5" value="5"/>
+							<item label="256 Bytes" override="value6" value="6"/>
+							<item label="384 Bytes" override="value7" value="7"/>
+							<item label="512 Bytes" override="value8" value="8"/>
+						</combo>
+						<combo label="Queue Size (TQS)" define="LETH.PORT$PORT$_MTL_TXQ$IDX$_OPERATION_MODE.TQS" default="label=2048 Bytes">
+							<item label="256 Bytes" value="0"/>
+							<item label="512 Bytes" value="1"/>
+							<item label="768 Bytes" value="2"/>
+							<item label="1024 Bytes" value="3"/>
+							<item label="1280 Bytes" value="4"/>
+							<item label="1536 Bytes" value="5"/>
+							<item label="1792 Bytes" value="6"/>
+							<item label="2048 Bytes" value="7"/>
+							<item label="3072 Bytes" value="11"/>
+							<item label="4096 Bytes" value="15"/>
+						</combo>
+						<text label=""/>
+						<spinbox label="Weight" define="LETH.PORT$PORT$_MTL_TXQ$IDX$_QUANTUM_WEIGHT.ISCQW" range="0;100" default="0"/>
+					</formcontainer>
+				</verticalcontainer>
+			</verticalcontainer>
+		</header>
+	</groupcontainer>
+</ifxmlcfg>

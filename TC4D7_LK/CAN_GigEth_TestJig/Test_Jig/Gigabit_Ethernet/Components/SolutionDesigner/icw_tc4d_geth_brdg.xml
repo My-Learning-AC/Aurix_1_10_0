@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifxmlcfg version="1.0.0">
+    <checksum>a09d2c13604a97f3228668d48d9bd72ca37732374ca1051c33b6a9c794820874</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+	<moduledesc name="Geth Bridge" description="Gigabit Ethernet Bridge" exporter="ModuleExporter.py" hide="0"/>
+    <header file="tc4d_geth_brdg_cfg.h">
+        <verticalcontainer label="Geth Bridge" stretch="2">
+            <include>icw_tc4d_geth_brdg_var.xml</include>
+            <horizontalcontainer stretch="2">
+                <text label="Bridge Mode"/>
+                <radio define="GETH.FORWARD_CONTROL.Q_CH_MAPPING_EN" default="1">
+                    <radiobutton label="Dual Port"   value="1" setDef="GETH.FORWARD_CONTROL.PORT_SEL.enabled=0;GETH.PORT0_MAP_CONT.enabled=1;GETH.PORT1_MAP_CONT.enabled=1;GETH.PORT0_MAP_CONT.color=0x68C9AD;GETH.PORT1_MAP_CONT.color=0x68C9AD"/>
+                    <radiobutton label="Single Port" value="0" setDef="GETH.FORWARD_CONTROL.PORT_SEL.enabled=1">
+                        <action event="selected" cond="GETH.FORWARD_CONTROL.PORT_SEL==0" cmd="setDef" data="GETH.PORT0_MAP_CONT.enabled=1;GETH.PORT1_MAP_CONT.enabled=0;GETH.PORT0_MAP_CONT.color=0x68C9AD;GETH.PORT1_MAP_CONT.color=0xFFFFFF"/> 
+                        <action event="selected" cond="GETH.FORWARD_CONTROL.PORT_SEL==1" cmd="setDef" data="GETH.PORT1_MAP_CONT.enabled=1;GETH.PORT0_MAP_CONT.enabled=0;GETH.PORT1_MAP_CONT.color=0x68C9AD;GETH.PORT0_MAP_CONT.color=0xFFFFFF"/> 
+                    </radiobutton>
+                </radio>
+                <combo label="MAC Port" define="GETH.FORWARD_CONTROL.PORT_SEL" enabled="false">
+                    <item label="Port0" value="0" setDef="GETH.PORT0_MAP_CONT.enabled=1;GETH.PORT1_MAP_CONT.enabled=0;GETH.PORT0_MAP_CONT.color=0x68C9AD;GETH.PORT1_MAP_CONT.color=0xFFFFFF"/>
+                    <item label="Port1" value="1" setDef="GETH.PORT1_MAP_CONT.enabled=1;GETH.PORT0_MAP_CONT.enabled=0;GETH.PORT1_MAP_CONT.color=0x68C9AD;GETH.PORT0_MAP_CONT.color=0xFFFFFF"/>
+                </combo>
+            </horizontalcontainer>
+            <groupcontainer stretch="2" define="GETH.BRIDGE_SETTINGS_CONT">
+                <verticalcontainer stretch="2">
+					<groupcontainer label="Bridge Configuration" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+						<formcontainer>
+							<spinbox label="Max. Packet Length" define="GETH.FORWARD_CONTROL_MAX_PKT_LENGTH_USER" svd="0" suffix=" bytes" range="1;16384" default="64"/>
+							<math visible="false" define="GETH.FORWARD_CONTROL.MAX_PKT_LENGTH" formula="GETH.FORWARD_CONTROL_MAX_PKT_LENGTH_USER-1"/>
+							<combo label="Transmit Burst Length" define="GETH.FORWARD_CONTROL.PBL" default="label=128 bytes">
+								<item label="1 byte" value="1"/>
+								<item label="2 bytes" value="2"/>
+								<item label="4 bytes" value="4"/>
+								<item label="8 bytes" value="8"/>
+								<item label="16 bytes" value="16"/>
+								<item label="32 bytes" value="32"/>
+								<item label="64 bytes" value="64"/>
+								<item label="128 bytes" value="128"/>
+							</combo>
+							<checkbox label="ECC Enable" define="GETH.ECC_CONTROL.DESCED" role="inverted" default="1"/>
+						</formcontainer>
+					</groupcontainer>
+                    <verticalcontainer>
+                        <horizontalcontainer>
+                            <include PORT="0" TP="1" IDX="0">icw_tc4d_geth_brdg_map_tmpl.xml</include>
+                            <include PORT="1" TP="0" IDX="1">icw_tc4d_geth_brdg_map_tmpl.xml</include>
+                        </horizontalcontainer>
+                        <groupcontainer label="Error Injection" color="104;201;173">
+                            <verticalcontainer stretch="2">
+                                <checkbox label="...in Forwarding Port for all Rx Packet Error types" define="GETH.FORWARD_CONTROL.FW_DIS_EIN" role="inverted" default="1"/>
+                                <checkbox label="...for Rx packets with Payload Checksum Error" define="GETH.FORWARD_CONTROL.PYLD_CHKERR_FWEI"/>
+                                <checkbox label="...for Rx packets with IP Header Error" define="GETH.FORWARD_CONTROL.IP_HDRERR_FWEI"/>
+                                <checkbox label="...for Rx packets with Giant Packet" define="GETH.FORWARD_CONTROL.GIANT_PKT_FWEI"/>
+                                <checkbox label="...for Rx packets with Good runt packet" define="GETH.FORWARD_CONTROL.P2P_RUNT_PKT_FWEI"/>
+                            </verticalcontainer>
+                        </groupcontainer>
+                    </verticalcontainer>
+                </verticalcontainer>
+            </groupcontainer>
+        </verticalcontainer>
+    </header>
+</ifxmlcfg>

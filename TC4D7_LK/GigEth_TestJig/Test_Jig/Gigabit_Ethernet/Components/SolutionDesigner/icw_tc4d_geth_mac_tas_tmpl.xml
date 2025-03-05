@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+	<!--moduledesc name="Geth$PORT$ MAC" description="Gigabit Ethernet MAC PORT$PORT$" exporter="ModuleExporter.py" hide="0"/-->
+    <header file="tc4d_geth_mac_cfg.h">
+		<groupcontainer label="Gate Control Settings">
+			<verticalcontainer>
+				<checkbox label="GCL Enable" define="GETH.PORT$PORT$_MTL_EST_CONTROL.EEST">
+					<!--action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MTL_EST_BTR_CONT.enabled=1;GETH.PORT$PORT$_MTL_EST_GCL_CONT.enabled=1;GETH.PORT$PORT$_MTL_EST_GCL_INT_CONT.enabled=1"/>
+					<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MTL_EST_BTR_CONT.enabled=0;GETH.PORT$PORT$_MTL_EST_GCL_CONT.enabled=0;GETH.PORT$PORT$_MTL_EST_GCL_INT_CONT.enabled=0"/-->
+					<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MTL_EST_BTR_CONT.enabled=1;GETH.PORT$PORT$_MTL_EST_GCL_CONT.enabled=1"/>
+					<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MTL_EST_BTR_CONT.enabled=0;GETH.PORT$PORT$_MTL_EST_GCL_CONT.enabled=0"/>
+				</checkbox>
+				<horizontalcontainer define="GETH.PORT$PORT$_MTL_EST_BTR_CONT">
+					<text label="Start Time (sec/ns)"/>
+					<spinbox define="GETH.PORT$PORT$_MTL_EST_GCL_BTR_SEC" suffix=" sec"/>
+					<spinbox define="GETH.PORT$PORT$_MTL_EST_GCL_BTR_NSEC" suffix=" ns"/>
+				</horizontalcontainer>
+				<math visible="false" label="LLR" define="GETH.PORT$PORT$_MTL_EST_GCL_LLR" formula="1*GETH.PORT$PORT$_MTL_EST_GCL_IDX0_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX1_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX2_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX3_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX4_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX5_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX6_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX7_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX8_EN+1*GETH.PORT$PORT$_MTL_EST_GCL_IDX9_EN" default="0"/>
+				<math visible="false" label="CTR" define="GETH.PORT$PORT$_MTL_EST_GCL_CTR_NSEC" formula="GETH.PORT$PORT$_MTL_EST_GCL_DATA0.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX0_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA1.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX1_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA2.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX2_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA3.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX3_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA4.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX4_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA5.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX5_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA6.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX6_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA7.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX7_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA8.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX8_EN+GETH.PORT$PORT$_MTL_EST_GCL_DATA9.SLOT_TIME*GETH.PORT$PORT$_MTL_EST_GCL_IDX9_EN" default="0"/>
+			</verticalcontainer>
+		</groupcontainer>
+		<groupcontainer label="Gate Control List" define="GETH.PORT$PORT$_MTL_EST_GCL_CONT">
+			<gridcontainer columns="4" stretch="3">
+				<!--headline-->
+				<horizontalcontainer size="20;-1">
+					<text visible="false"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="30;-1">
+					<text visible="false"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="200;-1">
+					<text label="                 Traffic Class Select" readonly="true"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="100;-1">
+					<text visible="false"/>
+				</horizontalcontainer>
+
+
+				<horizontalcontainer size="20;-1">
+					<text label="Slot" readonly="true"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="30;-1">
+					<text label="Enable" readonly="true"/>
+				</horizontalcontainer>
+				<horizontalcontainer size="200;-1">
+					<horizontalcontainer>
+						<text label=" 7" readonly="true"/>
+						<text label=" 6" readonly="true"/>
+						<text label=" 5" readonly="true"/>
+						<text label=" 4" readonly="true"/>
+						<text label=" 3" readonly="true"/>
+						<text label=" 2" readonly="true"/>
+						<text label=" 1" readonly="true"/>
+						<text label=" 0" readonly="true"/>
+					</horizontalcontainer>
+				</horizontalcontainer>
+				<horizontalcontainer size="100;-1">
+					<text label="Slot Duration (ns)" readonly="true"/>
+				</horizontalcontainer>
+
+				<include PORT="$PORT$" IDX="0">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="1">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="2">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="3">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="4">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="5">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="6">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="7">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="8">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+				<include PORT="$PORT$" IDX="9">icw_tc4d_geth_mac_tas_slot_tmpl.xml</include>
+			</gridcontainer>
+		</groupcontainer>
+		<!--groupcontainer label="Interrupts" define="GETH.PORT$PORT$_MTL_EST_GCL_INT_CONT">
+			<gridcontainer columns="3">
+				<text label="Switch List done"/>
+				<checkbox define="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE.IECC">
+					<action event="checked"   cmd="setdef" data="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE_IECC_ISR.enabled=1"/>
+					<action event="unchecked" cmd="setdef" data="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE_IECC_ISR.enabled=0"/>
+				</checkbox>
+				<edit enabled="false" define="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE_IECC_ISR" default="enter callback function here"/>
+
+				<text label="Base Time Error"/>
+				<checkbox define="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE.IEBE">
+					<action event="checked"   cmd="setdef" data="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE_IEBE_ISR.enabled=1"/>
+					<action event="unchecked" cmd="setdef" data="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE_IEBE_ISR.enabled=0"/>
+				</checkbox>
+				<edit enabled="false" define="GETH.PORT$PORT$_MTL_EST_INTR_ENABLE_IEBE_ISR" default="enter callback function here"/>
+			</gridcontainer>
+		</groupcontainer-->
+	</header>
+</ifxmlcfg>

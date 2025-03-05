@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<groupcontainer label="Leth Bridge" stretch="2">
+		<header file="tc4d_leth_brdg_cfg.h">
+			<verticalcontainer>
+				<horizontalcontainer stretch="2">
+					<text label="Bridge Mode"/>
+					<radio define="LETH.ETHBR_FWD_CTRL_REG.Q_CH_MAPPING_EN" default="1">
+						<radiobutton label="Multi Port"  value="1" setDef="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL.enabled=0;LETH.PORT0_MAP_CONT.enabled=1;LETH.PORT1_MAP_CONT.enabled=1;LETH.PORT2_MAP_CONT.enabled=1;LETH.PORT3_MAP_CONT.enabled=1;LETH.PORT0_MAP_CONT.color=0x68C9AD;LETH.PORT1_MAP_CONT.color=0x68C9AD;LETH.PORT2_MAP_CONT.color=0x68C9AD;LETH.PORT3_MAP_CONT.color=0x68C9AD"/>
+						<radiobutton label="Single Port" value="0" setDef="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL.enabled=1">
+							<action event="selected" cond="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL==0" cmd="setDef" data="LETH.PORT0_MAP_CONT.enabled=1;LETH.PORT1_MAP_CONT.enabled=0;LETH.PORT2_MAP_CONT.enabled=0;LETH.PORT3_MAP_CONT.enabled=0;LETH.PORT0_MAP_CONT.color=0x68C9AD;LETH.PORT1_MAP_CONT.color=0xFFFFFF;LETH.PORT2_MAP_CONT.color=0xFFFFFF;LETH.PORT3_MAP_CONT.color=0xFFFFFF"/> 
+							<action event="selected" cond="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL==1" cmd="setDef" data="LETH.PORT0_MAP_CONT.enabled=0;LETH.PORT1_MAP_CONT.enabled=1;LETH.PORT2_MAP_CONT.enabled=0;LETH.PORT3_MAP_CONT.enabled=0;LETH.PORT0_MAP_CONT.color=0xFFFFFF;LETH.PORT1_MAP_CONT.color=0x68C9AD;LETH.PORT2_MAP_CONT.color=0xFFFFFF;LETH.PORT3_MAP_CONT.color=0xFFFFFF"/> 
+							<action event="selected" cond="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL==2" cmd="setDef" data="LETH.PORT0_MAP_CONT.enabled=0;LETH.PORT1_MAP_CONT.enabled=0;LETH.PORT2_MAP_CONT.enabled=1;LETH.PORT3_MAP_CONT.enabled=0;LETH.PORT0_MAP_CONT.color=0xFFFFFF;LETH.PORT1_MAP_CONT.color=0xFFFFFF;LETH.PORT2_MAP_CONT.color=0x68C9AD;LETH.PORT3_MAP_CONT.color=0xFFFFFF"/> 
+							<action event="selected" cond="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL==3" cmd="setDef" data="LETH.PORT0_MAP_CONT.enabled=0;LETH.PORT1_MAP_CONT.enabled=0;LETH.PORT2_MAP_CONT.enabled=0;LETH.PORT3_MAP_CONT.enabled=1;LETH.PORT0_MAP_CONT.color=0xFFFFFF;LETH.PORT1_MAP_CONT.color=0xFFFFFF;LETH.PORT2_MAP_CONT.color=0xFFFFFF;LETH.PORT3_MAP_CONT.color=0x68C9AD"/> 
+						</radiobutton>
+					</radio>
+					<combo label="MAC Port" define="LETH.ETHBR_FWD_CTRL_REG.PORT_SEL" enabled="false">
+						<item label="Port0" value="0" setDef="LETH.PORT0_MAP_CONT.enabled=1;LETH.PORT1_MAP_CONT.enabled=0;LETH.PORT2_MAP_CONT.enabled=0;LETH.PORT3_MAP_CONT.enabled=0;LETH.PORT0_MAP_CONT.color=0x68C9AD;LETH.PORT1_MAP_CONT.color=0xFFFFFF;LETH.PORT2_MAP_CONT.color=0xFFFFFF;LETH.PORT3_MAP_CONT.color=0xFFFFFF"/>
+						<item label="Port1" value="1" setDef="LETH.PORT0_MAP_CONT.enabled=0;LETH.PORT1_MAP_CONT.enabled=1;LETH.PORT2_MAP_CONT.enabled=0;LETH.PORT3_MAP_CONT.enabled=0;LETH.PORT0_MAP_CONT.color=0xFFFFFF;LETH.PORT1_MAP_CONT.color=0x68C9AD;LETH.PORT2_MAP_CONT.color=0xFFFFFF;LETH.PORT3_MAP_CONT.color=0xFFFFFF"/>
+						<item label="Port2" value="2" setDef="LETH.PORT0_MAP_CONT.enabled=0;LETH.PORT1_MAP_CONT.enabled=0;LETH.PORT2_MAP_CONT.enabled=1;LETH.PORT3_MAP_CONT.enabled=0;LETH.PORT0_MAP_CONT.color=0xFFFFFF;LETH.PORT1_MAP_CONT.color=0xFFFFFF;LETH.PORT2_MAP_CONT.color=0x68C9AD;LETH.PORT3_MAP_CONT.color=0xFFFFFF"/>
+						<item label="Port3" value="3" setDef="LETH.PORT0_MAP_CONT.enabled=0;LETH.PORT1_MAP_CONT.enabled=0;LETH.PORT2_MAP_CONT.enabled=0;LETH.PORT3_MAP_CONT.enabled=1;LETH.PORT0_MAP_CONT.color=0xFFFFFF;LETH.PORT1_MAP_CONT.color=0xFFFFFF;LETH.PORT2_MAP_CONT.color=0xFFFFFF;LETH.PORT3_MAP_CONT.color=0x68C9AD"/>
+					</combo>
+				</horizontalcontainer>
+				<groupcontainer stretch="2" define="GETH.BRIDGE_SETTINGS_CONT">
+					<verticalcontainer stretch="2">
+						<horizontalcontainer>
+							<include PORT="0">icw_tc4d_leth_brdg_map_tmpl.xml</include>
+							<include PORT="1">icw_tc4d_leth_brdg_map_tmpl.xml</include>
+						</horizontalcontainer>
+						<horizontalcontainer>
+							<include PORT="2">icw_tc4d_leth_brdg_map_tmpl.xml</include>
+							<include PORT="3">icw_tc4d_leth_brdg_map_tmpl.xml</include>
+						</horizontalcontainer>
+					</verticalcontainer>
+				</groupcontainer>
+			</verticalcontainer>
+		</header>
+	</groupcontainer>
+</ifxmlcfg>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<groupcontainer label="Queue$IDX$" size="350;-1" define="LETH.PORT$PORT$_MAC_RXQ$IDX$_TOP_CONT">
+		<header file="tc4d_leth_mac_cfg.h">
+			<verticalcontainer>
+				<horizontalcontainer stretch="2" visible="true">
+					<text label="Queue Mode"/>
+					<radio define="LETH.PORT$PORT$_MAC_RXQ_CTRL0.RXQ$IDX$EN" default="0">
+						<radiobutton label="disabled" value="0" setDef="LETH.PORT$PORT$_MAC_RXQ$IDX$_CONT.enabled=0;LETH.PORT$PORT$_MAC_RXQ$IDX$_TOP_CONT.color=0xFFFFFF"/>
+						<radiobutton label="enabled"  value="2" setDef="LETH.PORT$PORT$_MAC_RXQ$IDX$_CONT.enabled=1;LETH.PORT$PORT$_MAC_RXQ$IDX$_TOP_CONT.color=0x68C9AD"/>
+						<radiobutton label="AVB Mode" value="1" setDef="LETH.PORT$PORT$_MAC_RXQ$IDX$_CONT.enabled=1;LETH.PORT$PORT$_MAC_RXQ$IDX$_TOP_CONT.color=0x88C93D"/>
+					</radio>
+				</horizontalcontainer>
+				<horizontalcontainer define="LETH.PORT$PORT$_MAC_RXQ$IDX$_CONT" enabled="false" stretch="2">
+					<formcontainer>
+						<text label=""/>
+						<checkbox label="Store and Forward (RSF)" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.RSF" default="0"/>
+						<checkbox label="Forward Error Frames (FEP)" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.FEP" default="0"/>
+						<checkbox label="Forward undersized Frames (FUP)" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.FUP" default="0"/>
+						<combo label="Threshold Control (RTC)" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.RTC">
+							<item label="32 Bytes" override="value1" value="1"/>
+							<item label="64 Bytes" override="value2" value="0"/>
+							<item label="96 Bytes" override="value3" value="2"/>
+							<item label="128 Bytes" override="value4" value="3"/>
+						</combo>
+						<combo label="Queue Size (RQS)" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_OPERATION_MODE.RQS" default="label=2048 Bytes">
+							<item label="256 Bytes" value="0"/>
+							<item label="512 Bytes" value="1"/>
+							<item label="768 Bytes" value="2"/>
+							<item label="1024 Bytes" value="3"/>
+							<item label="1280 Bytes" value="4"/>
+							<item label="1536 Bytes" value="5"/>
+							<item label="1792 Bytes" value="6"/>
+							<item label="2048 Bytes" value="7"/>
+							<item label="3072 Bytes" value="11"/>
+							<item label="4096 Bytes" value="15"/>
+						</combo>
+						<checkbox label="Dynamic DMA Channel Selection" define="LETH.PORT$PORT$_MTL_RXQ_DMA_MAP0.Q$IDX$DDMACH">
+							<action event="checked" cmd="setDef" data="LETH.PORT$PORT$_MTL_RXQ_DMA_MAP0.Q$IDX$MDMACH.enabled=0"/>
+							<action event="unchecked" cmd="setDef" data="LETH.PORT$PORT$_MTL_RXQ_DMA_MAP0.Q$IDX$MDMACH.enabled=1"/>
+						</checkbox>
+						<combo label="DMA Channel Select" define="LETH.PORT$PORT$_MTL_RXQ_DMA_MAP0.Q$IDX$MDMACH" default="value=$IDX$">
+							<item label="DMA Channel 0" value="0"/>
+							<item label="DMA Channel 1" value="1"/>
+							<item label="DMA Channel 2" value="2"/>
+							<item label="DMA Channel 3" value="3"/>
+							<item label="DMA Channel 4" value="4"/>
+							<item label="DMA Channel 5" value="5"/>
+							<item label="DMA Channel 6" value="6"/>
+							<item label="DMA Channel 7" value="7"/>
+						</combo>
+						<combo label="Weight" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_CONTROL.RXQ_WEGT" default="value=$IDX$">
+							<item label="0"/>
+							<item label="1"/>
+							<item label="2"/>
+							<item label="3"/>
+							<item label="4"/>
+							<item label="5"/>
+							<item label="6"/>
+							<item label="7"/>
+						</combo>
+						<combo label="Arbitration Control" define="LETH.PORT$PORT$_MTL_RXQ$IDX$_CONTROL.RXQ_FRM_ARBIT" default="0">
+							<item override="value1" label="PBL based arbitration"/>
+							<item override="value2" label="packet-level arbitration"/>
+						</combo>
+						<horizontalcontainer>
+							<text label="7"/>
+							<text label="6"/>
+							<text label="5"/>
+							<text label="4"/>
+							<text label="3"/>
+							<text label="2"/>
+							<text label="1"/>
+							<text label="0"/>
+						</horizontalcontainer>
+						<horizontalcontainer label="Queue VLAN Priority (PSRQ)">
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_7"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_6"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_5"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_4"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_3"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_2"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_1"/>
+							<checkbox define="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_0"/>
+						</horizontalcontainer>
+						<math visible="false" define="LETH.PORT$PORT$_MAC_RXQ_CTRL2.PSRQ$IDX$" formula="LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_7*128+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_6*64+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_5*32+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_4*16+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_3*8+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_2*4+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_1*2+LETH.PORT$PORT$_MAC_RXQ_CTRL_PSRQ$IDX$_0"/>
+					</formcontainer>
+				</horizontalcontainer>
+			</verticalcontainer>
+		</header>
+	</groupcontainer>
+</ifxmlcfg>

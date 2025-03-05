@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+	<!--moduledesc name="Geth$PORT$ MAC" description="Gigabit Ethernet MAC PORT$PORT$" exporter="ModuleExporter.py" hide="0"/-->
+    <header file="tc4d_geth_mac_cfg.h">
+        <verticalcontainer label="Geth MAC$PORT$">
+			<edit visible="false" define="GETH_PORT$PORT$_MAC_GRAPH_COLOR" svd="0" default="ABD9E4"/>
+            <checkbox label="Enable MAC$PORT$" define="GETH.MACEN.MAC$PORT$" default="1" font="Source Sans Pro,15,0,0,100,1,0,0,0,0" color="255;128;64">
+                <action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_TOP.enabled=1;GETH_PORT$PORT$_MAC_GRAPH_COLOR=ABD9E4;Geth.Diagram.update=1"/>
+                <action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_TOP.enabled=0;GETH_PORT$PORT$_MAC_GRAPH_COLOR=D0D0D0;Geth.Diagram.update=1"/>
+            </checkbox>
+			<groupcontainer define="GETH.PORT$PORT$_MAC_TOP" font="Source Sans Pro,12,0,0,100,0,0,0,0,0">
+				<verticalcontainer>
+					<groupcontainer label="General Settings" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+						<horizontalcontainer>
+							<formcontainer>
+								<doublespinbox visible="false" define="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS" default="1"/>
+								<doublespinbox visible="false" define="GETH.PORT$PORT$_CBS_CLK_PERIOD_NS" default="8"/>
+								<doublespinbox visible="false" define="GETH.PORT$PORT$_CBS_BITS_PER_CLK" default="8"/>
+								<combo label="Link Speed" define="GETH.PORT$PORT$_MAC_TX_CONFIGURATION.SS" default="value=3">
+									<!--item label="10G XGMII" value="0"/-->
+									<item label="5G XGMII"   value="5" setdef="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=0.2;GETH.PORT$PORT$_CBS_CLK_PERIOD_NS=6.4;GETH.PORT$PORT$_CBS_BITS_PER_CLK=32"/>
+									<item label="2.5G XGMII" value="2" setdef="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=0.4;GETH.PORT$PORT$_CBS_CLK_PERIOD_NS=12.8;GETH.PORT$PORT$_CBS_BITS_PER_CLK=32"/>
+									<!--item label="2.5G GMII" value="6" setdef="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=0.4;GETH.PORT$PORT$_CBS_CLK_PERIOD_NS=12.8;GETH.PORT$PORT$_CBS_BITS_PER_CLK=32"/-->
+									<item label="1G RGMII"   value="3" setdef="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=1;GETH.PORT$PORT$_CBS_CLK_PERIOD_NS=8;GETH.PORT$PORT$_CBS_BITS_PER_CLK=8"/>
+									<item label="100M MII"   value="4" setdef="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=10;GETH.PORT$PORT$_CBS_CLK_PERIOD_NS=40;GETH.PORT$PORT$_CBS_BITS_PER_CLK=4"/>
+									<item label="10M MII"    value="7" setdef="GETH.PORT$PORT$_TRANSMIT_CLK_PERIOD_NS=100;GETH.PORT$PORT$_CBS_CLK_PERIOD_NS=400;GETH.PORT$PORT$_CBS_BITS_PER_CLK=4"/>
+								</combo>
+								<checkbox label="All ECC Enable" define="GETH.PORT$PORT$_MTL_ECC_CONTROL_ALL" role="inverted" default="1"/>
+								<math visible="false" define="GETH.PORT$PORT$_MTL_ECC_CONTROL.MTXED" formula="GETH.PORT$PORT$_MTL_ECC_CONTROL_ALL"/>
+								<math visible="false" define="GETH.PORT$PORT$_MTL_ECC_CONTROL.MRXED" formula="GETH.PORT$PORT$_MTL_ECC_CONTROL_ALL"/>
+								<math visible="false" define="GETH.PORT$PORT$_MTL_ECC_CONTROL.MGCLED" formula="GETH.PORT$PORT$_MTL_ECC_CONTROL_ALL"/>
+								<math visible="false" define="GETH.PORT$PORT$_MTL_ECC_CONTROL.MRXPED" formula="GETH.PORT$PORT$_MTL_ECC_CONTROL_ALL"/>
+								<math visible="false" define="GETH.PORT$PORT$_MTL_ECC_CONTROL.DESCED" formula="GETH.PORT$PORT$_MTL_ECC_CONTROL_ALL"/>
+							</formcontainer>
+						</horizontalcontainer>
+					</groupcontainer>
+					<tabcontainer>
+						<verticalcontainer label="Queues">
+							<tabcontainer cond="$PORT$==1" define="GETH.PORT$PORT$_MAC_QUEUE_SELECT" size="-1;500">
+								<include PORT="$PORT$" IDX="0" SFRIDX="0" SFR2IDX="2">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="1" SFRIDX="0" SFR2IDX="2">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="2" SFRIDX="0" SFR2IDX="2">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="3" SFRIDX="0" SFR2IDX="2">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="4" SFRIDX="1" SFR2IDX="3">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="5" SFRIDX="1" SFR2IDX="3">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="6" SFRIDX="1" SFR2IDX="3">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="7" SFRIDX="1" SFR2IDX="3">icw_tc4d_geth_mac_queue_tmpl.xml</include>
+							</tabcontainer>
+							<tabcontainer define="GETH.PORT$PORT$_MAC_TC_SELECT">
+								<include PORT="$PORT$" IDX="0">icw_tc4d_geth_mac_queue_tc04_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="1">icw_tc4d_geth_mac_queue_tc04_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="2">icw_tc4d_geth_mac_queue_tc04_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="3">icw_tc4d_geth_mac_queue_tc04_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="4">icw_tc4d_geth_mac_queue_tc04_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="5">icw_tc4d_geth_mac_queue_tc57_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="6">icw_tc4d_geth_mac_queue_tc57_tmpl.xml</include>
+								<include PORT="$PORT$" IDX="7">icw_tc4d_geth_mac_queue_tc57_tmpl.xml</include>
+							</tabcontainer>
+						</verticalcontainer>
+						<verticalcontainer label="Filtering">
+							<!--groupcontainer label="Filter Settings"-->
+								<horizontalcontainer>
+									<groupcontainer label="Filter Settings">
+										<verticalcontainer>
+											<checkbox label="Flexible Frame Parser" define="GETH.PORT$PORT$_MTL_OPERATION_MODE.FRPE" default="0"/>
+											<formcontainer>
+												<checkbox label="Receive All" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.RA" default="1">
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE.enabled=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE.enabled=1"/>
+												</checkbox>
+												<checkbox label="Promiscuous Mode" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.PR"/>
+												<checkbox label="Source Address filtering" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.SAF">
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_PACKET_FILTER.SAIF.enabled=1"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_PACKET_FILTER.SAIF.enabled=0"/>
+												</checkbox>
+												<math visible="false" define="GETH.PORT$PORT$_MAC_FILTER_Cont_Calc" formula="(GETH.PORT$PORT$_MAC_PACKET_FILTER.PR.^1).*GETH.PORT$PORT$_MAC_PACKET_FILTER.RA">
+													<action event="changed" cmd="setDef" data="GETH.PORT$PORT$_MAC_FILTER_Cont.enabled=GETH.PORT$PORT$_MAC_FILTER_Cont_Calc"/>
+												</math>
+												<checkbox label="Source Address inverse filtering" enabled="false" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.SAIF"/>
+												<checkbox label="Destination Address inverse filtering" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.DAIF"/>
+												<checkbox label="pass all multicast packets" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.PM"/>
+												<checkbox label="block all broadcast packets" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.DBF"/>
+												<combo label="Control packets filter" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.PCF">
+													<item label="block all"/>
+													<item label="block pause packes only"/>
+													<item label="forward all (even if address filter fails)"/>
+													<item label="forward all (only if address filter pass)"/>
+												</combo>
+												<checkbox label="Layer3 / Layer4 filtering" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.IPFE" lockon="GETH.PORT$PORT$_MAC_RX_CONFIGURATION.IPC=1"/>
+												<checkbox label="drop non-TCP/UDP packets" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.DNTU"/>
+												<checkbox label="Packet Duplication (for RxQueue7 only)" define="GETH.PORT$PORT$_MAC_EXTENDED_CONFIGURATION.DDS">
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS0_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS1_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS2_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS2_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS2_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS3_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS3_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS3_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS4_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS4_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS4_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS5_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS5_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS5_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS6_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS6_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS6_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS7_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS7_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS7_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS8_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS8_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS8_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS9_DCS_CONT.visible=0;GETH.PORT$PORT$_MAC_ADDRESS9_XDCS_CONT1.visible=1;GETH.PORT$PORT$_MAC_ADDRESS9_XDCS_CONT2.visible=1"/>
+													<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UDC.enabled=1"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS0_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS0_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS1_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS1_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS2_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS2_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS2_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS3_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS3_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS3_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS4_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS4_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS4_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS5_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS5_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS5_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS6_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS6_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS6_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS7_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS7_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS7_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS8_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS8_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS8_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_ADDRESS9_DCS_CONT.visible=1;GETH.PORT$PORT$_MAC_ADDRESS9_XDCS_CONT1.visible=0;GETH.PORT$PORT$_MAC_ADDRESS9_XDCS_CONT2.visible=0"/>
+													<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UDC.enabled=0"/>
+												</checkbox>
+												<checkbox enabled="false" label="Unicast Packet duplication" define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UDC"/>
+											</formcontainer>
+										</verticalcontainer>
+									</groupcontainer>
+									<verticalcontainer>
+										<groupcontainer label="Filter Pass">
+											<!--verticalcontainer-->
+												<formcontainer>
+													<combo label="Untagged Packet Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.UPQ">
+														<item label="Queue0"/>
+														<item label="Queue1"/>
+														<item label="Queue2"/>
+														<item label="Queue3"/>
+														<item label="Queue4"/>
+														<item label="Queue5"/>
+														<item label="Queue6"/>
+														<item label="Queue7"/>
+													</combo>
+													<combo label="Frame Preemption Residue Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.RQ" default="1">
+														<item label="Queue1" value="1"/>
+														<item label="Queue2" value="2"/>
+														<item label="Queue3" value="3"/>
+														<item label="Queue4" value="4"/>
+														<item label="Queue5" value="5"/>
+														<item label="Queue6" value="6"/>
+														<item label="Queue7" value="7"/>
+													</combo>
+													<horizontalcontainer label="Multicast/Broadcast Frame" stretch="2">
+														<radio define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQEN">
+															<radiobutton label="drop" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQ.enabled=0;GETH.PORT$PORT$_MAC_RXQ_CTRL1.PMCBCQ.enabled=0"/>
+															<radiobutton label="accept" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQ.enabled=1;GETH.PORT$PORT$_MAC_RXQ_CTRL1.PMCBCQ.enabled=1"/>
+														</radio>
+													</horizontalcontainer>
+													<combo label="Multicast or Broadcast Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.MCBCQ" enabled="false">
+														<item label="Queue0"/>
+														<item label="Queue1"/>
+														<item label="Queue2"/>
+														<item label="Queue3"/>
+														<item label="Queue4"/>
+														<item label="Queue5"/>
+														<item label="Queue6"/>
+														<item label="Queue7"/>
+													</combo>
+													<combo label="Multicast or Broadcast Preemption Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.PMCBCQ" enabled="false">
+														<item label="Queue0"/>
+														<item label="Queue1"/>
+														<item label="Queue2"/>
+														<item label="Queue3"/>
+														<item label="Queue4"/>
+														<item label="Queue5"/>
+														<item label="Queue6"/>
+														<item label="Queue7"/>
+													</combo>
+													<combo label="PTP Packets Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.PTPQ">
+														<item label="Queue0"/>
+														<item label="Queue1"/>
+														<item label="Queue2"/>
+														<item label="Queue3"/>
+														<item label="Queue4"/>
+														<item label="Queue5"/>
+														<item label="Queue6"/>
+														<item label="Queue7"/>
+													</combo>
+													<horizontalcontainer label="AV Control Frame" stretch="2">
+														<radio define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.TACPQEN">
+															<radiobutton label="drop" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL1.AVCPQ.enabled=0"/>
+															<radiobutton label="accept" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL1.AVCPQ.enabled=1"/>
+														</radio>
+													</horizontalcontainer>
+													<combo label="AV Control Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.AVCPQ">
+														<item label="Queue0"/>
+														<item label="Queue1"/>
+														<item label="Queue2"/>
+														<item label="Queue3"/>
+														<item label="Queue4"/>
+														<item label="Queue5"/>
+														<item label="Queue6"/>
+														<item label="Queue7"/>
+													</combo>
+													<combo label="Tagged PTP over Ethernet Packets Queuing Control" define="GETH.PORT$PORT$_MAC_RXQ_CTRL1.TPQC">
+														<item label="routed as generic VLAN Tagged packet"/>
+														<item label="routed to Rx Queue specified by PTPQ field"/>
+														<item label="routed to only AV enabled Rx Queues"/>
+													</combo>
+												</formcontainer>
+											<!--/verticalcontainer-->
+										</groupcontainer>
+										<groupcontainer label="Filter Fail">
+											<verticalcontainer>
+												<horizontalcontainer enabled="false" define="GETH.PORT$PORT$_MAC_FILTER_Cont">
+													<formcontainer>
+														<horizontalcontainer label="Unicast Frame" stretch="2">
+															<radio define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQE">
+																<radiobutton label="untagged Packet Queue" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQ.enabled=0"/>
+																<radiobutton label="Unicast Queue" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQ.enabled=1"/>
+															</radio>
+														</horizontalcontainer>
+														<combo label="Unicast Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.UFFQ" enabled="false">
+															<item label="Queue0"/>
+															<item label="Queue1"/>
+															<item label="Queue2"/>
+															<item label="Queue3"/>
+															<item label="Queue4"/>
+															<item label="Queue5"/>
+															<item label="Queue6"/>
+															<item label="Queue7"/>
+														</combo>
+														<horizontalcontainer label="Multicast Frame" stretch="2">
+															<radio define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQE">
+																<radiobutton label="drop" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQ.enabled=0"/>
+																<radiobutton label="Multicast Queue" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQ.enabled=1"/>
+															</radio>
+														</horizontalcontainer>
+														<combo label="Multicast Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.MFFQ" enabled="false">
+															<item label="Queue0"/>
+															<item label="Queue1"/>
+															<item label="Queue2"/>
+															<item label="Queue3"/>
+															<item label="Queue4"/>
+															<item label="Queue5"/>
+															<item label="Queue6"/>
+															<item label="Queue7"/>
+														</combo>
+													</formcontainer>
+												</horizontalcontainer>
+												<formcontainer>
+													<combo label="VLAN Filter Frame Fail" define="GETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE">
+														<item label="drop frame" value="1" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT.enabled=0;GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=0"/>
+														<item label="further proccessing" value="0" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT.enabled=1;GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQE"/>
+													</combo>
+													<math visible="false" define="GETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT_CALC" formula="GETH.PORT$PORT$_MAC_PACKET_FILTER.RA.+(GETH.PORT$PORT$_MAC_PACKET_FILTER.VTFE.^1)">
+														<action event="changed" cmd="setDef" data="GETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT.enabled=GETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT_CALC"/>
+													</math>
+													<horizontalcontainer label="VLAN Tagged Frame" define="GETH.PORT$PORT$_MAC_RXQ_CTRL4_VFFQE_CONT" stretch="2">
+														<radio define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQE">
+															<radiobutton label="Prio based routing" setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=0"/>
+															<radiobutton label="VLAN Filter Queue " setdef="GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ.enabled=1"/>
+														</radio>
+													</horizontalcontainer>
+													<combo label="VLAN Filter Queue" define="GETH.PORT$PORT$_MAC_RXQ_CTRL4.VFFQ" enabled="false">
+														<item label="Queue0"/>
+														<item label="Queue1"/>
+														<item label="Queue2"/>
+														<item label="Queue3"/>
+														<item label="Queue4"/>
+														<item label="Queue5"/>
+														<item label="Queue6"/>
+														<item label="Queue7"/>
+													</combo>
+												</formcontainer>
+												<formcontainer>
+													<horizontalcontainer label="Policy Counter">
+														<verticalcontainer size="30;-1">
+															<checkbox define="GETH.PORT$PORT$_MAC_FPCSEL_INDREG0.PCEN">
+																<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_FPCSEL_INDREG0_CONT.enabled=1"/>
+																<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_FPCSEL_INDREG0_CONT.enabled=0"/>
+															</checkbox>
+														</verticalcontainer>
+														<verticalcontainer enabled="false" define="GETH.PORT$PORT$_MAC_FPCSEL_INDREG0_CONT">
+															<spinbox define="GETH.PORT$PORT$_MAC_FPCSEL_INDREG0.PCNUM" range="0;15"/>
+														</verticalcontainer>
+													</horizontalcontainer>
+												</formcontainer>
+											</verticalcontainer>
+										</groupcontainer>
+									</verticalcontainer>
+								</horizontalcontainer>
+							<!--/groupcontainer-->
+							<tabcontainer>
+								<verticalcontainer label="Mac Addresses" size="-1;1000">
+									<gridcontainer columns="2">
+										<include PORT="$PORT$" IDX="0">icw_tc4d_geth_mac_addr0_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="1">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="2">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="3">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="4">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="5">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="6">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="7">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="8">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="9">icw_tc4d_geth_mac_addrx_tmpl.xml</include>
+									</gridcontainer>
+								</verticalcontainer>
+								<verticalcontainer label="VLAN Tags">
+									<groupcontainer label="VLAN Tag Control" font="Source Sans Pro,12,0,0,64,0,0,0,0,0">
+										<formcontainer>
+											<combo label="VLAN stripping on Receive" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EVLS" default="0">
+												<item label="disabled" value="0"/>
+												<item label="strip VLAN if filter passes" value="1"/>
+												<item label="strip VLAN if filter fails" value="2"/>
+												<item label="strip VLAN always" value="3"/>
+											</combo>
+											<checkbox label="VLAN Tag in Rx Status" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EVLRXS"/>
+											<combo label="inner VLAN stripping on Receive" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EIVLS" default="0">
+												<item label="disabled" value="0"/>
+												<item label="strip VLAN if filter passes" value="1"/>
+												<item label="strip VLAN if filter fails" value="2"/>
+												<item label="strip VLAN always" value="3"/>
+											</combo>
+											<checkbox label="inner VLAN Tag in Rx Status" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EIVLRXS"/>
+											<checkbox label="Double VLAN processing" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.EDVLP">										
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER0.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER1.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER2.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER3.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER4.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER5.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER6.ERIVLT.enabled=1"/>
+												<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER7.ERIVLT.enabled=1"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER0.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER1.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER2.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER3.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER4.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER5.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER6.ERIVLT.enabled=0"/>
+												<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_VLAN_TAG_FILTER7.ERIVLT.enabled=0"/>
+											</checkbox>
+											<checkbox label="VLAN Tag Inverse Match" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.VTIM"/>
+											<checkbox label="SVLAN Tag (Type = 0x88A8)" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.ESVL"/>
+											<combo label="Filtering/Matching" define="GETH.PORT$PORT$_MAC_VLAN_TAG_CTRL.ERSVLM">
+												<item label="S-VLAN packets (Type = 0x88A8)"/>
+												<item label="C-VLAN packets (Type = 0x8100)"/>
+											</combo>
+										</formcontainer>
+									</groupcontainer>
+									<gridcontainer columns="2">
+										<include PORT="$PORT$" IDX="0">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="1">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="2">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="3">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="4">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="5">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="6">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+										<include PORT="$PORT$" IDX="7">icw_tc4d_geth_mac_vlan_filt_tmpl.xml</include>
+									</gridcontainer>
+								</verticalcontainer>
+							</tabcontainer>
+						</verticalcontainer>
+						<verticalcontainer label="MAC/MTL Configuration" size="-1;600">
+							<groupcontainer label="Tx Settings">
+								<verticalcontainer>
+									<formcontainer>
+										<combo label="Enhanced Transmission Selection (ETS) Algorithm" define="GETH.PORT$PORT$_MTL_OPERATION_MODE.ETSALG" default="label=Weighted Round Robin (WRR)">
+											<item label="Weighted Round Robin (WRR)" value="0"/>
+											<!--item label="Weighted Fair Queuing (WFQ)" value="1"/-->
+											<!--item label="Deficit Weighted Round Robin (DWRR)" value="2"/-->
+										</combo>
+										<combo label="Source Address Control" define="GETH.PORT$PORT$_MAC_TX_CONFIGURATION.SARC">
+											<item label="TDES3.SAIC" value="0"/>
+											<item label="insert SA from MAC Address 0" value="2"/>
+											<item label="insert SA from MAC Address 1" value="6" setDef="GETH.PORT$PORT$_MAC_ADDRESS1_HIGH.AE=1"/>
+											<item label="replace SA by MAC Address 0" value="3"/>
+											<item label="replace SA by MAC Address 1" value="7" setDef="GETH.PORT$PORT$_MAC_ADDRESS1_HIGH.AE=1"/>
+										</combo>
+										<checkbox label="Jabber Enable" define="GETH.PORT$PORT$_MAC_TX_CONFIGURATION.JD" role="inverted" default="0"/>
+									</formcontainer>
+									<groupcontainer label="Frame Preemption">
+										<formcontainer>
+											<checkbox label="Enable" define="GETH.PORT$PORT$_MAC_FPE_CTRL_STS.EFPE"/>
+											<combo label="Additional Fragment Size" define="GETH.PORT$PORT$_MTL_FPE_CTRL_STS.AFSZ">
+												<item label="64 bytes"/>
+												<item label="128 bytes"/>
+												<item label="192 bytes"/>
+												<item label="256 bytes"/>
+											</combo>
+											<spinbox label="Hold Advance" suffix=" ns" define="GETH.PORT$PORT$_MTL_FPE_ADVANCE.HADV" range="0;65535"/>
+											<spinbox label="Release Advance" suffix=" ns" define="GETH.PORT$PORT$_MTL_FPE_ADVANCE.RADV" range="0;65535"/>
+										</formcontainer>
+									</groupcontainer>
+									<horizontalcontainer size="1000;-1">
+										<groupcontainer label="Outer VLAN Tag" size="500;-1">
+											<formcontainer>
+												<checkbox label="tag all" define="GETH.PORT$PORT$_MAC_VLAN_INCL.CBTI"/>
+												<horizontalcontainer label="VLAN Tag Control">
+													<combo define="GETH.PORT$PORT$_MAC_VLAN_INCL.VLP" default="1">
+														<item label="use VLAN Tag control" value="1" setdef="GETH.PORT$PORT$_MAC_VLAN_INCL.VLC.enabled=1;GETH.DMA_CH0_TDES2_VTIR.enabled=0;GETH.DMA_CH1_TDES2_VTIR.enabled=0;GETH.DMA_CH2_TDES2_VTIR.enabled=0;GETH.DMA_CH3_TDES2_VTIR.enabled=0;GETH.DMA_CH4_TDES2_VTIR.enabled=0;GETH.DMA_CH5_TDES2_VTIR.enabled=0;GETH.DMA_CH6_TDES2_VTIR.enabled=0;GETH.DMA_CH7_TDES2_VTIR.enabled=0"/>
+														<item label="use Tx Descriptor" value="0" setdef="GETH.PORT$PORT$_MAC_VLAN_INCL.VLC.enabled=0;GETH.DMA_CH0_TDES2_VTIR.enabled=1;GETH.DMA_CH1_TDES2_VTIR.enabled=1;GETH.DMA_CH2_TDES2_VTIR.enabled=1;GETH.DMA_CH3_TDES2_VTIR.enabled=1;GETH.DMA_CH4_TDES2_VTIR.enabled=1;GETH.DMA_CH5_TDES2_VTIR.enabled=1;GETH.DMA_CH6_TDES2_VTIR.enabled=1;GETH.DMA_CH7_TDES2_VTIR.enabled=1"/>
+													</combo>
+													<combo define="GETH.PORT$PORT$_MAC_VLAN_INCL.VLC" default="label=disabled">
+														<item label="disabled"/>
+														<item label="VLAN tag deletion"/>
+														<item label="VLAN tag insertion"/>
+														<item label="VLAN tag replacement"/>
+													</combo>
+												</horizontalcontainer>
+												<horizontalcontainer label="VLAN Tag">
+													<combo define="GETH.PORT$PORT$_MAC_VLAN_INCL.VLTI" default="1">
+														<item label="use Queue VLAN Tag" value="0" setdef="GETH.PORT$PORT$_MAC_VLAN_INCL0_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL1_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL2_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL3_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL4_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL5_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL6_CONT.enabled=1;GETH.PORT$PORT$_MAC_VLAN_INCL7_CONT.enabled=1;GETH.DMA_CH0_CDES3_VT.enabled=0;GETH.DMA_CH1_CDES3_VT.enabled=0;GETH.DMA_CH2_CDES3_VT.enabled=0;GETH.DMA_CH3_CDES3_VT.enabled=0;GETH.DMA_CH4_CDES3_VT.enabled=0;GETH.DMA_CH5_CDES3_VT.enabled=0;GETH.DMA_CH6_CDES3_VT.enabled=0;GETH.DMA_CH7_CDES3_VT.enabled=0"/>
+														<item label="use Tx Descriptor" setdef="GETH.PORT$PORT$_MAC_VLAN_INCL0_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL1_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL2_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL3_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL4_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL5_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL6_CONT.enabled=0;GETH.PORT$PORT$_MAC_VLAN_INCL7_CONT.enabled=0;GETH.DMA_CH0_CDES3_VT.enabled=1;GETH.DMA_CH1_CDES3_VT.enabled=1;GETH.DMA_CH2_CDES3_VT.enabled=1;GETH.DMA_CH3_CDES3_VT.enabled=1;GETH.DMA_CH4_CDES3_VT.enabled=1;GETH.DMA_CH5_CDES3_VT.enabled=1;GETH.DMA_CH6_CDES3_VT.enabled=1;GETH.DMA_CH7_CDES3_VT.enabled=1"/>
+													</combo>
+												</horizontalcontainer>
+											</formcontainer>
+										</groupcontainer>
+										<groupcontainer label="Inner VLAN Tag" size="500;-1">
+											<formcontainer>
+												<horizontalcontainer label="VLAN Tag Control">
+													<combo define="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLP" default="1">
+														<item label="use VLAN Tag control" value="1" setdef="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLC.enabled=1"/>
+														<item label="use Tx Descriptor" value="0" setdef="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLC.enabled=0"/>
+													</combo>
+													<combo define="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLC" default="label=disabled">
+														<item label="disabled"/>
+														<item label="VLAN tag deletion"/>
+														<item label="VLAN tag insertion"/>
+														<item label="VLAN tag replacement"/>
+													</combo>
+												</horizontalcontainer>
+												<horizontalcontainer label="VLAN Type" stretch="2">
+													<radio define="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.CSVL" default="0">
+														<radiobutton label="C-VLAN (0x8100)" value="0"/>
+														<radiobutton label="S-VLAN (0x88A8)" value="1"/>
+													</radio>
+												</horizontalcontainer>
+												<horizontalcontainer label="VLAN Tag">
+													<combo define="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLTI" default="0">
+														<item label="use VLAN Tag" value="0" setdef="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLT.enabled=1"/>
+														<item label="use Tx Descriptor" value="1" setdef="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLT.enabled=0"/>
+													</combo>
+													<hexspinbox define="GETH.PORT$PORT$_MAC_INNER_VLAN_INCL.VLT" range="0;65535"/>
+												</horizontalcontainer>
+											</formcontainer>
+										</groupcontainer>
+									</horizontalcontainer>
+								</verticalcontainer>
+							</groupcontainer>
+							<groupcontainer label="Rx Settings">
+								<formcontainer>
+									<combo label="Receive Arbitration Algorithm" define="GETH.PORT$PORT$_MTL_OPERATION_MODE.RAA" default="label=Strict Priority (SP)">
+										<item label="Strict Priority (SP)" value="0"/>
+										<item label="Weighted Strict Priority (WSP)" value="1"/>
+									</combo>
+									<checkbox label="Jumbo Packets Enable" define="GETH.PORT$PORT$_MAC_RX_CONFIGURATION.JE" default="0"/>
+									<checkbox label="Checksum Offload for L3/L4" define="GETH.PORT$PORT$_MAC_RX_CONFIGURATION.IPC" default="0"/>
+									<checkbox label="Loopback Mode Enable" define="GETH.PORT$PORT$_MAC_RX_CONFIGURATION.LM" default="0"/>
+									<checkbox label="Rx-Watchdog Enable" define="GETH.PORT$PORT$_MAC_RX_CONFIGURATION.WD" role="inverted" default="1"/>
+									<checkbox label="Rx-CRC Checking Enable" define="GETH.PORT$PORT$_MAC_RX_CONFIGURATION.DCRCC" role="inverted" default="1"/>
+								</formcontainer>
+							</groupcontainer>
+						</verticalcontainer>
+						<verticalcontainer label="Time Stamping" stretch="2">
+							<checkbox label="Enable Time Stamping" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSENA" lockon="GETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE=0" lockinverted="1">
+								<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MAC_TIMESTAMP_CONT.enabled=1;GETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE.enabled=1"/>
+								<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MAC_TIMESTAMP_CONT.enabled=0;GETH.PORT$PORT$_MAC_INTERRUPT_ENABLE.TSIE.enabled=0"/>
+							</checkbox>
+							<verticalcontainer define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONT" enabled="false">
+								<formcontainer>
+									<combo label="Clock Source" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.ESTI">
+										<item label="internal reference System Time" value="0"/>
+										<item label="external 64-bit reference System Time" value="1"/>
+									</combo>
+									<combo label="fPTP" define="GETH.PORT$PORT$_MAC_TIMESTAMP_FPTP" default="label=200 MHz">
+										<item label="50 MHz" value="50000000"/>
+										<item label="64 MHz" value="64000000"/>
+										<item label="80 MHz" value="80000000"/>
+										<item label="100 MHz" value="100000000"/>
+										<item label="125 MHz" value="125000000"/>
+										<item label="128 MHz" value="128000000"/>
+										<item label="160 MHz" value="160000000"/>
+										<item label="200 MHz" value="200000000"/>
+										<item label="250 MHz" value="250000000"/>
+									</combo>
+									<combo label="Timestamp roll over" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSCTRLSSR" default="value=1">
+										<item label="0x7FFFFFFF" value="0"/>
+										<item label="0x3B9AC9FF" value="1"/>
+									</combo>
+									<checkbox label="Timestamp for all packets" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSENALL" default="1"/>
+									<checkbox label="PTP Packet Processing for Version 2 Format" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSVER2ENA"/>
+									<checkbox label="Processing of PTP over Ethernet Packets" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSIPENA"/>
+									<checkbox label="Processing of PTP Packets Sent over IPv6-UDP" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSIPV6ENA"/>
+									<checkbox label="Processing of PTP Packets Sent over IPv4-UDP" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSIPV4ENA"/>
+									<checkbox label="Timestamp Snapshot for Event Messages" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSEVNTENA"/>
+									<checkbox label="Snapshot for Messages Relevant to Master" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSMSTRENA"/>
+									<checkbox label="MAC Address for PTP Packet Filtering" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TSENMACADDR"/>
+									<checkbox label="checksum correction during OST for PTP over UDP/IPv4 packets" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.CSC"/>
+									<checkbox label="AV IEEE 802.1AS Mode" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.AV8021ASMEN"/>
+									<combo label="Transmit Timestamp Status Mode" define="GETH.PORT$PORT$_MAC_TIMESTAMP_CONTROL.TXTSSTSM">
+										<item label="over-write (old timestamp lost)" value="0"/>
+										<item label="no over-write (new timestamp lost)" value="1"/>
+									</combo>
+								</formcontainer>
+								<groupcontainer label="Pulse-per-Second">
+									<verticalcontainer>
+										<horizontalcontainer>
+											<radio label="PPS Mode" define="GETH.PORT$PORT$_MAC_PPS_CONTROL.PPSEN0">
+												<radiobutton label="fixed PPS" setDef="GETH.PORT$PORT$_MAC_PPS_FIX_CONT.enabled=1;GETH.PORT$PORT$_MAC_PPS_FLEX_CONT.enabled=0"/>
+												<radiobutton label="flexible PPS" setDef="GETH.PORT$PORT$_MAC_PPS_FIX_CONT.enabled=0;GETH.PORT$PORT$_MAC_PPS_FLEX_CONT.enabled=1"/>
+											</radio>
+										</horizontalcontainer>
+										<horizontalcontainer>
+											<groupcontainer label="fixed PPS" define="GETH.PORT$PORT$_MAC_PPS_FIX_CONT">
+												<formcontainer>
+													<combo label="PPS Frequency" define="GETH.PORT$PORT$_MAC_PPS_CONTROL_FIXED_PPSCTRL0_PPSCMD0">
+														<item label="disabled"/>
+														<item label="1 Hz"/>
+														<item label="2 Hz"/>
+														<item label="4 Hz"/>
+														<item label="8 Hz"/>
+														<item label="16 Hz"/>
+														<item label="32 Hz"/>
+														<item label="64 Hz"/>
+														<item label="128 Hz"/>
+														<item label="256 Hz"/>
+														<item label="512 Hz"/>
+														<item label="1024 Hz"/>
+														<item label="2048 Hz"/>
+														<item label="4096 Hz"/>
+														<item label="8192 Hz"/>
+														<item label="16384 Hz"/>
+													</combo>
+												</formcontainer>
+											</groupcontainer>
+											<groupcontainer label="flexible PPS" define="GETH.PORT$PORT$_MAC_PPS_FLEX_CONT" enabled="false">
+												<formcontainer>
+													<combo label="PPS Operation" define="GETH.PORT$PORT$_MAC_PPS_CONTROL_FLEX_PPSCTRL0_PPSCMD0">
+														<item label="disabled" setDef="GETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH.enabled=0;GETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER.enabled=0"/>
+														<item label="Single Pulse" setDef="GETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH.enabled=1;GETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER.enabled=0"/>
+														<item label="Pulse Train" setDef="GETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH.enabled=1;GETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER.enabled=1"/>
+													</combo>
+													<doublespinbox enabled="false" label="Pulse Width" suffix=" ms" format="%0.3f" define="GETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH"/>
+													<doublespinbox enabled="false" label="Pulse Interval" suffix=" ms" format="%0.3f" define="GETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER"/>
+													<math visible="false" define="GETH.PORT$PORT$_MAC_PPS0_WIDTH.PPSWIDTH0" formula="(GETH.PORT$PORT$_MAC_PPS0_WIDTH_PPSWIDTH/1000)*GETH.PORT$PORT$_MAC_TIMESTAMP_FPTP.value"/>
+													<math visible="false" define="GETH.PORT$PORT$_MAC_PPS0_INTERVAL.PPSINT0" formula="(GETH.PORT$PORT$_MAC_PPS0_INTERVAL_USER/1000)*GETH.PORT$PORT$_MAC_TIMESTAMP_FPTP.value"/>
+												</formcontainer>
+											</groupcontainer>
+										</horizontalcontainer>
+										<verticalcontainer>
+											<groupcontainer label="Start Condition">
+												<formcontainer>
+													<combo label="" define="GETH.PORT$PORT$_MAC_PPS_CONTROL.TRGTMODSEL0" default="value=3">
+														<item label="PPS generation with Interrupt" value="2"/>
+														<item label="PPS generation no Interrupt" value="3"/>
+													</combo>
+													<doublespinbox label="Start Time" suffix=" sec" define="GETH.PORT$PORT$_MAC_PPS0_TARGET_TIME"/>
+													<math visible="false" define="GETH.PORT$PORT$_MAC_PPS0_TARGET_TIME_SECONDS.TSTRH0" formula="trunc(GETH.PORT$PORT$_MAC_PPS0_TARGET_TIME)"/>
+													<math visible="false" define="GETH.PORT$PORT$_MAC_PPS0_TARGET_TIME_NANOSECONDS.TTSL0" formula="(GETH.PORT$PORT$_MAC_PPS0_TARGET_TIME-trunc(GETH.PORT$PORT$_MAC_PPS0_TARGET_TIME))*1E9"/>
+												</formcontainer>
+											</groupcontainer>
+										
+											<groupcontainer label="Pin Select">
+												<setdefine define="port_sel" value="$PORT$"/>
+												<combo startcond="port_sel==0" define="GETH.PORT0_MAC_PPS0_PIN_SEL" svd="0">
+													<item label="P14.3" setDef="GETH.PORT$PORT$_MAC_PPS0_PIN=IfxGeth0_P0_PPS_P14_3_OUT"/>
+													<item label="P14.2" setDef="GETH.PORT$PORT$_MAC_PPS0_PIN=IfxGeth0_P0_PPS_P14_2_OUT"/>
+												</combo>
+												<combo startcond="port_sel==1" define="GETH.PORT1_MAC_PPS0_PIN_SEL" svd="0">
+													<item label="P14.4" setDef="GETH.PORT$PORT$_MAC_PPS0_PIN=IfxGeth0_P1_PPS_P14_4_OUT"/>
+													<item label="P14.8" setDef="GETH.PORT$PORT$_MAC_PPS0_PIN=IfxGeth0_P1_PPS_P14_8_OUT"/>
+												</combo>
+												<edit startcond="port_sel==0" visible="false" define="GETH.PORT0_MAC_PPS0_PIN" default="IfxGeth0_P0_PPS_P14_3_OUT"/>
+												<edit startcond="port_sel==1" visible="false" define="GETH.PORT1_MAC_PPS0_PIN" default="IfxGeth0_P1_PPS_P14_4_OUT"/>
+											</groupcontainer>
+
+											<!--groupcontainer label="Interrupt">
+												<formcontainer>
+													<combo label="Type of Service" define="GETH.PORT$PORT$_MAC_PPS_TOS">
+														<item label="IfxSrc_Tos_cpu0"/>
+														<item label="IfxSrc_Tos_cpu1"/>
+														<item label="IfxSrc_Tos_cpu2"/>
+														<item label="IfxSrc_Tos_cpu3"/>
+														<item label="IfxSrc_Tos_cpu4"/>
+														<item label="IfxSrc_Tos_cpu5"/>
+													</combo>
+													<spinbox label="Priority" define="GETH.PORT$PORT$_MAC_PPS_PRIO" range="0;255" default="0"/>
+													<edit label="PPS Callback" enabled="false" define="GETH.PORT$PORT$_MAC_PPS_ISR" default="enter callback function here"/>
+												</formcontainer>
+											</groupcontainer-->
+										</verticalcontainer>
+									</verticalcontainer>
+									<math visible="false" define="GETH.PORT$PORT$_MAC_PPS_CONTROL.PPSCTRL0_PPSCMD0" formula="GETH.PORT$PORT$_MAC_PPS_CONTROL.PPSEN0==0?GETH.PORT$PORT$_MAC_PPS_CONTROL_FIXED_PPSCTRL0_PPSCMD0:GETH.PORT$PORT$_MAC_PPS_CONTROL_FLEX_PPSCTRL0_PPSCMD0"/>
+								</groupcontainer>
+							</verticalcontainer>
+						</verticalcontainer>
+						<verticalcontainer label="TSN" stretch="2" size="500;-1">
+							<include PORT="$PORT$">icw_tc4d_geth_mac_tas_tmpl.xml</include>
+						</verticalcontainer>
+						<verticalcontainer label="Policy Counter" stretch="2" size="700;-1">
+							<include PORT="$PORT$">icw_tc4d_geth_mac_pc_tmpl.xml</include>
+						</verticalcontainer>
+					</tabcontainer>
+				</verticalcontainer>
+			</groupcontainer>
+        </verticalcontainer>
+    </header>
+</ifxmlcfg>

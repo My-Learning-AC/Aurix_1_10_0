@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parameters: -->
+<!--   PORT: port index, range 0..1 -->
+<!--   IDX: slot index, range 0..10 -->
+<ifxmlcfg version="1.0.0">
+    <checksum>cfd7f0c012bb2dcfe53be0e2339321feae5126690bea312def6098ca285bebc5</checksum>
+    <version label="V0.1.0"/>
+	<svd file="tc4d_eth.svd"/>
+	<disclaimer file="disclaimer.txt"/> 
+	<!--moduledesc name="Geth$PORT$ MAC" description="Gigabit Ethernet MAC PORT$PORT$" exporter="ModuleExporter.py" hide="0"/-->
+    <header file="tc4d_geth_mac_cfg.h">
+		<horizontalcontainer stretch="2" size="20;-1">
+			<text label="$IDX$" readonly="true"/>
+		</horizontalcontainer>
+		<horizontalcontainer stretch="2" size="30;-1">
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_IDX$IDX$_EN">
+				<action event="checked" cmd="setDef" data="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$_CONT.enabled=1;GETH.PORT$PORT$_MTL_EST_GCL_TIME$IDX$_CONT.enabled=1"/>
+				<action event="unchecked" cmd="setDef" data="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$_CONT.enabled=0;GETH.PORT$PORT$_MTL_EST_GCL_TIME$IDX$_CONT.enabled=0"/>
+			</checkbox>
+		</horizontalcontainer>
+		<horizontalcontainer enabled="false" size="200;-1" define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$_CONT">
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC7EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC6EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC5EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC4EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC3EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC2EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC1EN"/>
+			<checkbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.TC0EN"/>
+		</horizontalcontainer>
+		<horizontalcontainer stretch="2" size="100;-1" define="GETH.PORT$PORT$_MTL_EST_GCL_TIME$IDX$_CONT">
+			<spinbox define="GETH.PORT$PORT$_MTL_EST_GCL_DATA$IDX$.SLOT_TIME" default="1000"/>
+		</horizontalcontainer>
+	</header>
+</ifxmlcfg>
